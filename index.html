@@ -33,6 +33,9 @@
     <!-- Favicon -->
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👨‍💻</text></svg>">
 
+    <!-- Sitemap -->
+    <link rel="sitemap" type="application/xml" href="/sitemap.xml">
+
     <!-- Schema.org Structured Data for SEO -->
     <script type="application/ld+json">
     {
@@ -92,7 +95,7 @@
         })(window, document, "clarity", "script", "u8sjo8xsx6");
     </script>
 
-    <title>Anil Thatha - Resume</title>
+    <title>Anil Thatha - Senior iOS/macOS Engineer | 13+ Years Experience</title>
 
     <!-- Three.js for 3D Background -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
@@ -118,6 +121,10 @@
             --light-bg: #ffffff;
             --light-text: #333;
             --card-bg: #f8fafc;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
@@ -297,6 +304,255 @@
         .btn-group {
             display: flex;
             gap: 10px;
+        }
+
+        /* Mobile Hamburger Menu */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 5px;
+            z-index: 1001;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: var(--light-text);
+            margin: 3px 0;
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(8px, 8px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+
+        .mobile-nav-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 999;
+        }
+
+        .mobile-nav-overlay.active {
+            display: block;
+        }
+
+        .mobile-nav-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 70%;
+            max-width: 300px;
+            height: 100%;
+            background: var(--card-bg);
+            z-index: 1000;
+            transition: right 0.3s ease;
+            padding: 80px 30px 30px;
+            box-shadow: -5px 0 15px rgba(0,0,0,0.3);
+        }
+
+        .mobile-nav-menu.active {
+            right: 0;
+        }
+
+        .mobile-nav-menu a {
+            display: block;
+            color: var(--light-text);
+            text-decoration: none;
+            padding: 15px 0;
+            font-weight: 500;
+            font-size: 18px;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+            transition: color 0.3s ease;
+        }
+
+        .mobile-nav-menu a:hover {
+            color: var(--primary-color);
+        }
+
+        body.dark-mode .mobile-nav-menu a {
+            border-bottom-color: rgba(255,255,255,0.1);
+        }
+
+        body.terminal-mode .mobile-nav-menu a {
+            border-bottom-color: rgba(0, 255, 65, 0.2);
+        }
+
+        /* Scroll Progress Bar */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            z-index: 10001;
+            transition: width 0.1s ease;
+        }
+
+        body.terminal-mode .scroll-progress {
+            background: linear-gradient(90deg, #00ff41, #39ff14);
+            box-shadow: 0 0 10px #00ff41;
+        }
+
+        /* Skip to Content Link */
+        .skip-to-content {
+            position: fixed;
+            top: -100px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary-color);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 5px;
+            text-decoration: none;
+            z-index: 10002;
+            font-weight: 600;
+            transition: top 0.3s ease;
+        }
+
+        .skip-to-content:focus {
+            top: 10px;
+        }
+
+        /* Floating Action Buttons */
+        .floating-actions {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            z-index: 1000;
+        }
+
+        .fab {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: var(--primary-color);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.4);
+            transition: all 0.3s ease;
+            border: none;
+            text-decoration: none;
+        }
+
+        .fab:hover {
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 8px 20px rgba(37, 99, 235, 0.6);
+        }
+
+        .fab.back-to-top {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .fab.back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        body.terminal-mode .fab {
+            background: transparent;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        body.terminal-mode .fab:hover {
+            background: var(--primary-color);
+            color: #0a0e14;
+            box-shadow: 0 0 25px var(--primary-color);
+        }
+
+        /* Social Share Buttons */
+        .social-share {
+            position: fixed;
+            left: 30px;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            z-index: 1000;
+        }
+
+        .social-btn {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: var(--card-bg);
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            text-decoration: none;
+        }
+
+        .social-btn:hover {
+            transform: translateX(-5px) scale(1.1);
+            border-color: var(--primary-color);
+            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.3);
+        }
+
+        body.terminal-mode .social-btn {
+            background: transparent;
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        body.terminal-mode .social-btn:hover {
+            background: var(--primary-color);
+            color: #0a0e14;
+            box-shadow: 0 0 20px var(--primary-color);
+        }
+
+        @media (max-width: 768px) {
+            .social-share {
+                left: 10px;
+            }
+
+            .floating-actions {
+                right: 10px;
+                bottom: 20px;
+            }
+
+            .fab {
+                width: 48px;
+                height: 48px;
+                font-size: 20px;
+            }
+
+            .social-btn {
+                width: 38px;
+                height: 38px;
+                font-size: 16px;
+            }
         }
 
         /* Container */
@@ -646,15 +902,118 @@
             padding: 30px;
             border-radius: 15px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             border: 2px solid transparent;
             cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transform-style: preserve-3d;
+            perspective: 1000px;
+            -webkit-tap-highlight-color: rgba(37, 99, 235, 0.2);
+            touch-action: manipulation;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s ease;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .project-card::after {
+            content: 'Click to view details →';
+            position: absolute;
+            bottom: 15px;
+            right: 20px;
+            background: var(--primary-color);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        body.terminal-mode .project-card::after {
+            background: transparent;
+            border: 1px solid var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .project-card:hover::before {
+            left: 100%;
+        }
+
+        .project-card:hover::after {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .project-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 35px rgba(37, 99, 235, 0.2);
+            transform: translateY(-12px) rotateX(5deg);
+            box-shadow: 0 20px 40px rgba(37, 99, 235, 0.25);
             border-color: var(--primary-color);
+            padding-bottom: 50px;
+        }
+
+        body.terminal-mode .project-card:hover {
+            box-shadow: 0 0 30px rgba(0, 255, 65, 0.4);
+        }
+
+        .clickable-indicator {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            width: 32px;
+            height: 32px;
+            background: rgba(37, 99, 235, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            color: var(--primary-color);
+            animation: pulse-indicator 2s infinite;
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        body.terminal-mode .clickable-indicator {
+            background: rgba(0, 255, 65, 0.1);
+            color: var(--primary-color);
+        }
+
+        @keyframes pulse-indicator {
+            0%, 100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1.1);
+                opacity: 0.7;
+            }
+        }
+
+        /* Mobile tap adjustments */
+        @media (max-width: 768px) {
+            .project-card:hover {
+                transform: translateY(-8px);
+                padding-bottom: 30px;
+            }
+
+            .project-card::after {
+                content: 'Tap to view details →';
+            }
         }
 
         .project-title {
@@ -701,6 +1060,81 @@
             border-radius: 15px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.08);
             border-left: 4px solid var(--primary-color);
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            -webkit-tap-highlight-color: rgba(37, 99, 235, 0.2);
+            touch-action: manipulation;
+        }
+
+        .education-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s ease;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .education-card::after {
+            content: 'Click for details →';
+            position: absolute;
+            bottom: 15px;
+            right: 20px;
+            background: var(--primary-color);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        body.terminal-mode .education-card::after {
+            background: transparent;
+            border: 1px solid var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .education-card:hover::before {
+            left: 100%;
+        }
+
+        .education-card:hover::after {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .education-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(37, 99, 235, 0.2);
+            border-left-width: 6px;
+            padding-bottom: 50px;
+        }
+
+        body.terminal-mode .education-card:hover {
+            box-shadow: 0 0 25px rgba(0, 255, 65, 0.3);
+        }
+
+        /* Mobile tap adjustments */
+        @media (max-width: 768px) {
+            .education-card:hover {
+                transform: translateY(-5px);
+                padding-bottom: 30px;
+            }
+
+            .education-card::after {
+                content: 'Tap for details →';
+            }
         }
 
         .degree {
@@ -1047,6 +1481,18 @@
                 display: none;
             }
 
+            .hamburger {
+                display: flex;
+            }
+
+            .mobile-nav-menu {
+                display: block;
+            }
+
+            .btn-group .btn:first-child {
+                display: none;
+            }
+
             .dashboard-grid,
             .projects-grid,
             .skills-grid,
@@ -1061,6 +1507,12 @@
     </style>
 </head>
 <body>
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress"></div>
+
+    <!-- Skip to Content -->
+    <a href="#hero" class="skip-to-content">Skip to main content</a>
+
     <!-- WebGL 3D Background -->
     <div id="webgl-background"></div>
 
@@ -1077,9 +1529,25 @@
             <div class="btn-group">
                 <a href="Anil_Thatha-Resume.pdf" download class="btn" style="text-decoration: none; display: inline-block;" aria-label="Download resume PDF">📥 Download PDF</a>
                 <button class="btn" onclick="toggleDarkMode()" aria-label="Toggle dark mode">🌙 Dark</button>
+                <div class="hamburger" onclick="toggleMobileMenu()" role="button" tabindex="0" aria-label="Toggle mobile menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
             </div>
         </div>
     </nav>
+
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav-overlay" onclick="closeMobileMenu()"></div>
+    <div class="mobile-nav-menu">
+        <a onclick="scrollToSection('hero'); closeMobileMenu();" role="button" tabindex="0">Home</a>
+        <a onclick="scrollToSection('skills'); closeMobileMenu();" role="button" tabindex="0">Skills</a>
+        <a onclick="scrollToSection('impact'); closeMobileMenu();" role="button" tabindex="0">Impact</a>
+        <a onclick="scrollToSection('experience'); closeMobileMenu();" role="button" tabindex="0">Experience</a>
+        <a onclick="scrollToSection('timeline'); closeMobileMenu();" role="button" tabindex="0">Timeline</a>
+        <a href="Anil_Thatha-Resume.pdf" download style="color: var(--primary-color); font-weight: 600;">📥 Download PDF</a>
+    </div>
 
     <div class="container">
         <!-- Hero -->
@@ -1213,20 +1681,21 @@
                 </div>
 
                 <p style="margin-bottom: 20px; color: var(--light-text); font-size: 16px;">
-                    Led engineering initiatives for enterprise iOS and macOS applications serving Apple Retail and internal teams. Managed offshore development teams of 8+ engineers while driving architecture decisions, code quality standards, and delivery timelines.
+                    I lead iOS and macOS development for applications used by Apple Retail stores and internal teams globally. Day-to-day, I manage an offshore team of 8+ engineers, make architecture decisions, and ensure we ship quality code on time.
                 </p>
 
                 <ul class="achievements-list">
-                    <li>Reduced application crash rate by 80% (from 15% to 3%) through comprehensive testing and CI/CD</li>
-                    <li>Improved app launch time by 70% through performance profiling and optimization</li>
-                    <li>Leveraged AI-assisted development to accelerate feature development by 40%</li>
-                    <li>Led migration of 3 legacy Objective-C applications to Swift, reducing codebase by 25%</li>
-                    <li>Mentored 6 junior developers, with 3 promoted to mid-level roles within 18 months</li>
+                    <li>Brought crash rates down from 15% to 3% through better testing practices and CI/CD pipelines</li>
+                    <li>Made apps launch significantly faster using Instruments profiling and targeted optimizations</li>
+                    <li>Started using AI coding assistants early, which helped the team ship features faster</li>
+                    <li>Migrated 3 aging Objective-C codebases to Swift, making them easier to maintain</li>
+                    <li>Mentored 6 junior developers - seeing 3 of them get promoted to mid-level has been really rewarding</li>
                 </ul>
 
                 <h4 style="margin: 25px 0 15px; color: var(--primary-color); font-size: 20px;">Key Projects:</h4>
                 <div class="projects-grid">
                     <div class="project-card" onclick="showProjectModal('genius')">
+                        <span class="clickable-indicator">⤢</span>
                         <div class="project-title">Genius & RepairCentral</div>
                         <div class="project-description">
                             AI-powered repair management system used by Genius Bar employees across all Apple Retail Stores worldwide.
@@ -1311,15 +1780,15 @@
                 </div>
 
                 <p style="margin-bottom: 20px; color: var(--light-text); font-size: 16px;">
-                    Spearheaded development of 10+ enterprise iOS and macOS applications from concept to deployment. Progressed from Software Engineer to System Analyst, taking on increasing responsibilities in architecture and technical leadership.
+                    Built 10+ enterprise iOS and macOS apps from scratch during my time here. Started as a Software Engineer and worked my way up to System Analyst, gradually taking on more architecture and leadership responsibilities.
                 </p>
 
                 <ul class="achievements-list">
-                    <li>Delivered 10+ applications with 4.5+ star average rating and 98% crash-free rate</li>
-                    <li>Reduced development cycle time by 30% through Agile methodologies and automated testing</li>
-                    <li>Established iOS development best practices adopted company-wide</li>
-                    <li>Mentored 8 junior developers over 8 years, with 5 advancing to senior positions</li>
-                    <li>Led technical interviews and grew iOS team from 3 to 12 engineers</li>
+                    <li>Shipped apps that consistently rated 4.5+ stars with very few crashes</li>
+                    <li>Moved the team to Agile with automated testing, which sped up our release cycles noticeably</li>
+                    <li>Wrote iOS development guidelines that the whole company ended up adopting</li>
+                    <li>Mentored 8 developers over the years - 5 of them are now in senior roles</li>
+                    <li>Helped grow our iOS team from 3 people to 12 through recruiting and interviewing</li>
                 </ul>
 
                 <h4 style="margin: 25px 0 15px; color: var(--primary-color); font-size: 20px;">Notable Projects:</h4>
@@ -1444,7 +1913,7 @@
                 </div>
 
                 <p style="color: var(--light-text); font-size: 16px;">
-                    Gained foundational expertise in iOS and macOS development, contributing to framework development and enterprise applications. Developed strong debugging skills and understanding of low-level system APIs.
+                    My first real job after college - learned iOS and macOS development from the ground up. Worked on frameworks and enterprise apps, got really good at debugging, and learned how low-level system APIs work.
                 </p>
 
                 <h4 style="margin: 25px 0 15px; color: var(--primary-color); font-size: 20px;">Key Projects:</h4>
@@ -1504,12 +1973,14 @@
         <section class="section fade-in">
             <h2 class="section-title">Education</h2>
             <div class="education-grid">
-                <div class="education-card">
+                <div class="education-card" onclick="showEducationModal('masters')">
+                    <span class="clickable-indicator">⤢</span>
                     <div class="degree">Master of Science</div>
                     <div class="school">Computer Science & Information Engineering</div>
                     <div class="year">Asia University, Taiwan · 2014</div>
                 </div>
-                <div class="education-card">
+                <div class="education-card" onclick="showEducationModal('bachelors')">
+                    <span class="clickable-indicator">⤢</span>
                     <div class="degree">Bachelor of Engineering</div>
                     <div class="school">Electronics & Communication Engineering</div>
                     <div class="year">Visvesvaraya Tech University, India · 2010</div>
@@ -1614,6 +2085,34 @@
                 </div>
             </div>
         </section>
+    </div>
+
+    <!-- Floating Action Buttons -->
+    <div class="floating-actions">
+        <button class="fab back-to-top" onclick="scrollToTop()" aria-label="Back to top" title="Back to top">
+            ↑
+        </button>
+        <a href="mailto:aniltv06@gmail.com" class="fab" aria-label="Contact via email" title="Email me">
+            ✉
+        </a>
+    </div>
+
+    <!-- Social Share Buttons -->
+    <div class="social-share">
+        <a href="https://www.linkedin.com/in/anilthatha/" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="LinkedIn profile" title="LinkedIn">
+            in
+        </a>
+        <a href="https://github.com/aniltv06" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="GitHub profile" title="GitHub">
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+            </svg>
+        </a>
+        <a href="https://twitter.com/intent/tweet?url=https://aniltv06.github.io&text=Check%20out%20this%20amazing%20resume!" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Share on Twitter" title="Share on Twitter">
+            𝕏
+        </a>
+        <button onclick="shareResume()" class="social-btn" aria-label="Share resume" title="Share">
+            ⤴
+        </button>
     </div>
 
     <!-- Project Modal -->
@@ -1739,13 +2238,25 @@
         }
 
         // Initialize 3D background
-        init3DBackground();
+        try {
+            if (typeof THREE !== 'undefined') {
+                init3DBackground();
+            } else {
+                console.warn('Three.js not loaded, skipping 3D background');
+            }
+        } catch (error) {
+            console.error('Error initializing 3D background:', error);
+        }
 
         // ============================================
         // Skills Radar Chart
         // ============================================
-        const radarCtx = document.getElementById('skillsRadar').getContext('2d');
-        const skillsRadarChart = new Chart(radarCtx, {
+        let skillsRadarChart, performanceChart, crashChart, teamChart, timeSavingsChart;
+
+        try {
+            if (typeof Chart !== 'undefined') {
+                const radarCtx = document.getElementById('skillsRadar').getContext('2d');
+                skillsRadarChart = new Chart(radarCtx, {
             type: 'radar',
             data: {
                 labels: [
@@ -1810,7 +2321,7 @@
 
         // Performance Improvements Chart
         const perfCtx = document.getElementById('performanceChart').getContext('2d');
-        const performanceChart = new Chart(perfCtx, {
+        performanceChart = new Chart(perfCtx, {
             type: 'bar',
             data: {
                 labels: ['Launch Time', 'Data Sync', 'UI Rendering', 'Memory Usage'],
@@ -1861,10 +2372,10 @@
 
         // Crash Rate Chart
         const crashCtx = document.getElementById('crashChart').getContext('2d');
-        const crashChart = new Chart(crashCtx, {
+        crashChart = new Chart(crashCtx, {
             type: 'line',
             data: {
-                labels: ['Q1 2021', 'Q2 2021', 'Q3 2021', 'Q4 2021', 'Q1 2022', 'Q2 2022'],
+                labels: ['Q1', 'Q2', 'Q3', 'Q4', 'Q5', 'Q6'],
                 datasets: [{
                     label: 'Crash Rate %',
                     data: [15, 12, 8, 5, 3.5, 3],
@@ -1908,7 +2419,7 @@
 
         // Team Impact Chart
         const teamCtx = document.getElementById('teamChart').getContext('2d');
-        const teamChart = new Chart(teamCtx, {
+        teamChart = new Chart(teamCtx, {
             type: 'doughnut',
             data: {
                 labels: ['Mentored', 'Promoted', 'Hired', 'Trained'],
@@ -1942,7 +2453,7 @@
 
         // Time Savings Chart
         const timeCtx = document.getElementById('timeSavingsChart').getContext('2d');
-        const timeSavingsChart = new Chart(timeCtx, {
+        timeSavingsChart = new Chart(timeCtx, {
             type: 'bar',
             data: {
                 labels: ['Setup Automation', 'Code Review', 'Testing', 'Deployment'],
@@ -1980,6 +2491,12 @@
                 }
             }
         });
+            } else {
+                console.warn('Chart.js not loaded, skipping charts');
+            }
+        } catch (error) {
+            console.error('Error initializing charts:', error);
+        }
 
         // ============================================
         // Typing Animation
@@ -2024,6 +2541,12 @@
         // Counter Animation
         // ============================================
         function animateCounter(element) {
+            // Only animate if not already animated
+            if (element.getAttribute('data-animated') === 'true') {
+                return;
+            }
+            element.setAttribute('data-animated', 'true');
+
             const target = parseInt(element.getAttribute('data-target'));
             let current = 0;
             const increment = target / 50;
@@ -2087,36 +2610,46 @@
             }
 
             // Update Radar Chart
-            skillsRadarChart.data.datasets[0].backgroundColor = primaryColorAlpha;
-            skillsRadarChart.data.datasets[0].borderColor = primaryColor;
-            skillsRadarChart.data.datasets[0].pointBackgroundColor = primaryColor;
-            skillsRadarChart.data.datasets[0].pointHoverBorderColor = primaryColor;
-            skillsRadarChart.options.scales.r.ticks.color = textColor;
-            skillsRadarChart.options.scales.r.pointLabels.color = textColor;
-            skillsRadarChart.options.scales.r.grid.color = gridColor;
-            skillsRadarChart.update();
+            if (typeof skillsRadarChart !== 'undefined' && skillsRadarChart) {
+                skillsRadarChart.data.datasets[0].backgroundColor = primaryColorAlpha;
+                skillsRadarChart.data.datasets[0].borderColor = primaryColor;
+                skillsRadarChart.data.datasets[0].pointBackgroundColor = primaryColor;
+                skillsRadarChart.data.datasets[0].pointHoverBorderColor = primaryColor;
+                skillsRadarChart.options.scales.r.ticks.color = textColor;
+                skillsRadarChart.options.scales.r.pointLabels.color = textColor;
+                skillsRadarChart.options.scales.r.grid.color = gridColor;
+                skillsRadarChart.update();
+            }
 
             // Update Performance Chart
-            performanceChart.options.scales.y.ticks.color = textColor;
-            performanceChart.options.scales.x.ticks.color = textColor;
-            performanceChart.options.scales.y.grid.color = gridColor;
-            performanceChart.update();
+            if (typeof performanceChart !== 'undefined' && performanceChart) {
+                performanceChart.options.scales.y.ticks.color = textColor;
+                performanceChart.options.scales.x.ticks.color = textColor;
+                performanceChart.options.scales.y.grid.color = gridColor;
+                performanceChart.update();
+            }
 
             // Update Crash Chart
-            crashChart.options.scales.y.ticks.color = textColor;
-            crashChart.options.scales.x.ticks.color = textColor;
-            crashChart.options.scales.y.grid.color = gridColor;
-            crashChart.update();
+            if (typeof crashChart !== 'undefined' && crashChart) {
+                crashChart.options.scales.y.ticks.color = textColor;
+                crashChart.options.scales.x.ticks.color = textColor;
+                crashChart.options.scales.y.grid.color = gridColor;
+                crashChart.update();
+            }
 
             // Update Team Chart
-            teamChart.options.plugins.legend.labels.color = textColor;
-            teamChart.update();
+            if (typeof teamChart !== 'undefined' && teamChart) {
+                teamChart.options.plugins.legend.labels.color = textColor;
+                teamChart.update();
+            }
 
             // Update Time Savings Chart
-            timeSavingsChart.options.scales.x.ticks.color = textColor;
-            timeSavingsChart.options.scales.y.ticks.color = textColor;
-            timeSavingsChart.options.scales.x.grid.color = gridColor;
-            timeSavingsChart.update();
+            if (typeof timeSavingsChart !== 'undefined' && timeSavingsChart) {
+                timeSavingsChart.options.scales.x.ticks.color = textColor;
+                timeSavingsChart.options.scales.y.ticks.color = textColor;
+                timeSavingsChart.options.scales.x.grid.color = gridColor;
+                timeSavingsChart.update();
+            }
         }
 
         // ============================================
@@ -2131,40 +2664,54 @@
                 // Terminal -> Light
                 body.classList.remove('terminal-mode');
                 btn.textContent = '🌙 Dark';
-                localStorage.setItem('theme', 'light');
+                try {
+                    localStorage.setItem('theme', 'light');
+                } catch (e) {}
                 updateChartsForTheme('light');
             } else if (body.classList.contains('dark-mode')) {
                 // Dark -> Terminal
                 body.classList.remove('dark-mode');
                 body.classList.add('terminal-mode');
                 btn.textContent = '☀️ Light';
-                localStorage.setItem('theme', 'terminal');
+                try {
+                    localStorage.setItem('theme', 'terminal');
+                } catch (e) {}
                 updateChartsForTheme('terminal');
             } else {
                 // Light -> Dark
                 body.classList.add('dark-mode');
                 btn.textContent = '💻 Terminal';
-                localStorage.setItem('theme', 'dark');
+                try {
+                    localStorage.setItem('theme', 'dark');
+                } catch (e) {}
                 updateChartsForTheme('dark');
             }
         }
 
         // Load theme preference
-        const savedTheme = localStorage.getItem('theme');
+        let savedTheme = 'light';
+        try {
+            savedTheme = localStorage.getItem('theme') || 'light';
+        } catch (e) {
+            console.log('localStorage not available:', e);
+        }
+
         const themeBtn = document.querySelector('.btn-group .btn:last-child');
 
-        if (savedTheme === 'dark') {
-            document.body.classList.add('dark-mode');
-            themeBtn.textContent = '💻 Terminal';
-            updateChartsForTheme('dark');
-        } else if (savedTheme === 'terminal') {
-            document.body.classList.add('terminal-mode');
-            themeBtn.textContent = '☀️ Light';
-            updateChartsForTheme('terminal');
-        } else {
-            // Light mode (default or explicitly saved as 'light')
-            themeBtn.textContent = '🌙 Dark';
-            // Charts already initialized with light mode colors
+        if (themeBtn) {
+            if (savedTheme === 'dark') {
+                document.body.classList.add('dark-mode');
+                themeBtn.textContent = '💻 Terminal';
+                updateChartsForTheme('dark');
+            } else if (savedTheme === 'terminal') {
+                document.body.classList.add('terminal-mode');
+                themeBtn.textContent = '☀️ Light';
+                updateChartsForTheme('terminal');
+            } else {
+                // Light mode (default or explicitly saved as 'light')
+                themeBtn.textContent = '🌙 Dark';
+                // Charts already initialized with light mode colors
+            }
         }
 
         // ============================================
@@ -2177,44 +2724,238 @@
             });
         }
 
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // ============================================
+        // Scroll Progress Bar
+        // ============================================
+        window.addEventListener('scroll', function() {
+            const scrollProgress = document.querySelector('.scroll-progress');
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrollPercent = (scrollTop / scrollHeight) * 100;
+            scrollProgress.style.width = scrollPercent + '%';
+
+            // Back to top button visibility
+            const backToTop = document.querySelector('.back-to-top');
+            if (scrollTop > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+
+        // ============================================
+        // Share Functionality
+        // ============================================
+        async function shareResume() {
+            const shareData = {
+                title: 'Anil Thatha - Senior iOS/macOS Engineer',
+                text: 'Check out this amazing resume of a Senior iOS/macOS Engineer with 13+ years experience!',
+                url: 'https://aniltv06.github.io'
+            };
+
+            try {
+                if (navigator.share) {
+                    await navigator.share(shareData);
+                } else {
+                    // Fallback: Copy to clipboard
+                    await navigator.clipboard.writeText(shareData.url);
+                    alert('Link copied to clipboard!');
+                }
+            } catch (err) {
+                console.log('Error sharing:', err);
+            }
+        }
+
+        // ============================================
+        // Education Modal System
+        // ============================================
+        var educationData = {
+            masters: {
+                title: 'Master of Science',
+                subtitle: 'Computer Science & Information Engineering',
+                institution: 'Asia University, Taiwan',
+                year: '2012 - 2014',
+                score: 'CGPA: 3.8/4.0',
+                details: `
+                    <div style="margin-top: 20px;">
+                        <h3 style="color: var(--primary-color); margin-bottom: 15px;">🎓 Academic Excellence</h3>
+                        <ul style="line-height: 1.8; margin-left: 20px;">
+                            <li><strong>CGPA:</strong> 3.8/4.0</li>
+                            <li><strong>Scholarship:</strong> Merit-based scholarship recipient</li>
+                        </ul>
+
+                        <h3 style="color: var(--primary-color); margin: 25px 0 15px;">📚 Key Coursework</h3>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px;">
+                            <div>
+                                <h4 style="color: var(--secondary-color); margin-bottom: 10px;">2012-2013 Academic Year</h4>
+                                <ul style="line-height: 1.8; margin-left: 20px; font-size: 15px;">
+                                    <li>Semiconductor Physics</li>
+                                    <li>Products Engineering</li>
+                                    <li>Semiconductor Process Engineering</li>
+                                    <li>Integrated Circuit Design</li>
+                                    <li>Analog Circuit Design</li>
+                                    <li>Semiconductor Failure Analysis</li>
+                                    <li>Microelectronics</li>
+                                    <li>SOI Technology</li>
+                                    <li>Research Thesis Seminar</li>
+                                    <li>Thesis Research</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 style="color: var(--secondary-color); margin-bottom: 10px;">2013-2014 Academic Year</h4>
+                                <ul style="line-height: 1.8; margin-left: 20px; font-size: 15px;">
+                                    <li>Semiconductor Manufacturing Technology</li>
+                                    <li>Advanced Research Seminar</li>
+                                    <li>Thesis Presentations</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <h3 style="color: var(--primary-color); margin: 25px 0 15px;">🔬 Master's Thesis Research</h3>
+                        <p style="margin-bottom: 15px; line-height: 1.8;">
+                            <strong>Thesis Title:</strong><br>
+                            <span style="color: var(--primary-color); font-size: 17px;">
+                                PART A - Nano Imprint Lithography<br>
+                                PART B - GaN GAA (Gate-All-Around) Nanowire
+                            </span>
+                        </p>
+                        <p style="line-height: 1.8; margin-bottom: 15px;">
+                            <strong>Research Focus:</strong> Advanced semiconductor nanofabrication techniques and next-generation
+                            transistor architectures. The research explored cutting-edge lithography methods for sub-10nm feature
+                            sizes and investigated Gallium Nitride (GaN) Gate-All-Around nanowire structures for high-performance,
+                            low-power electronic devices.
+                        </p>
+                        <p style="line-height: 1.8; margin-bottom: 15px;">
+                            <strong>Key Contributions:</strong>
+                        </p>
+                        <ul style="line-height: 1.8; margin-left: 20px;">
+                            <li>Developed novel nano-imprint lithography techniques for high-resolution pattern transfer</li>
+                            <li>Characterized electrical properties of GaN-based nanowire transistors</li>
+                            <li>Investigated Gate-All-Around architecture for improved gate control and reduced leakage</li>
+                            <li>Published findings in semiconductor research conferences</li>
+                        </ul>
+
+                        <h3 style="color: var(--primary-color); margin: 25px 0 15px;">🏆 Research Publications</h3>
+                        <p style="line-height: 1.8; margin-bottom: 10px;">
+                            <strong>View complete research profile:</strong><br>
+                            <a href="https://www.researchgate.net/profile/Anil-Kumar-Thatha-Venkatachalapathy"
+                               target="_blank"
+                               rel="noopener noreferrer"
+                               style="color: var(--primary-color); text-decoration: underline;">
+                                ResearchGate Profile →
+                            </a>
+                        </p>
+                    </div>
+                `
+            },
+            bachelors: {
+                title: 'Bachelor of Engineering',
+                subtitle: 'Electronics & Communication Engineering',
+                institution: 'Visvesvaraya Technological University, India',
+                year: '2006 - 2010',
+                score: 'First Class with Distinction',
+                details: `
+                    <div style="margin-top: 20px;">
+                        <h3 style="color: var(--primary-color); margin-bottom: 15px;">🎓 Academic Performance</h3>
+                        <ul style="line-height: 1.8; margin-left: 20px;">
+                            <li><strong>Grade:</strong> First Class with Distinction</li>
+                            <li><strong>Percentage:</strong> 75%</li>
+                            <li><strong>Rank:</strong> Top 10% of graduating class</li>
+                        </ul>
+
+                        <h3 style="color: var(--primary-color); margin: 25px 0 15px;">📚 Core Subjects</h3>
+                        <ul style="line-height: 1.8; margin-left: 20px;">
+                            <li>Digital Electronics & Microprocessors</li>
+                            <li>Embedded Systems Design</li>
+                            <li>Signal Processing & Communications</li>
+                            <li>Computer Programming (C, C++, Java)</li>
+                            <li>Data Structures & Algorithms</li>
+                            <li>Networking & Internet Protocols</li>
+                        </ul>
+
+                        <h3 style="color: var(--primary-color); margin: 25px 0 15px;">🚀 Career Foundation</h3>
+                        <p style="line-height: 1.8;">
+                            The electronics background ended up being surprisingly useful when I switched to iOS development. Understanding how hardware works has helped me write more efficient code and optimize performance better.
+                        </p>
+                    </div>
+                `
+            }
+        };
+
+        function showEducationModal(educationKey) {
+            if (!educationData || !educationData[educationKey]) {
+                console.error('Education data not available for:', educationKey);
+                return;
+            }
+
+            const education = educationData[educationKey];
+            const modalBody = document.getElementById('modalBody');
+
+            modalBody.innerHTML = `
+                <h2 style="color: var(--primary-color); margin-bottom: 10px;">${education.title}</h2>
+                <h3 style="color: var(--light-text); font-size: 20px; font-weight: 500; margin-bottom: 10px;">
+                    ${education.subtitle}
+                </h3>
+                <p style="font-size: 16px; color: #666; margin-bottom: 5px;">
+                    <strong>🏫 ${education.institution}</strong>
+                </p>
+                <p style="font-size: 16px; color: #666; margin-bottom: 5px;">
+                    <strong>📅 ${education.year}</strong>
+                </p>
+                <p style="font-size: 18px; color: var(--primary-color); font-weight: 600; margin-top: 10px;">
+                    ${education.score}
+                </p>
+                ${education.details}
+            `;
+
+            document.getElementById('projectModal').style.display = 'flex';
+        }
+
         // ============================================
         // Project Modal System
         // ============================================
-        const projectData = {
+        var projectData = {
             genius: {
                 title: 'Genius (iOS) & RepairCentral (macOS)',
                 subtitle: 'Retail Repair Management Platform',
-                description: 'Architected and developed comprehensive repair management system used by Genius Bar employees across all Apple Retail Stores worldwide.',
+                description: 'Built the repair management system used by Genius Bar employees in Apple Stores worldwide. It handles everything from diagnostics to repair tracking.',
                 achievements: [
-                    'Integrated on-device foundation models for intelligent repair recommendations and natural language diagnostic assistance, reducing average diagnosis time by 35%',
-                    'Implemented real-time sync between iOS and macOS applications using CloudKit, reducing data conflicts by 90%',
-                    'Designed intuitive UI/UX reducing average repair creation time from 5 minutes to 2 minutes, improving customer satisfaction scores by 25%',
-                    'Built robust offline-first architecture ensuring 99.9% uptime even in poor network conditions'
+                    'Added AI features for repair recommendations and diagnostic help - dramatically sped up the diagnosis process',
+                    'Set up real-time CloudKit sync between the iOS and macOS versions, which solved a ton of data conflict issues',
+                    'Redesigned the repair creation flow to be much faster and easier to use',
+                    'Made it work offline-first so poor WiFi in stores wouldn\'t cause problems'
                 ],
                 technologies: ['Swift', 'SwiftUI', 'Core Data', 'CloudKit', 'Core ML', 'On-device Foundation Models', 'MVVM', 'XCTest']
             },
             safeview: {
                 title: 'SafeView - macOS Screen Sharing Application',
                 subtitle: 'AppleCare Customer Support Platform',
-                description: 'Screen-sharing application that lets AppleCare Advisors share a customer\'s macOS or iOS device for remote support and troubleshooting.',
+                description: 'Screen-sharing tool that lets AppleCare advisors remotely view and troubleshoot customer devices. Used by support teams globally.',
                 achievements: [
-                    'Enabled remote support for millions of AppleCare customers worldwide',
-                    'Implemented secure screen sharing with end-to-end encryption ensuring customer privacy',
-                    'Built cross-platform support for both macOS and iOS device sharing',
-                    'Developed intuitive interface allowing advisors to efficiently diagnose and resolve customer issues',
-                    'Achieved 99.9% uptime ensuring reliable customer support experience'
+                    'Handles millions of AppleCare support sessions',
+                    'Built with end-to-end encryption to protect customer privacy',
+                    'Works with both macOS and iOS devices',
+                    'Interface makes it easy for advisors to quickly diagnose issues',
+                    'Reliability has been rock solid since launch'
                 ],
                 technologies: ['Swift', 'AppKit', 'Screen Capture APIs', 'Networking', 'Security Framework', 'Real-time Communication']
             },
             kickstart: {
                 title: 'Kickstart - macOS Device Setup Automation',
                 subtitle: 'Device Provisioning Tool',
-                description: 'Developed automated device provisioning tool for new employee onboarding.',
+                description: 'Automation tool that sets up new Macs for employees - installs apps, configures settings, the whole nine yards.',
                 achievements: [
-                    'Reduced new employee setup time from 4 hours to 30 minutes',
-                    'Implemented package manager integration installing 20+ essential applications with zero-touch deployment',
-                    'Created intuitive onboarding flow reducing IT support tickets by 40%',
-                    'Built self-healing scripts that automatically resolve common installation failures'
+                    'Cut new employee setup time from 4 hours down to 30 minutes',
+                    'Installs 20+ essential apps automatically without IT having to touch the machine',
+                    'Built a clean onboarding flow that reduced help desk tickets significantly',
+                    'Added self-healing to automatically retry failed installations'
                 ],
                 technologies: ['Swift', 'AppKit', 'Bash scripting', 'URLSession', 'Combine']
             },
@@ -2257,84 +2998,84 @@
             appletravel: {
                 title: 'Apple Travel - iOS Travel Management Application',
                 subtitle: 'Enterprise Travel Booking Platform',
-                description: 'Architected and developed enterprise travel management app used by internal Apple employees for booking flights, hotels, and managing itineraries.',
+                description: 'Travel booking app for Apple employees. Handles flight/hotel bookings and manages itineraries all in one place.',
                 achievements: [
-                    'Integrated with 3 third-party APIs (Concur, Sabre, TripIt) providing seamless booking experience',
-                    'Implemented push notifications reducing missed booking deadlines by 45%',
-                    'Optimized for offline use with local data persistence, ensuring 100% functionality without connectivity',
-                    'Achieved 4.6 App Store rating with 95% user satisfaction in internal surveys'
+                    'Connected to 3 different travel APIs (Concur, Sabre, TripIt) to make booking seamless',
+                    'Push notifications helped people catch booking deadlines they were missing before',
+                    'Made it work offline so you can access your itinerary even without internet',
+                    'Got a 4.6 rating from internal users, which I\'m pretty proud of'
                 ],
                 technologies: ['Swift', 'UIKit', 'Core Data', 'RESTful APIs', 'Push Notifications', 'MapKit']
             },
             purchasereq: {
                 title: 'Purchase Requisition - iOS Purchase Management POC',
                 subtitle: 'Purchase Approval Workflow System',
-                description: 'Designed and developed POC iPad application streamlining purchase requisition approval workflow.',
+                description: 'iPad POC that streamlined the purchase approval process. Turned out way better than expected.',
                 achievements: [
-                    'Reduced approval time from 3 days to 4 hours through mobile-first approach and real-time notifications',
-                    'Successfully pitched to executive leadership, securing $500K budget for full production development',
-                    'Implemented digital signatures for secure approval workflow',
-                    'Built PDF generation for purchase order documents'
+                    'Turned 3-day approvals into 4-hour approvals with real-time mobile notifications',
+                    'Demoed it to executives and secured $500K to build the full version',
+                    'Added digital signatures for secure approvals',
+                    'Built PDF generation for all the purchase documents'
                 ],
                 technologies: ['Swift', 'UIKit', 'PDF Generation', 'Digital Signatures', 'RESTful APIs']
             },
             globalsecurity: {
                 title: 'Global Security - iOS Security Management System',
                 subtitle: 'Badge Access & Security Platform',
-                description: 'Built comprehensive security management app for badge access, notifications, and key/lock service requests.',
+                description: 'Security app for managing badge access and service requests across Apple offices.',
                 achievements: [
-                    'Integrated with Apple\'s internal security systems serving employees across multiple offices',
-                    'Implemented QR code scanning reducing badge request processing time by 60%',
-                    'Added real-time status tracking improving transparency and reducing support calls by 40%',
-                    'Built push notification system for security alerts and updates'
+                    'Works with Apple\'s internal security systems across multiple sites',
+                    'QR code scanning made badge requests way faster to process',
+                    'Real-time tracking cut down on "where\'s my badge?" support calls',
+                    'Push notifications for security alerts and updates'
                 ],
                 technologies: ['Swift', 'UIKit', 'Core Data', 'QR Code scanning (Vision framework)', 'Push Notifications']
             },
             expenses: {
                 title: 'Expenses - iOS & macOS Expense Management',
                 subtitle: 'Cross-Platform Expense Tracking',
-                description: 'Developed cross-platform expense management application with seamless data sync between iOS and macOS.',
+                description: 'Cross-platform expense app that works on both iOS and macOS with synced data.',
                 achievements: [
-                    'Implemented OCR receipt scanning using Vision framework, reducing manual entry time by 70%',
-                    'Added GPS-based automatic location filling improving compliance and reducing expense report errors by 50%',
-                    'Built comprehensive unit test suite with 80% code coverage ensuring reliability',
-                    'Achieved seamless data sync using CloudKit across iOS and macOS platforms'
+                    'OCR receipt scanning saves people from typing in all their receipts manually',
+                    'GPS auto-fills location, which helps with compliance and cuts down on errors',
+                    'Built solid test coverage to make sure nothing breaks',
+                    'CloudKit keeps everything synced between your iPhone and Mac'
                 ],
                 technologies: ['Swift', 'SwiftUI', 'UIKit', 'AppKit', 'Vision (OCR)', 'Core Location', 'CloudKit', 'Unit Testing']
             },
             swiftserver: {
                 title: 'Swift Server Framework - Backend Web Framework',
                 subtitle: 'Lightweight Swift Web Framework',
-                description: 'Architected and built lightweight web framework in Swift for rapid API development.',
+                description: 'Built a lightweight web framework in Swift for building APIs quickly. Fun side project that became useful.',
                 achievements: [
-                    'Implemented URL routing, middleware pipeline, static file serving, and JSON parsing',
-                    'Integrated MySQL database layer with connection pooling and ORM-like capabilities',
-                    'Deployed 5+ microservices handling 10,000+ requests/day with sub-100ms response times',
-                    'Built comprehensive documentation and sample projects for team adoption'
+                    'Has routing, middleware, static files, JSON parsing - all the basics',
+                    'MySQL integration with connection pooling works really well',
+                    'Running 5+ microservices in production, handling thousands of requests daily with fast response times',
+                    'Wrote good docs so other team members could actually use it'
                 ],
                 technologies: ['Swift on Linux', 'MySQL', 'Vapor', 'RESTful API design', 'Docker']
             },
             radar: {
                 title: 'Radar - macOS Quality Management System',
                 subtitle: 'Bug Tracking & Quality Management',
-                description: 'Enhanced Apple\'s internal bug tracking and quality management system used across all hardware/software teams.',
+                description: 'Worked on Apple\'s internal Radar bug tracking system used by all the hardware and software teams.',
                 achievements: [
-                    'Implemented advanced search with 20+ filter criteria reducing issue discovery time by 50%',
-                    'Added batch operations enabling QA teams to process 100+ issues simultaneously',
-                    'Integrated comprehensive unit testing achieving 75% code coverage',
-                    'Built complex UI with NSTableView and NSSplitView for efficient data visualization'
+                    'Built advanced search with tons of filters to help people find bugs faster',
+                    'Added batch operations so QA could update hundreds of bugs at once',
+                    'Wrote good test coverage to keep things stable',
+                    'Complex UI with tables and split views for managing large amounts of data'
                 ],
                 technologies: ['Swift', 'AppKit', 'Core Data', 'RESTful APIs', 'Complex UI (NSTableView, NSSplitView)']
             },
             tax1099: {
                 title: '1099 Tax Management - macOS Application',
                 subtitle: 'IRS Tax Information Filing System',
-                description: 'Developed IRS tax information filing system for vendor and contractor annual reporting.',
+                description: 'Tax filing system for vendor and contractor annual reporting to the IRS.',
                 achievements: [
-                    'Automated data validation reducing filing errors by 85% and saving 200+ hours annually',
-                    'Implemented secure PDF generation and encryption for sensitive tax documents',
-                    'Built compliance reporting ensuring zero filing violations',
-                    'Created audit trail for all tax-related operations'
+                    'Automated validation caught most filing errors before submission, saved hours of manual work',
+                    'Secure PDF generation with encryption for sensitive tax documents',
+                    'Compliance reporting kept us out of trouble with zero violations',
+                    'Built audit trail for everything tax-related'
                 ],
                 technologies: ['Swift', 'AppKit', 'PDF Generation', 'Data Validation', 'Encryption']
             },
@@ -2413,6 +3154,11 @@
         };
 
         function showProjectModal(projectKey) {
+            if (!projectData || !projectData[projectKey]) {
+                console.error('Project data not available for:', projectKey);
+                return;
+            }
+
             const project = projectData[projectKey];
             const modal = document.getElementById('projectModal');
             const modalBody = document.getElementById('modalBody');
@@ -2452,6 +3198,196 @@
         document.addEventListener('keydown', function(event) {
             if (event.key === 'Escape') {
                 closeModal();
+                closeMobileMenu();
+            }
+        });
+
+        // ============================================
+        // Mobile Menu Toggle
+        // ============================================
+        function toggleMobileMenu() {
+            const hamburger = document.querySelector('.hamburger');
+            const mobileMenu = document.querySelector('.mobile-nav-menu');
+            const overlay = document.querySelector('.mobile-nav-overlay');
+
+            hamburger.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+            overlay.classList.toggle('active');
+            document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : 'auto';
+        }
+
+        function closeMobileMenu() {
+            const hamburger = document.querySelector('.hamburger');
+            const mobileMenu = document.querySelector('.mobile-nav-menu');
+            const overlay = document.querySelector('.mobile-nav-overlay');
+
+            hamburger.classList.remove('active');
+            mobileMenu.classList.remove('active');
+            overlay.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // ============================================
+        // Mobile-Optimized Card Click Handlers
+        // ============================================
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Setting up card handlers...');
+
+            // Project cards - handle all types of interactions
+            const projectCards = document.querySelectorAll('.project-card');
+            console.log('Found project cards:', projectCards.length);
+
+            projectCards.forEach((card, index) => {
+                // Add indicator if not already present
+                if (!card.querySelector('.clickable-indicator')) {
+                    const indicator = document.createElement('span');
+                    indicator.className = 'clickable-indicator';
+                    indicator.innerHTML = '⤢';
+                    card.insertBefore(indicator, card.firstChild);
+                }
+
+                // Extract modal key from onclick attribute
+                const onclickAttr = card.getAttribute('onclick');
+                let modalKey = null;
+
+                if (onclickAttr) {
+                    const match = onclickAttr.match(/showProjectModal\('([^']+)'\)/);
+                    if (match && match[1]) {
+                        modalKey = match[1];
+                        console.log(`Card ${index}: Modal key = ${modalKey}`);
+
+                        // Remove inline onclick to prevent conflicts
+                        card.removeAttribute('onclick');
+
+                        // Add universal click handler
+                        card.addEventListener('click', function(e) {
+                            e.preventDefault();
+                            e.stopPropagation();
+                            console.log(`Clicked project card: ${modalKey}`);
+                            showProjectModal(modalKey);
+                        });
+
+                        // Add touch handler for mobile
+                        card.addEventListener('touchstart', function(e) {
+                            console.log(`Touch started on: ${modalKey}`);
+                        });
+
+                        card.addEventListener('touchend', function(e) {
+                            e.preventDefault();
+                            console.log(`Touch ended on: ${modalKey}`);
+                            showProjectModal(modalKey);
+                        });
+                    }
+                }
+
+                // Keyboard support
+                card.setAttribute('tabindex', '0');
+                card.setAttribute('role', 'button');
+                card.addEventListener('keydown', function(event) {
+                    if (event.key === 'Enter' || event.key === ' ') {
+                        event.preventDefault();
+                        if (modalKey) {
+                            showProjectModal(modalKey);
+                        }
+                    }
+                });
+            });
+
+            // Education cards - handle all types of interactions
+            const educationCards = document.querySelectorAll('.education-card');
+            console.log('Found education cards:', educationCards.length);
+
+            educationCards.forEach((card, index) => {
+                // Extract modal key from onclick attribute
+                const onclickAttr = card.getAttribute('onclick');
+                let modalKey = null;
+
+                if (onclickAttr) {
+                    const match = onclickAttr.match(/showEducationModal\('([^']+)'\)/);
+                    if (match && match[1]) {
+                        modalKey = match[1];
+                        console.log(`Education card ${index}: Modal key = ${modalKey}`);
+
+                        // Remove inline onclick to prevent conflicts
+                        card.removeAttribute('onclick');
+
+                        // Add universal click handler
+                        card.addEventListener('click', function(e) {
+                            e.preventDefault();
+                            e.stopPropagation();
+                            console.log(`Clicked education card: ${modalKey}`);
+                            showEducationModal(modalKey);
+                        });
+
+                        // Add touch handler for mobile
+                        card.addEventListener('touchstart', function(e) {
+                            console.log(`Touch started on education: ${modalKey}`);
+                        });
+
+                        card.addEventListener('touchend', function(e) {
+                            e.preventDefault();
+                            console.log(`Touch ended on education: ${modalKey}`);
+                            showEducationModal(modalKey);
+                        });
+                    }
+                }
+
+                // Keyboard support
+                card.setAttribute('tabindex', '0');
+                card.setAttribute('role', 'button');
+                card.addEventListener('keydown', function(event) {
+                    if (event.key === 'Enter' || event.key === ' ') {
+                        event.preventDefault();
+                        if (modalKey) {
+                            showEducationModal(modalKey);
+                        }
+                    }
+                });
+            });
+
+            // Timeline items keyboard support
+            const timelineItems = document.querySelectorAll('.timeline-content');
+            timelineItems.forEach(item => {
+                item.setAttribute('tabindex', '0');
+                item.addEventListener('keydown', function(event) {
+                    if (event.key === 'Enter' || event.key === ' ') {
+                        event.preventDefault();
+                        item.click();
+                    }
+                });
+            });
+
+            // Hamburger keyboard support
+            const hamburger = document.querySelector('.hamburger');
+            if (hamburger) {
+                hamburger.addEventListener('keydown', function(event) {
+                    if (event.key === 'Enter' || event.key === ' ') {
+                        event.preventDefault();
+                        toggleMobileMenu();
+                    }
+                });
+            }
+
+            // Mobile nav links keyboard support
+            const mobileNavLinks = document.querySelectorAll('.mobile-nav-menu a');
+            mobileNavLinks.forEach(link => {
+                link.addEventListener('keydown', function(event) {
+                    if (event.key === 'Enter' || event.key === ' ') {
+                        event.preventDefault();
+                        link.click();
+                    }
+                });
+            });
+
+            // Close modal button keyboard support
+            const closeModalBtn = document.querySelector('.close-modal');
+            if (closeModalBtn) {
+                closeModalBtn.addEventListener('keydown', function(event) {
+                    if (event.key === 'Enter' || event.key === ' ') {
+                        event.preventDefault();
+                        closeModal();
+                    }
+                });
             }
         });
     </script>
