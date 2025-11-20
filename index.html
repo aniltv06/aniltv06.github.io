@@ -97,12 +97,6 @@
 
     <title>Anil Thatha - Senior iOS/macOS Engineer | 13+ Years Experience</title>
 
-    <!-- Three.js for 3D Background -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-
-    <!-- Chart.js for Radar and Impact Charts -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
-
     <style>
         * {
             margin: 0;
@@ -625,6 +619,103 @@
             color: var(--primary-color);
             text-decoration: none;
             transition: all 0.3s ease;
+        }
+
+        .professional-summary {
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        .professional-summary p {
+            font-size: 20px;
+            line-height: 1.7;
+            color: var(--light-text);
+            font-weight: 400;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 35px;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: var(--primary-color);
+            color: white;
+            padding: 15px 35px;
+            border-radius: 30px;
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(37, 99, 235, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+            padding: 15px 35px;
+            border-radius: 30px;
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(37, 99, 235, 0.3);
+        }
+
+        body.terminal-mode .btn-primary {
+            background: transparent;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            box-shadow: 0 0 15px rgba(0, 255, 65, 0.3);
+        }
+
+        body.terminal-mode .btn-primary:hover {
+            background: var(--primary-color);
+            color: #0a0e14;
+            box-shadow: 0 0 25px var(--primary-color);
+        }
+
+        body.terminal-mode .btn-secondary:hover {
+            box-shadow: 0 0 25px var(--primary-color);
+        }
+
+        @media (max-width: 768px) {
+            .professional-summary p {
+                font-size: 18px;
+            }
+
+            .hero-cta {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn-primary, .btn-secondary {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
         }
 
         /* Stats Grid */
@@ -1560,6 +1651,21 @@
                 <a href="https://github.com/aniltv06" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile (opens in new tab)">GitHub</a> ·
                 <a href="https://swiftbytes.blogspot.com" target="_blank" rel="noopener noreferrer" aria-label="Blog (opens in new tab)">Blog</a>
             </div>
+
+            <!-- Professional Summary -->
+            <div class="professional-summary">
+                <p>iOS and macOS engineer with 13 years building apps for Apple's retail stores and internal teams. I love solving complex problems with Swift, integrating AI/ML features, and leading teams to ship quality software. Always learning, always building.</p>
+            </div>
+
+            <!-- CTA Buttons -->
+            <div class="hero-cta">
+                <a href="mailto:aniltv06@gmail.com?subject=Opportunity%20for%20iOS%2FmacOS%20Engineer&body=Hi%20Anil%2C%0A%0AI%20came%20across%20your%20resume%20and%20would%20like%20to%20discuss%20a%20potential%20opportunity.%0A%0ACompany%3A%20%0ARole%3A%20%0A%0ALooking%20forward%20to%20connecting!%0A%0ABest%20regards" class="btn btn-primary" aria-label="Send email to Anil">
+                    ✉️ Get In Touch
+                </a>
+                <a href="Anil_Thatha-Resume.pdf" download class="btn btn-secondary" aria-label="Download resume PDF">
+                    📥 Download Resume
+                </a>
+            </div>
         </section>
 
         <!-- Stats -->
@@ -1983,7 +2089,7 @@
                     <span class="clickable-indicator">⤢</span>
                     <div class="degree">Bachelor of Engineering</div>
                     <div class="school">Electronics & Communication Engineering</div>
-                    <div class="year">Visvesvaraya Tech University, India · 2010</div>
+                    <div class="year">Visvesvaraya Technological University, India · 2010</div>
                 </div>
             </div>
         </section>
@@ -2072,7 +2178,7 @@
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
                         <div class="timeline-date">2010</div>
-                        <div class="timeline-company">Visvesvaraya Tech University, India</div>
+                        <div class="timeline-company">Visvesvaraya Technological University, India</div>
                         <div class="timeline-title">Bachelor of Engineering</div>
                         <div class="timeline-description">
                             Electronics & Communication Engineering
@@ -2092,7 +2198,7 @@
         <button class="fab back-to-top" onclick="scrollToTop()" aria-label="Back to top" title="Back to top">
             ↑
         </button>
-        <a href="mailto:aniltv06@gmail.com" class="fab" aria-label="Contact via email" title="Email me">
+        <a href="mailto:aniltv06@gmail.com?subject=Opportunity%20for%20iOS%2FmacOS%20Engineer&body=Hi%20Anil%2C%0A%0AI%20came%20across%20your%20resume%20and%20would%20like%20to%20discuss%20a%20potential%20opportunity.%0A%0ACompany%3A%20%0ARole%3A%20%0A%0ALooking%20forward%20to%20connecting!%0A%0ABest%20regards" class="fab" aria-label="Contact via email" title="Email me">
             ✉
         </a>
     </div>
@@ -2125,11 +2231,84 @@
 
     <script>
         // ============================================
+        // Lazy Load External Libraries
+        // ============================================
+        function loadScript(src) {
+            return new Promise(function(resolve, reject) {
+                var script = document.createElement('script');
+                script.src = src;
+                script.onload = function() { resolve(true); };
+                script.onerror = function() {
+                    console.warn('Failed to load script: ' + src);
+                    resolve(false); // Resolve instead of reject to continue
+                };
+                document.head.appendChild(script);
+            });
+        }
+
+        // Load Three.js and Chart.js lazily after page load
+        var librariesLoaded = false;
+
+        function loadLibraries() {
+            if (librariesLoaded) return Promise.resolve();
+            librariesLoaded = true;
+
+            return Promise.all([
+                loadScript('https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js'),
+                loadScript('https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js')
+            ]).catch(function(error) {
+                console.warn('Some libraries failed to load, continuing without them');
+                return Promise.resolve();
+            });
+        }
+
+        // Start loading libraries after page is interactive
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', function() {
+                setTimeout(function() {
+                    loadLibraries().then(function() {
+                        initializeVisuals();
+                    }).catch(function(error) {
+                        console.warn('Visualization initialization failed:', error);
+                    });
+                }, 100);
+            });
+        } else {
+            setTimeout(function() {
+                loadLibraries().then(function() {
+                    initializeVisuals();
+                }).catch(function(error) {
+                    console.warn('Visualization initialization failed:', error);
+                });
+            }, 100);
+        }
+
+        function initializeVisuals() {
+            try {
+                init3DBackground();
+            } catch (error) {
+                console.warn('3D background initialization failed:', error);
+            }
+
+            try {
+                initializeCharts();
+            } catch (error) {
+                console.warn('Charts initialization failed:', error);
+            }
+        }
+
+        // ============================================
         // 3D WebGL Background using Three.js
         // ============================================
         let scene, camera, renderer, geometries = [];
 
         function init3DBackground() {
+            // Check if Three.js is available
+            if (typeof THREE === 'undefined') {
+                console.warn('Three.js not loaded, skipping 3D background');
+                return;
+            }
+
             const container = document.getElementById('webgl-background');
 
             // Scene
@@ -2237,266 +2416,312 @@
             });
         }
 
-        // Initialize 3D background
-        try {
-            if (typeof THREE !== 'undefined') {
-                init3DBackground();
-            } else {
-                console.warn('Three.js not loaded, skipping 3D background');
-            }
-        } catch (error) {
-            console.error('Error initializing 3D background:', error);
-        }
-
         // ============================================
         // Skills Radar Chart
         // ============================================
         let skillsRadarChart, performanceChart, crashChart, teamChart, timeSavingsChart;
 
-        try {
-            if (typeof Chart !== 'undefined') {
-                const radarCtx = document.getElementById('skillsRadar').getContext('2d');
+        function initializeCharts() {
+            // Check if Chart.js is available
+            if (typeof Chart === 'undefined') {
+                console.warn('Chart.js not loaded, skipping charts');
+                return;
+            }
+
+            var isMobile = window.innerWidth <= 768;
+
+            const radarCtx = document.getElementById('skillsRadar').getContext('2d');
+
+            // Use simpler bar chart on mobile, radar chart on desktop
+            if (isMobile) {
                 skillsRadarChart = new Chart(radarCtx, {
-            type: 'radar',
-            data: {
-                labels: [
-                    'Swift/iOS Development',
-                    'AI & ML Integration',
-                    'System Architecture',
-                    'Performance Optimization',
-                    'Team Leadership',
-                    'CI/CD & DevOps',
-                    'Security & Compliance',
-                    'Cross-Platform (iOS/macOS)'
-                ],
-                datasets: [{
-                    label: 'Expertise Level',
-                    data: [95, 88, 90, 92, 88, 85, 90, 95],
-                    backgroundColor: 'rgba(37, 99, 235, 0.2)',
-                    borderColor: 'rgba(37, 99, 235, 1)',
-                    borderWidth: 3,
-                    pointBackgroundColor: 'rgba(37, 99, 235, 1)',
-                    pointBorderColor: '#fff',
-                    pointHoverBackgroundColor: '#fff',
-                    pointHoverBorderColor: 'rgba(37, 99, 235, 1)',
-                    pointRadius: 6,
-                    pointHoverRadius: 8
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: true,
-                scales: {
-                    r: {
-                        beginAtZero: true,
-                        max: 100,
-                        ticks: {
-                            stepSize: 20,
-                            color: '#333',
-                            backdropColor: 'transparent'
+                    type: 'bar',
+                    data: {
+                        labels: [
+                            'Swift/iOS',
+                            'AI & ML',
+                            'Architecture',
+                            'Performance',
+                            'Leadership',
+                            'CI/CD',
+                            'Security',
+                            'Cross-Platform'
+                        ],
+                        datasets: [{
+                            label: 'Expertise Level',
+                            data: [95, 88, 90, 92, 88, 85, 90, 95],
+                            backgroundColor: 'rgba(37, 99, 235, 0.8)',
+                            borderColor: 'rgba(37, 99, 235, 1)',
+                            borderWidth: 2,
+                            borderRadius: 8
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: true,
+                        indexAxis: 'y',
+                        scales: {
+                            x: {
+                                beginAtZero: true,
+                                max: 100,
+                                ticks: {
+                                    color: '#333',
+                                    callback: function(value) { return value + '%'; }
+                                },
+                                grid: { color: 'rgba(0, 0, 0, 0.1)' }
+                            },
+                            y: {
+                                ticks: {
+                                    color: '#333',
+                                    font: { size: 11 }
+                                },
+                                grid: { display: false }
+                            }
                         },
-                        grid: {
-                            color: 'rgba(37, 99, 235, 0.1)'
+                        plugins: {
+                            legend: { display: false }
+                        }
+                    }
+                });
+            } else {
+                // Desktop: Use radar chart
+                skillsRadarChart = new Chart(radarCtx, {
+                    type: 'radar',
+                    data: {
+                        labels: [
+                            'Swift/iOS Development',
+                            'AI & ML Integration',
+                            'System Architecture',
+                            'Performance Optimization',
+                            'Team Leadership',
+                            'CI/CD & DevOps',
+                            'Security & Compliance',
+                            'Cross-Platform (iOS/macOS)'
+                        ],
+                        datasets: [{
+                            label: 'Expertise Level',
+                            data: [95, 88, 90, 92, 88, 85, 90, 95],
+                            backgroundColor: 'rgba(37, 99, 235, 0.2)',
+                            borderColor: 'rgba(37, 99, 235, 1)',
+                            borderWidth: 3,
+                            pointBackgroundColor: 'rgba(37, 99, 235, 1)',
+                            pointBorderColor: '#fff',
+                            pointHoverBackgroundColor: '#fff',
+                            pointHoverBorderColor: 'rgba(37, 99, 235, 1)',
+                            pointRadius: 6,
+                            pointHoverRadius: 8
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: true,
+                        scales: {
+                            r: {
+                                beginAtZero: true,
+                                max: 100,
+                                ticks: {
+                                    stepSize: 20,
+                                    color: '#333',
+                                    backdropColor: 'transparent'
+                                },
+                                grid: {
+                                    color: 'rgba(37, 99, 235, 0.1)'
+                                },
+                                pointLabels: {
+                                    color: '#333',
+                                    font: {
+                                        size: 14,
+                                        weight: '600'
+                                    }
+                                }
+                            }
                         },
-                        pointLabels: {
-                            color: '#333',
-                            font: {
-                                size: 14,
-                                weight: '600'
+                        plugins: {
+                            legend: {
+                                display: false
                             }
                         }
                     }
-                },
-                plugins: {
-                    legend: {
-                        display: false
-                    }
-                }
-            }
-        });
+                });
+            } // End of else block for desktop radar chart
 
-        // ============================================
-        // Impact Dashboard Charts
-        // ============================================
+            // ============================================
+            // Impact Dashboard Charts
+            // ============================================
 
-        // Performance Improvements Chart
-        const perfCtx = document.getElementById('performanceChart').getContext('2d');
-        performanceChart = new Chart(perfCtx, {
-            type: 'bar',
-            data: {
-                labels: ['Launch Time', 'Data Sync', 'UI Rendering', 'Memory Usage'],
-                datasets: [{
-                    label: 'Improvement %',
-                    data: [70, 90, 60, 45],
-                    backgroundColor: [
-                        'rgba(16, 185, 129, 0.8)',
-                        'rgba(37, 99, 235, 0.8)',
-                        'rgba(245, 158, 11, 0.8)',
-                        'rgba(139, 92, 246, 0.8)'
-                    ],
-                    borderColor: [
-                        'rgb(16, 185, 129)',
-                        'rgb(37, 99, 235)',
-                        'rgb(245, 158, 11)',
-                        'rgb(139, 92, 246)'
-                    ],
-                    borderWidth: 2,
-                    borderRadius: 8
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: {
-                    legend: { display: false }
+            // Performance Improvements Chart
+            const perfCtx = document.getElementById('performanceChart').getContext('2d');
+            performanceChart = new Chart(perfCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['Launch Time', 'Data Sync', 'UI Rendering', 'Memory Usage'],
+                    datasets: [{
+                        label: 'Improvement %',
+                        data: [70, 90, 60, 45],
+                        backgroundColor: [
+                            'rgba(16, 185, 129, 0.8)',
+                            'rgba(37, 99, 235, 0.8)',
+                            'rgba(245, 158, 11, 0.8)',
+                            'rgba(139, 92, 246, 0.8)'
+                        ],
+                        borderColor: [
+                            'rgb(16, 185, 129)',
+                            'rgb(37, 99, 235)',
+                            'rgb(245, 158, 11)',
+                            'rgb(139, 92, 246)'
+                        ],
+                        borderWidth: 2,
+                        borderRadius: 8
+                    }]
                 },
-                scales: {
-                    y: {
-                        beginAtZero: true,
-                        max: 100,
-                        ticks: {
-                            callback: value => value + '%',
-                            color: '#333'
-                        },
-                        grid: { color: 'rgba(0, 0, 0, 0.1)' }
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false }
                     },
-                    x: {
-                        ticks: {
-                            color: '#333'
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            max: 100,
+                            ticks: {
+                                callback: value => value + '%',
+                                color: '#333'
+                            },
+                            grid: { color: 'rgba(0, 0, 0, 0.1)' }
                         },
-                        grid: { display: false }
-                    }
-                }
-            }
-        });
-
-        // Crash Rate Chart
-        const crashCtx = document.getElementById('crashChart').getContext('2d');
-        crashChart = new Chart(crashCtx, {
-            type: 'line',
-            data: {
-                labels: ['Q1', 'Q2', 'Q3', 'Q4', 'Q5', 'Q6'],
-                datasets: [{
-                    label: 'Crash Rate %',
-                    data: [15, 12, 8, 5, 3.5, 3],
-                    borderColor: 'rgb(239, 68, 68)',
-                    backgroundColor: 'rgba(239, 68, 68, 0.1)',
-                    borderWidth: 3,
-                    fill: true,
-                    tension: 0.4,
-                    pointRadius: 6,
-                    pointHoverRadius: 8,
-                    pointBackgroundColor: 'rgb(239, 68, 68)',
-                    pointBorderColor: '#fff',
-                    pointBorderWidth: 2
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: {
-                    legend: { display: false }
-                },
-                scales: {
-                    y: {
-                        beginAtZero: true,
-                        max: 20,
-                        ticks: {
-                            callback: value => value + '%',
-                            color: '#333'
-                        },
-                        grid: { color: 'rgba(0, 0, 0, 0.1)' }
-                    },
-                    x: {
-                        ticks: {
-                            color: '#333'
-                        },
-                        grid: { display: false }
-                    }
-                }
-            }
-        });
-
-        // Team Impact Chart
-        const teamCtx = document.getElementById('teamChart').getContext('2d');
-        teamChart = new Chart(teamCtx, {
-            type: 'doughnut',
-            data: {
-                labels: ['Mentored', 'Promoted', 'Hired', 'Trained'],
-                datasets: [{
-                    data: [14, 8, 9, 20],
-                    backgroundColor: [
-                        'rgba(37, 99, 235, 0.8)',
-                        'rgba(16, 185, 129, 0.8)',
-                        'rgba(245, 158, 11, 0.8)',
-                        'rgba(139, 92, 246, 0.8)'
-                    ],
-                    borderColor: '#fff',
-                    borderWidth: 3
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: {
-                    legend: {
-                        position: 'bottom',
-                        labels: {
-                            color: '#333',
-                            padding: 15,
-                            font: { size: 12 }
+                        x: {
+                            ticks: {
+                                color: '#333'
+                            },
+                            grid: { display: false }
                         }
                     }
                 }
-            }
-        });
+            });
 
-        // Time Savings Chart
-        const timeCtx = document.getElementById('timeSavingsChart').getContext('2d');
-        timeSavingsChart = new Chart(timeCtx, {
-            type: 'bar',
-            data: {
-                labels: ['Setup Automation', 'Code Review', 'Testing', 'Deployment'],
-                datasets: [{
-                    label: 'Hours Saved/Week',
-                    data: [120, 45, 85, 60],
-                    backgroundColor: 'rgba(37, 99, 235, 0.8)',
-                    borderColor: 'rgb(37, 99, 235)',
-                    borderWidth: 2,
-                    borderRadius: 8
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                indexAxis: 'y',
-                plugins: {
-                    legend: { display: false }
+            // Crash Rate Chart
+            const crashCtx = document.getElementById('crashChart').getContext('2d');
+            crashChart = new Chart(crashCtx, {
+                type: 'line',
+                data: {
+                    labels: ['Q1', 'Q2', 'Q3', 'Q4', 'Q5', 'Q6'],
+                    datasets: [{
+                        label: 'Crash Rate %',
+                        data: [15, 12, 8, 5, 3.5, 3],
+                        borderColor: 'rgb(239, 68, 68)',
+                        backgroundColor: 'rgba(239, 68, 68, 0.1)',
+                        borderWidth: 3,
+                        fill: true,
+                        tension: 0.4,
+                        pointRadius: 6,
+                        pointHoverRadius: 8,
+                        pointBackgroundColor: 'rgb(239, 68, 68)',
+                        pointBorderColor: '#fff',
+                        pointBorderWidth: 2
+                    }]
                 },
-                scales: {
-                    x: {
-                        beginAtZero: true,
-                        ticks: {
-                            callback: value => value + 'h',
-                            color: '#333'
-                        },
-                        grid: { color: 'rgba(0, 0, 0, 0.1)' }
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false }
                     },
-                    y: {
-                        ticks: {
-                            color: '#333'
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            max: 20,
+                            ticks: {
+                                callback: value => value + '%',
+                                color: '#333'
+                            },
+                            grid: { color: 'rgba(0, 0, 0, 0.1)' }
                         },
-                        grid: { display: false }
+                        x: {
+                            ticks: {
+                                color: '#333'
+                            },
+                            grid: { display: false }
+                        }
                     }
                 }
-            }
-        });
-            } else {
-                console.warn('Chart.js not loaded, skipping charts');
-            }
-        } catch (error) {
-            console.error('Error initializing charts:', error);
-        }
+            });
+
+            // Team Impact Chart
+            const teamCtx = document.getElementById('teamChart').getContext('2d');
+            teamChart = new Chart(teamCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Mentored', 'Promoted', 'Hired', 'Trained'],
+                    datasets: [{
+                        data: [14, 8, 9, 20],
+                        backgroundColor: [
+                            'rgba(37, 99, 235, 0.8)',
+                            'rgba(16, 185, 129, 0.8)',
+                            'rgba(245, 158, 11, 0.8)',
+                            'rgba(139, 92, 246, 0.8)'
+                        ],
+                        borderColor: '#fff',
+                        borderWidth: 3
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: {
+                                color: '#333',
+                                padding: 15,
+                                font: { size: 12 }
+                            }
+                        }
+                    }
+                }
+            });
+
+            // Time Savings Chart
+            const timeCtx = document.getElementById('timeSavingsChart').getContext('2d');
+            timeSavingsChart = new Chart(timeCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['Setup Automation', 'Code Review', 'Testing', 'Deployment'],
+                    datasets: [{
+                        label: 'Hours Saved/Week',
+                        data: [120, 45, 85, 60],
+                        backgroundColor: 'rgba(37, 99, 235, 0.8)',
+                        borderColor: 'rgb(37, 99, 235)',
+                        borderWidth: 2,
+                        borderRadius: 8
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    indexAxis: 'y',
+                    plugins: {
+                        legend: { display: false }
+                    },
+                    scales: {
+                        x: {
+                            beginAtZero: true,
+                            ticks: {
+                                callback: value => value + 'h',
+                                color: '#333'
+                            },
+                            grid: { color: 'rgba(0, 0, 0, 0.1)' }
+                        },
+                        y: {
+                            ticks: {
+                                color: '#333'
+                            },
+                            grid: { display: false }
+                        }
+                    }
+                }
+            });
+        } // End of initializeCharts()
 
         // ============================================
         // Typing Animation
@@ -2611,44 +2836,74 @@
 
             // Update Radar Chart
             if (typeof skillsRadarChart !== 'undefined' && skillsRadarChart) {
-                skillsRadarChart.data.datasets[0].backgroundColor = primaryColorAlpha;
-                skillsRadarChart.data.datasets[0].borderColor = primaryColor;
-                skillsRadarChart.data.datasets[0].pointBackgroundColor = primaryColor;
-                skillsRadarChart.data.datasets[0].pointHoverBorderColor = primaryColor;
-                skillsRadarChart.options.scales.r.ticks.color = textColor;
-                skillsRadarChart.options.scales.r.pointLabels.color = textColor;
-                skillsRadarChart.options.scales.r.grid.color = gridColor;
-                skillsRadarChart.update();
+                try {
+                    skillsRadarChart.data.datasets[0].backgroundColor = primaryColorAlpha;
+                    skillsRadarChart.data.datasets[0].borderColor = primaryColor;
+                    skillsRadarChart.data.datasets[0].pointBackgroundColor = primaryColor;
+                    skillsRadarChart.data.datasets[0].pointHoverBorderColor = primaryColor;
+
+                    // Only update radar-specific options if it's a radar chart (not bar chart on mobile)
+                    if (skillsRadarChart.config.type === 'radar' && skillsRadarChart.options.scales.r) {
+                        skillsRadarChart.options.scales.r.ticks.color = textColor;
+                        skillsRadarChart.options.scales.r.pointLabels.color = textColor;
+                        skillsRadarChart.options.scales.r.grid.color = gridColor;
+                    } else if (skillsRadarChart.options.scales.x && skillsRadarChart.options.scales.y) {
+                        // Update bar chart (mobile) scales
+                        skillsRadarChart.options.scales.x.ticks.color = textColor;
+                        skillsRadarChart.options.scales.y.ticks.color = textColor;
+                        skillsRadarChart.options.scales.x.grid.color = gridColor;
+                    }
+
+                    skillsRadarChart.update();
+                } catch (error) {
+                    console.warn('Failed to update skills chart theme:', error);
+                }
             }
 
             // Update Performance Chart
             if (typeof performanceChart !== 'undefined' && performanceChart) {
-                performanceChart.options.scales.y.ticks.color = textColor;
-                performanceChart.options.scales.x.ticks.color = textColor;
-                performanceChart.options.scales.y.grid.color = gridColor;
-                performanceChart.update();
+                try {
+                    performanceChart.options.scales.y.ticks.color = textColor;
+                    performanceChart.options.scales.x.ticks.color = textColor;
+                    performanceChart.options.scales.y.grid.color = gridColor;
+                    performanceChart.update();
+                } catch (error) {
+                    console.warn('Failed to update performance chart theme:', error);
+                }
             }
 
             // Update Crash Chart
             if (typeof crashChart !== 'undefined' && crashChart) {
-                crashChart.options.scales.y.ticks.color = textColor;
-                crashChart.options.scales.x.ticks.color = textColor;
-                crashChart.options.scales.y.grid.color = gridColor;
-                crashChart.update();
+                try {
+                    crashChart.options.scales.y.ticks.color = textColor;
+                    crashChart.options.scales.x.ticks.color = textColor;
+                    crashChart.options.scales.y.grid.color = gridColor;
+                    crashChart.update();
+                } catch (error) {
+                    console.warn('Failed to update crash chart theme:', error);
+                }
             }
 
             // Update Team Chart
             if (typeof teamChart !== 'undefined' && teamChart) {
-                teamChart.options.plugins.legend.labels.color = textColor;
-                teamChart.update();
+                try {
+                    teamChart.options.plugins.legend.labels.color = textColor;
+                    teamChart.update();
+                } catch (error) {
+                    console.warn('Failed to update team chart theme:', error);
+                }
             }
 
             // Update Time Savings Chart
             if (typeof timeSavingsChart !== 'undefined' && timeSavingsChart) {
-                timeSavingsChart.options.scales.x.ticks.color = textColor;
-                timeSavingsChart.options.scales.y.ticks.color = textColor;
-                timeSavingsChart.options.scales.x.grid.color = gridColor;
-                timeSavingsChart.update();
+                try {
+                    timeSavingsChart.options.scales.x.ticks.color = textColor;
+                    timeSavingsChart.options.scales.y.ticks.color = textColor;
+                    timeSavingsChart.options.scales.x.grid.color = gridColor;
+                    timeSavingsChart.update();
+                } catch (error) {
+                    console.warn('Failed to update time savings chart theme:', error);
+                }
             }
         }
 
@@ -2952,9 +3207,9 @@
                 subtitle: 'Device Provisioning Tool',
                 description: 'Automation tool that sets up new Macs for employees - installs apps, configures settings, the whole nine yards.',
                 achievements: [
-                    'Cut new employee setup time from 4 hours down to 30 minutes',
+                    'Turned a 4-hour setup process into about 30 minutes',
                     'Installs 20+ essential apps automatically without IT having to touch the machine',
-                    'Built a clean onboarding flow that reduced help desk tickets significantly',
+                    'Clean onboarding flow means way fewer help desk tickets',
                     'Added self-healing to automatically retry failed installations'
                 ],
                 technologies: ['Swift', 'AppKit', 'Bash scripting', 'URLSession', 'Combine']
@@ -2962,12 +3217,12 @@
             devices: {
                 title: 'Devices - macOS Employee Device Management',
                 subtitle: 'Real-time Device Information Portal',
-                description: 'Built native macOS application providing real-time device information for Apple employees.',
+                description: 'Native macOS app that gives employees instant access to their device info.',
                 achievements: [
-                    'Integrated with MDM APIs delivering instant access to device status, serial numbers, and application inventory',
-                    'Designed self-service portal reducing IT helpdesk requests by 35%',
-                    'Implemented real-time sync ensuring data accuracy across distributed systems',
-                    'Built with SwiftUI for modern, responsive user interface'
+                    'Connects to MDM APIs for device status, serial numbers, and what apps you have installed',
+                    'Self-service portal means people can get answers without calling IT',
+                    'Real-time sync keeps everything accurate across the system',
+                    'Built with SwiftUI for a modern, responsive interface'
                 ],
                 technologies: ['Swift', 'AppKit', 'SwiftUI', 'RESTful APIs', 'Core Data']
             },
@@ -3012,7 +3267,7 @@
                 subtitle: 'Purchase Approval Workflow System',
                 description: 'iPad POC that streamlined the purchase approval process. Turned out way better than expected.',
                 achievements: [
-                    'Turned 3-day approvals into 4-hour approvals with real-time mobile notifications',
+                    'Went from waiting days for approvals to getting them same-day with mobile notifications',
                     'Demoed it to executives and secured $500K to build the full version',
                     'Added digital signatures for secure approvals',
                     'Built PDF generation for all the purchase documents'
@@ -3237,7 +3492,7 @@
             const projectCards = document.querySelectorAll('.project-card');
             console.log('Found project cards:', projectCards.length);
 
-            projectCards.forEach((card, index) => {
+            projectCards.forEach(function(card, index) {
                 // Add indicator if not already present
                 if (!card.querySelector('.clickable-indicator')) {
                     const indicator = document.createElement('span');
@@ -3254,28 +3509,41 @@
                     const match = onclickAttr.match(/showProjectModal\('([^']+)'\)/);
                     if (match && match[1]) {
                         modalKey = match[1];
-                        console.log(`Card ${index}: Modal key = ${modalKey}`);
+                        console.log('Card ' + index + ': Modal key = ' + modalKey);
 
-                        // Remove inline onclick to prevent conflicts
-                        card.removeAttribute('onclick');
+                        // DON'T remove inline onclick - keep it as fallback for older browsers
+                        // card.removeAttribute('onclick');
 
-                        // Add universal click handler
-                        card.addEventListener('click', function(e) {
-                            e.preventDefault();
-                            e.stopPropagation();
-                            console.log(`Clicked project card: ${modalKey}`);
-                            showProjectModal(modalKey);
+                        // Track touch movement to distinguish tap from scroll
+                        var touchStartY = 0;
+                        var touchStartX = 0;
+                        var isTouchMove = false;
+
+                        card.addEventListener('touchstart', function(e) {
+                            touchStartY = e.touches[0].clientY;
+                            touchStartX = e.touches[0].clientX;
+                            isTouchMove = false;
                         });
 
-                        // Add touch handler for mobile
-                        card.addEventListener('touchstart', function(e) {
-                            console.log(`Touch started on: ${modalKey}`);
+                        card.addEventListener('touchmove', function(e) {
+                            isTouchMove = true;
                         });
 
                         card.addEventListener('touchend', function(e) {
-                            e.preventDefault();
-                            console.log(`Touch ended on: ${modalKey}`);
-                            showProjectModal(modalKey);
+                            // Only open modal if user didn't scroll
+                            if (!isTouchMove) {
+                                var touchEndY = e.changedTouches[0].clientY;
+                                var touchEndX = e.changedTouches[0].clientX;
+                                var deltaY = Math.abs(touchEndY - touchStartY);
+                                var deltaX = Math.abs(touchEndX - touchStartX);
+
+                                // Only trigger if movement is less than 10px (a tap, not a scroll)
+                                if (deltaY < 10 && deltaX < 10) {
+                                    e.preventDefault();
+                                    console.log('Tap detected on: ' + modalKey);
+                                    showProjectModal(modalKey);
+                                }
+                            }
                         });
                     }
                 }
@@ -3297,7 +3565,7 @@
             const educationCards = document.querySelectorAll('.education-card');
             console.log('Found education cards:', educationCards.length);
 
-            educationCards.forEach((card, index) => {
+            educationCards.forEach(function(card, index) {
                 // Extract modal key from onclick attribute
                 const onclickAttr = card.getAttribute('onclick');
                 let modalKey = null;
@@ -3306,28 +3574,41 @@
                     const match = onclickAttr.match(/showEducationModal\('([^']+)'\)/);
                     if (match && match[1]) {
                         modalKey = match[1];
-                        console.log(`Education card ${index}: Modal key = ${modalKey}`);
+                        console.log('Education card ' + index + ': Modal key = ' + modalKey);
 
-                        // Remove inline onclick to prevent conflicts
-                        card.removeAttribute('onclick');
+                        // DON'T remove inline onclick - keep it as fallback
+                        // card.removeAttribute('onclick');
 
-                        // Add universal click handler
-                        card.addEventListener('click', function(e) {
-                            e.preventDefault();
-                            e.stopPropagation();
-                            console.log(`Clicked education card: ${modalKey}`);
-                            showEducationModal(modalKey);
+                        // Track touch movement to distinguish tap from scroll
+                        var touchStartY = 0;
+                        var touchStartX = 0;
+                        var isTouchMove = false;
+
+                        card.addEventListener('touchstart', function(e) {
+                            touchStartY = e.touches[0].clientY;
+                            touchStartX = e.touches[0].clientX;
+                            isTouchMove = false;
                         });
 
-                        // Add touch handler for mobile
-                        card.addEventListener('touchstart', function(e) {
-                            console.log(`Touch started on education: ${modalKey}`);
+                        card.addEventListener('touchmove', function(e) {
+                            isTouchMove = true;
                         });
 
                         card.addEventListener('touchend', function(e) {
-                            e.preventDefault();
-                            console.log(`Touch ended on education: ${modalKey}`);
-                            showEducationModal(modalKey);
+                            // Only open modal if user didn't scroll
+                            if (!isTouchMove) {
+                                var touchEndY = e.changedTouches[0].clientY;
+                                var touchEndX = e.changedTouches[0].clientX;
+                                var deltaY = Math.abs(touchEndY - touchStartY);
+                                var deltaX = Math.abs(touchEndX - touchStartX);
+
+                                // Only trigger if movement is less than 10px (a tap, not a scroll)
+                                if (deltaY < 10 && deltaX < 10) {
+                                    e.preventDefault();
+                                    console.log('Tap detected on education: ' + modalKey);
+                                    showEducationModal(modalKey);
+                                }
+                            }
                         });
                     }
                 }
@@ -3347,7 +3628,7 @@
 
             // Timeline items keyboard support
             const timelineItems = document.querySelectorAll('.timeline-content');
-            timelineItems.forEach(item => {
+            timelineItems.forEach(function(item) {
                 item.setAttribute('tabindex', '0');
                 item.addEventListener('keydown', function(event) {
                     if (event.key === 'Enter' || event.key === ' ') {
@@ -3370,7 +3651,7 @@
 
             // Mobile nav links keyboard support
             const mobileNavLinks = document.querySelectorAll('.mobile-nav-menu a');
-            mobileNavLinks.forEach(link => {
+            mobileNavLinks.forEach(function(link) {
                 link.addEventListener('keydown', function(event) {
                     if (event.key === 'Enter' || event.key === ' ') {
                         event.preventDefault();
