@@ -1,46 +1,76 @@
-# Anil Kumar Thatha Venkatachalapathy - Resume
+# Anil Kumar Thatha Venkatachalapathy
 
-**Senior iOS/macOS Engineer | 13+ Years Experience**
+**Senior iOS/macOS Engineer | 13+ Years Building Apple Platform Apps**
 
-Welcome to my professional resume repository!
+Hey there! Thanks for checking out my resume. I've spent the last 13 years building iOS and macOS apps, mostly for Apple's internal teams and retail stores worldwide.
 
-## 🚀 Live Resume
+## 🌐 Live Resume
 
-View my live resume at: **[aniltv06.github.io](https://aniltv06.github.io)**
+Check out my interactive resume: **[aniltv06.github.io](https://aniltv06.github.io)**
 
-## 👨‍💻 About Me
+It's got some cool features like:
+- 3D WebGL background with floating geometric shapes
+- Interactive charts showing my impact (crash rate reductions, performance improvements, etc.)
+- Dark mode and even a retro "terminal mode" theme
+- Responsive design that works great on mobile
 
-Senior Software Engineer with 13+ years of expertise building enterprise-scale iOS and macOS applications serving 100,000+ users. Expert in Swift, Objective-C, and Apple frameworks with a proven track record of delivering high-impact features.
+## 👨‍💻 What I Do
 
-### Key Highlights:
-- 🎯 Built AI-powered repair management system used in all Apple Retail Stores worldwide
-- 📱 Reduced app crash rates by 80% and improved launch time by 70%
-- 🤖 Integrated on-device foundation models and LLM for intelligent diagnostics
-- 👥 Led and mentored teams of 8+ engineers
-- 🏆 Delivered 15+ production applications with 98% crash-free rate
+I'm an iOS and macOS engineer who loves solving complex problems with Swift and integrating AI/ML features into production apps. Currently working at TCS America on apps used by Apple Retail stores and internal teams.
 
-## 🛠️ Technical Skills
+### Some things I'm proud of:
 
-**Languages & Frameworks:** Swift, Objective-C, Python, UIKit, AppKit, SwiftUI, Combine
+- **Built the Genius Bar repair system** used in every Apple Store worldwide - added AI features for diagnostics and made it way faster
+- **Brought crash rates down** from 15% to 3% through better testing and CI/CD practices
+- **Made apps launch significantly faster** using Instruments profiling and targeted optimizations
+- **Led offshore teams of 8+ engineers** - love mentoring and seeing people grow
+- **Shipped 15+ production apps** over my career, from enterprise tools to customer-facing applications
 
-**AI/ML:** On-device Foundation Models, Core ML, LLM Integration, Natural Language Processing
+## 🛠️ Tech Stack
 
-**Architecture:** MVVM, VIPER, Clean Architecture, Protocol-Oriented Programming
+**Languages:** Swift (my favorite!), Objective-C, Python, Bash
 
-**Tools:** Xcode, Git, Fastlane, Jenkins, XCTest, Instruments
+**Apple Frameworks:** UIKit, AppKit, SwiftUI, Combine, Core ML, Vision, CloudKit
 
-## 📫 Contact
+**AI/ML:** On-device Foundation Models, LLM Integration, Core ML model optimization
 
+**Architecture:** MVVM, Clean Architecture, Protocol-Oriented Programming, System Design
+
+**DevOps:** Xcode, Git, Fastlane, Jenkins, XCTest, Instruments, CI/CD pipelines
+
+## 💼 Current Focus
+
+Right now I'm working on:
+- Integrating on-device AI models into production apps
+- Leading technical architecture decisions for enterprise-scale applications
+- Mentoring junior developers and improving team workflows
+- Building automation tools that save hours of manual work
+
+## 📫 Let's Connect
+
+- **Email:** aniltv06@gmail.com
 - **LinkedIn:** [linkedin.com/in/anilthatha](https://www.linkedin.com/in/anilthatha/)
 - **GitHub:** [github.com/aniltv06](https://github.com/aniltv06)
 - **Blog:** [swiftbytes.blogspot.com](https://swiftbytes.blogspot.com)
 
 ## 🎓 Education
 
-- **M.S. in Computer Science** - Asia University, Taiwan (2014)
-- **B.E. in Electronics & Communication** - Visvesvaraya Technological University, India (2010)
+- **M.S. in Computer Science & Information Engineering** - Asia University, Taiwan (2014)
+  - Thesis research on nano-imprint lithography and GaN nanowire transistors
+- **B.E. in Electronics & Communication Engineering** - Visvesvaraya Technological University, India (2010)
+  - First Class with Distinction (75%)
+
+## 🚀 Why This Resume Site?
+
+I wanted to create something more interactive than a PDF. The website showcases not just what I've done, but also demonstrates my technical skills:
+- Modern web development with vanilla JavaScript
+- Responsive design without frameworks
+- Performance optimization (lazy-loading libraries, efficient rendering)
+- 3D graphics using Three.js
+- Data visualization with Chart.js
 
 ---
 
-📄 **Download PDF:** [View formatted resume](https://aniltv06.github.io)
+📄 **Download PDF Resume:** [Anil_Thatha-Resume.pdf](https://aniltv06.github.io/Anil_Thatha-Resume.pdf)
 
+💡 Feel free to fork this repo if you want to create your own interactive resume!

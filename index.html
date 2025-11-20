@@ -1618,7 +1618,7 @@
                 <a onclick="scrollToSection('timeline')" role="button" tabindex="0" aria-label="Navigate to timeline section">Timeline</a>
             </div>
             <div class="btn-group">
-                <a href="Anil_Thatha-Resume.pdf" download class="btn" style="text-decoration: none; display: inline-block;" aria-label="Download resume PDF">📥 Download PDF</a>
+                <a href="Anil_Thatha-Resume.pdf" download class="btn" style="text-decoration: none; display: inline-block;" aria-label="Download resume PDF" onclick="trackEvent('pdf_download', {button: 'download_pdf', location: 'navbar'});">📥 Download PDF</a>
                 <button class="btn" onclick="toggleDarkMode()" aria-label="Toggle dark mode">🌙 Dark</button>
                 <div class="hamburger" onclick="toggleMobileMenu()" role="button" tabindex="0" aria-label="Toggle mobile menu">
                     <span></span>
@@ -1637,7 +1637,7 @@
         <a onclick="scrollToSection('impact'); closeMobileMenu();" role="button" tabindex="0">Impact</a>
         <a onclick="scrollToSection('experience'); closeMobileMenu();" role="button" tabindex="0">Experience</a>
         <a onclick="scrollToSection('timeline'); closeMobileMenu();" role="button" tabindex="0">Timeline</a>
-        <a href="Anil_Thatha-Resume.pdf" download style="color: var(--primary-color); font-weight: 600;">📥 Download PDF</a>
+        <a href="Anil_Thatha-Resume.pdf" download style="color: var(--primary-color); font-weight: 600;" onclick="trackEvent('pdf_download', {button: 'download_pdf', location: 'mobile_nav'});">📥 Download PDF</a>
     </div>
 
     <div class="container">
@@ -1646,10 +1646,10 @@
             <h1>ANIL KUMAR THATHA VENKATACHALAPATHY</h1>
             <div class="typing-text" id="typing-text"></div>
             <div class="contact-info">
-                Elk Grove, CA · +1 (408) 642-0192 · <a href="mailto:aniltv06@gmail.com" aria-label="Email Anil">aniltv06@gmail.com</a><br>
-                <a href="https://www.linkedin.com/in/anilthatha/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile (opens in new tab)">LinkedIn</a> ·
-                <a href="https://github.com/aniltv06" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile (opens in new tab)">GitHub</a> ·
-                <a href="https://swiftbytes.blogspot.com" target="_blank" rel="noopener noreferrer" aria-label="Blog (opens in new tab)">Blog</a>
+                Elk Grove, CA · +1 (408) 642-0192 · <a href="mailto:aniltv06@gmail.com" aria-label="Email Anil" onclick="trackEvent('email_click', {location: 'hero_contact'});">aniltv06@gmail.com</a><br>
+                <a href="https://www.linkedin.com/in/anilthatha/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile (opens in new tab)" onclick="trackEvent('external_link_click', {platform: 'linkedin', location: 'hero'});">LinkedIn</a> ·
+                <a href="https://github.com/aniltv06" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile (opens in new tab)" onclick="trackEvent('external_link_click', {platform: 'github', location: 'hero'});">GitHub</a> ·
+                <a href="https://swiftbytes.blogspot.com" target="_blank" rel="noopener noreferrer" aria-label="Blog (opens in new tab)" onclick="trackEvent('external_link_click', {platform: 'blog', location: 'hero'});">Blog</a>
             </div>
 
             <!-- Professional Summary -->
@@ -1659,10 +1659,10 @@
 
             <!-- CTA Buttons -->
             <div class="hero-cta">
-                <a href="mailto:aniltv06@gmail.com?subject=Opportunity%20for%20iOS%2FmacOS%20Engineer&body=Hi%20Anil%2C%0A%0AI%20came%20across%20your%20resume%20and%20would%20like%20to%20discuss%20a%20potential%20opportunity.%0A%0ACompany%3A%20%0ARole%3A%20%0A%0ALooking%20forward%20to%20connecting!%0A%0ABest%20regards" class="btn btn-primary" aria-label="Send email to Anil">
+                <a href="mailto:aniltv06@gmail.com?subject=Opportunity%20for%20iOS%2FmacOS%20Engineer&body=Hi%20Anil%2C%0A%0AI%20came%20across%20your%20resume%20and%20would%20like%20to%20discuss%20a%20potential%20opportunity.%0A%0ACompany%3A%20%0ARole%3A%20%0A%0ALooking%20forward%20to%20connecting!%0A%0ABest%20regards" class="btn btn-primary" aria-label="Send email to Anil" onclick="trackEvent('cta_click', {button: 'get_in_touch', location: 'hero'});">
                     ✉️ Get In Touch
                 </a>
-                <a href="Anil_Thatha-Resume.pdf" download class="btn btn-secondary" aria-label="Download resume PDF">
+                <a href="Anil_Thatha-Resume.pdf" download class="btn btn-secondary" aria-label="Download resume PDF" onclick="trackEvent('pdf_download', {button: 'download_resume', location: 'hero'});">
                     📥 Download Resume
                 </a>
             </div>
@@ -2198,22 +2198,22 @@
         <button class="fab back-to-top" onclick="scrollToTop()" aria-label="Back to top" title="Back to top">
             ↑
         </button>
-        <a href="mailto:aniltv06@gmail.com?subject=Opportunity%20for%20iOS%2FmacOS%20Engineer&body=Hi%20Anil%2C%0A%0AI%20came%20across%20your%20resume%20and%20would%20like%20to%20discuss%20a%20potential%20opportunity.%0A%0ACompany%3A%20%0ARole%3A%20%0A%0ALooking%20forward%20to%20connecting!%0A%0ABest%20regards" class="fab" aria-label="Contact via email" title="Email me">
+        <a href="mailto:aniltv06@gmail.com?subject=Opportunity%20for%20iOS%2FmacOS%20Engineer&body=Hi%20Anil%2C%0A%0AI%20came%20across%20your%20resume%20and%20would%20like%20to%20discuss%20a%20potential%20opportunity.%0A%0ACompany%3A%20%0ARole%3A%20%0A%0ALooking%20forward%20to%20connecting!%0A%0ABest%20regards" class="fab" aria-label="Contact via email" title="Email me" onclick="trackEvent('email_click', {location: 'floating_action_button'});">
             ✉
         </a>
     </div>
 
     <!-- Social Share Buttons -->
     <div class="social-share">
-        <a href="https://www.linkedin.com/in/anilthatha/" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="LinkedIn profile" title="LinkedIn">
+        <a href="https://www.linkedin.com/in/anilthatha/" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="LinkedIn profile" title="LinkedIn" onclick="trackEvent('external_link_click', {platform: 'linkedin', location: 'sidebar'});">
             in
         </a>
-        <a href="https://github.com/aniltv06" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="GitHub profile" title="GitHub">
+        <a href="https://github.com/aniltv06" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="GitHub profile" title="GitHub" onclick="trackEvent('external_link_click', {platform: 'github', location: 'sidebar'});">
             <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
                 <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
             </svg>
         </a>
-        <a href="https://twitter.com/intent/tweet?url=https://aniltv06.github.io&text=Check%20out%20this%20amazing%20resume!" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Share on Twitter" title="Share on Twitter">
+        <a href="https://twitter.com/intent/tweet?url=https://aniltv06.github.io&text=Check%20out%20this%20amazing%20resume!" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Share on Twitter" title="Share on Twitter" onclick="trackEvent('social_share_click', {platform: 'twitter', location: 'sidebar'});">
             𝕏
         </a>
         <button onclick="shareResume()" class="social-btn" aria-label="Share resume" title="Share">
@@ -2763,6 +2763,163 @@
         type();
 
         // ============================================
+        // Analytics Tracking Helper Functions
+        // ============================================
+        function trackEvent(eventName, eventParams) {
+            try {
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', eventName, eventParams);
+                    console.log('Analytics Event:', eventName, eventParams);
+                }
+            } catch (error) {
+                console.warn('Analytics tracking failed:', error);
+            }
+        }
+
+        // Track page performance metrics (Core Web Vitals)
+        function trackPerformanceMetrics() {
+            try {
+                // Track page load time
+                window.addEventListener('load', function() {
+                    setTimeout(function() {
+                        var perfData = window.performance.timing;
+                        var pageLoadTime = perfData.loadEventEnd - perfData.navigationStart;
+                        var dnsTime = perfData.domainLookupEnd - perfData.domainLookupStart;
+                        var serverTime = perfData.responseEnd - perfData.requestStart;
+                        var domLoadTime = perfData.domContentLoadedEventEnd - perfData.navigationStart;
+
+                        trackEvent('page_performance', {
+                            page_load_time: pageLoadTime,
+                            dns_time: dnsTime,
+                            server_time: serverTime,
+                            dom_load_time: domLoadTime
+                        });
+                    }, 0);
+                });
+
+                // Track Core Web Vitals if available
+                if ('PerformanceObserver' in window) {
+                    // Largest Contentful Paint (LCP)
+                    try {
+                        var lcpObserver = new PerformanceObserver(function(list) {
+                            var entries = list.getEntries();
+                            var lastEntry = entries[entries.length - 1];
+                            trackEvent('web_vitals_lcp', {
+                                value: Math.round(lastEntry.renderTime || lastEntry.loadTime),
+                                metric: 'LCP'
+                            });
+                        });
+                        lcpObserver.observe({entryTypes: ['largest-contentful-paint']});
+                    } catch (e) {}
+
+                    // First Input Delay (FID)
+                    try {
+                        var fidObserver = new PerformanceObserver(function(list) {
+                            var entries = list.getEntries();
+                            entries.forEach(function(entry) {
+                                trackEvent('web_vitals_fid', {
+                                    value: Math.round(entry.processingStart - entry.startTime),
+                                    metric: 'FID'
+                                });
+                            });
+                        });
+                        fidObserver.observe({entryTypes: ['first-input']});
+                    } catch (e) {}
+
+                    // Cumulative Layout Shift (CLS)
+                    try {
+                        var clsValue = 0;
+                        var clsObserver = new PerformanceObserver(function(list) {
+                            var entries = list.getEntries();
+                            entries.forEach(function(entry) {
+                                if (!entry.hadRecentInput) {
+                                    clsValue += entry.value;
+                                }
+                            });
+                        });
+                        clsObserver.observe({entryTypes: ['layout-shift']});
+
+                        // Send CLS on page hide
+                        document.addEventListener('visibilitychange', function() {
+                            if (document.visibilityState === 'hidden') {
+                                trackEvent('web_vitals_cls', {
+                                    value: Math.round(clsValue * 1000) / 1000,
+                                    metric: 'CLS'
+                                });
+                            }
+                        });
+                    } catch (e) {}
+                }
+            } catch (error) {
+                console.warn('Performance tracking failed:', error);
+            }
+        }
+
+        // Track JavaScript errors
+        window.addEventListener('error', function(event) {
+            trackEvent('javascript_error', {
+                error_message: event.message,
+                error_file: event.filename,
+                error_line: event.lineno,
+                error_column: event.colno
+            });
+        });
+
+        // Track library load failures
+        window.addEventListener('unhandledrejection', function(event) {
+            trackEvent('promise_rejection', {
+                reason: event.reason ? event.reason.toString() : 'Unknown'
+            });
+        });
+
+        // Track scroll depth
+        var scrollDepthTracked = {
+            '25': false,
+            '50': false,
+            '75': false,
+            '100': false
+        };
+
+        function trackScrollDepth() {
+            var scrollPercentage = Math.round((window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100);
+
+            if (scrollPercentage >= 25 && !scrollDepthTracked['25']) {
+                scrollDepthTracked['25'] = true;
+                trackEvent('scroll_depth', { depth: '25%' });
+            }
+            if (scrollPercentage >= 50 && !scrollDepthTracked['50']) {
+                scrollDepthTracked['50'] = true;
+                trackEvent('scroll_depth', { depth: '50%' });
+            }
+            if (scrollPercentage >= 75 && !scrollDepthTracked['75']) {
+                scrollDepthTracked['75'] = true;
+                trackEvent('scroll_depth', { depth: '75%' });
+            }
+            if (scrollPercentage >= 95 && !scrollDepthTracked['100']) {
+                scrollDepthTracked['100'] = true;
+                trackEvent('scroll_depth', { depth: '100%' });
+            }
+        }
+
+        var scrollDebounceTimer;
+        window.addEventListener('scroll', function() {
+            clearTimeout(scrollDebounceTimer);
+            scrollDebounceTimer = setTimeout(trackScrollDepth, 100);
+        });
+
+        // Initialize performance tracking
+        trackPerformanceMetrics();
+
+        // Track initial page view with additional context
+        trackEvent('page_view', {
+            page_title: document.title,
+            page_location: window.location.href,
+            screen_width: window.innerWidth,
+            screen_height: window.innerHeight,
+            user_agent: navigator.userAgent
+        });
+
+        // ============================================
         // Counter Animation
         // ============================================
         function animateCounter(element) {
@@ -2914,11 +3071,14 @@
             const body = document.body;
             const btn = event.target;
 
+            var newTheme;
+
             // Cycle through: light -> dark -> terminal -> light
             if (body.classList.contains('terminal-mode')) {
                 // Terminal -> Light
                 body.classList.remove('terminal-mode');
                 btn.textContent = '🌙 Dark';
+                newTheme = 'light';
                 try {
                     localStorage.setItem('theme', 'light');
                 } catch (e) {}
@@ -2928,6 +3088,7 @@
                 body.classList.remove('dark-mode');
                 body.classList.add('terminal-mode');
                 btn.textContent = '☀️ Light';
+                newTheme = 'terminal';
                 try {
                     localStorage.setItem('theme', 'terminal');
                 } catch (e) {}
@@ -2936,11 +3097,19 @@
                 // Light -> Dark
                 body.classList.add('dark-mode');
                 btn.textContent = '💻 Terminal';
+                newTheme = 'dark';
                 try {
                     localStorage.setItem('theme', 'dark');
                 } catch (e) {}
                 updateChartsForTheme('dark');
             }
+
+            // Track theme change
+            trackEvent('theme_change', {
+                theme: newTheme,
+                from_theme: body.classList.contains('terminal-mode') ? 'terminal' :
+                           body.classList.contains('dark-mode') ? 'dark' : 'light'
+            });
         }
 
         // Load theme preference
@@ -2973,6 +3142,12 @@
         // Smooth Scroll
         // ============================================
         function scrollToSection(id) {
+            // Track navigation click
+            trackEvent('navigation_click', {
+                section: id,
+                section_name: id.charAt(0).toUpperCase() + id.slice(1)
+            });
+
             document.getElementById(id).scrollIntoView({
                 behavior: 'smooth',
                 block: 'start'
@@ -2980,6 +3155,10 @@
         }
 
         function scrollToTop() {
+            trackEvent('scroll_to_top', {
+                from_position: window.scrollY
+            });
+
             window.scrollTo({
                 top: 0,
                 behavior: 'smooth'
@@ -3018,13 +3197,26 @@
             try {
                 if (navigator.share) {
                     await navigator.share(shareData);
+                    trackEvent('share', {
+                        method: 'native_share',
+                        success: true
+                    });
                 } else {
                     // Fallback: Copy to clipboard
                     await navigator.clipboard.writeText(shareData.url);
                     alert('Link copied to clipboard!');
+                    trackEvent('share', {
+                        method: 'clipboard',
+                        success: true
+                    });
                 }
             } catch (err) {
                 console.log('Error sharing:', err);
+                trackEvent('share', {
+                    method: navigator.share ? 'native_share' : 'clipboard',
+                    success: false,
+                    error: err.toString()
+                });
             }
         }
 
@@ -3149,6 +3341,12 @@
                 console.error('Education data not available for:', educationKey);
                 return;
             }
+
+            // Track education modal view
+            trackEvent('education_modal_view', {
+                education_key: educationKey,
+                education_title: educationData[educationKey].title
+            });
 
             const education = educationData[educationKey];
             const modalBody = document.getElementById('modalBody');
@@ -3414,6 +3612,12 @@
                 return;
             }
 
+            // Track project modal view
+            trackEvent('project_modal_view', {
+                project_key: projectKey,
+                project_title: projectData[projectKey].title
+            });
+
             const project = projectData[projectKey];
             const modal = document.getElementById('projectModal');
             const modalBody = document.getElementById('modalBody');
@@ -3437,6 +3641,10 @@
         }
 
         function closeModal() {
+            trackEvent('modal_close', {
+                action: 'close_button_clicked'
+            });
+
             document.getElementById('projectModal').style.display = 'none';
             document.body.style.overflow = 'auto';
         }
