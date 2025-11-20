@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-site-verification" content="5oz9FT_Li4mZ2d3dGt62HNjMcZd-35MeCmP7gG5xqo4" />
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Senior iOS/macOS Engineer with 13+ years building enterprise-scale applications. Expert in Swift, SwiftUI, AI/ML integration. Built systems used in Apple Retail Stores worldwide." />
+    <meta name="keywords" content="iOS Engineer, macOS Engineer, Swift Developer, SwiftUI, iOS Architect, Senior iOS Developer, Mobile Engineer, Apple Developer, AI ML Engineer" />
+    <meta name="author" content="Anil Kumar Thatha Venkatachalapathy" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://aniltv06.github.io/" />
+    <meta property="og:title" content="Anil Thatha - Senior iOS/macOS Engineer" />
+    <meta property="og:description" content="Senior iOS/macOS Engineer with 13+ years experience. Expert in Swift, SwiftUI, AI/ML. Built systems for Apple Retail Stores worldwide." />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://aniltv06.github.io/" />
+    <meta property="twitter:title" content="Anil Thatha - Senior iOS/macOS Engineer" />
+    <meta property="twitter:description" content="Senior iOS/macOS Engineer with 13+ years experience. Expert in Swift, SwiftUI, AI/ML." />
+
+    <title>Anil Kumar Thatha Venkatachalapathy - Resume</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #ffffff;
+            padding: 35px 25px;
+            max-width: 8.5in;
+            margin: 0 auto;
+        }
+
+        /* Header Section */
+        .header {
+            text-align: center;
+            margin-bottom: 25px;
+            border-bottom: 4px solid #2563eb;
+            padding-bottom: 18px;
+            background: linear-gradient(to bottom, #ffffff 0%, #f8fafc 100%);
+            padding-top: 15px;
+            border-radius: 8px 8px 0 0;
+        }
+
+        .header h1 {
+            font-size: 34px;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+        }
+
+        .contact-info {
+            font-size: 14px;
+            color: #64748b;
+            margin-top: 8px;
+            line-height: 1.8;
+        }
+
+        .contact-info a {
+            color: #2563eb;
+            text-decoration: none;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        .title-role {
+            font-size: 18px;
+            font-weight: 600;
+            color: #2563eb;
+            margin-top: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        /* Summary Section */
+        .summary {
+            background: linear-gradient(135deg, #f8fafc 0%, #e0f2fe 100%);
+            padding: 18px 20px;
+            border-left: 5px solid #2563eb;
+            margin-bottom: 25px;
+            border-radius: 6px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .summary p {
+            font-size: 15px;
+            color: #475569;
+            line-height: 1.7;
+        }
+
+        /* Section Titles */
+        .section {
+            margin-bottom: 25px;
+            page-break-inside: avoid;
+        }
+
+        .section-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 16px;
+            padding-bottom: 8px;
+            border-bottom: 3px solid #2563eb;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 80px;
+            height: 3px;
+            background: #60a5fa;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            margin-bottom: 15px;
+        }
+
+        .skill-category {
+            background: #ffffff;
+            padding: 16px;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .skill-category:hover {
+            border-color: #2563eb;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .skill-category h3 {
+            font-size: 13px;
+            font-weight: 700;
+            color: #2563eb;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #e0f2fe;
+        }
+
+        .skill-category p {
+            font-size: 13px;
+            color: #475569;
+            line-height: 1.6;
+            margin-bottom: 4px;
+        }
+
+        .skill-category p strong {
+            color: #1e293b;
+            font-weight: 600;
+        }
+
+        /* Experience Section */
+        .job {
+            margin-bottom: 28px;
+            page-break-inside: avoid;
+            border-left: 3px solid #e2e8f0;
+            padding-left: 20px;
+            transition: border-color 0.3s ease;
+        }
+
+        .job:hover {
+            border-left-color: #2563eb;
+        }
+
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 10px;
+        }
+
+        .job-title {
+            font-size: 17px;
+            font-weight: 700;
+            color: #1e293b;
+        }
+
+        .company {
+            font-weight: 700;
+            color: #2563eb;
+            font-size: 17px;
+        }
+
+        .job-duration {
+            font-size: 14px;
+            color: #64748b;
+            font-style: italic;
+        }
+
+        .job-description {
+            font-size: 14px;
+            color: #475569;
+            margin-bottom: 12px;
+            line-height: 1.6;
+        }
+
+        .achievements-title {
+            font-size: 14px;
+            font-weight: 700;
+            color: #1e293b;
+            margin: 12px 0 8px 0;
+        }
+
+        .job ul {
+            margin-left: 20px;
+            margin-bottom: 12px;
+        }
+
+        .job li {
+            font-size: 13px;
+            color: #475569;
+            margin-bottom: 6px;
+            line-height: 1.6;
+        }
+
+        .project {
+            margin-top: 16px;
+            padding-left: 18px;
+            border-left: 3px solid #60a5fa;
+            background: #f8fafc;
+            padding: 14px;
+            padding-left: 18px;
+            border-radius: 4px;
+            margin-bottom: 12px;
+        }
+
+        .project-title {
+            font-size: 15px;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 8px;
+        }
+
+        .project ul {
+            margin-left: 20px;
+        }
+
+        .project li {
+            font-size: 13px;
+            color: #475569;
+            margin-bottom: 4px;
+        }
+
+        .technologies {
+            font-size: 12px;
+            color: #2563eb;
+            margin-top: 10px;
+            font-style: italic;
+            font-weight: 500;
+            background: #e0f2fe;
+            padding: 6px 10px;
+            border-radius: 4px;
+            display: inline-block;
+        }
+
+        /* Education Section */
+        .education-item {
+            margin-bottom: 18px;
+            padding: 14px;
+            background: #f8fafc;
+            border-left: 4px solid #2563eb;
+            border-radius: 4px;
+        }
+
+        .degree {
+            font-size: 16px;
+            font-weight: 600;
+            color: #1e293b;
+        }
+
+        .school {
+            font-size: 15px;
+            color: #2563eb;
+            font-weight: 600;
+        }
+
+        .year {
+            font-size: 14px;
+            color: #64748b;
+            float: right;
+            font-weight: 600;
+        }
+
+        .education-note {
+            font-size: 13px;
+            color: #64748b;
+            font-style: italic;
+            margin-top: 6px;
+        }
+
+        /* Additional Info */
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 10px;
+        }
+
+        .info-item {
+            font-size: 14px;
+            color: #475569;
+            padding: 10px;
+            background: #f8fafc;
+            border-left: 3px solid #60a5fa;
+            border-radius: 4px;
+        }
+
+        .info-item strong {
+            color: #1e293b;
+            font-weight: 600;
+        }
+
+        /* Print Styles */
+        @media print {
+            body {
+                padding: 0;
+                max-width: 100%;
+                line-height: 1.4;
+            }
+
+            .header {
+                margin-bottom: 12px;
+                padding-bottom: 10px;
+                background: white !important;
+                box-shadow: none;
+                padding-top: 0;
+            }
+
+            .header h1 {
+                font-size: 28px;
+                margin-bottom: 5px;
+            }
+
+            .contact-info {
+                font-size: 12px;
+                line-height: 1.4;
+            }
+
+            .title-role {
+                font-size: 14px;
+                margin-top: 6px;
+            }
+
+            .summary {
+                padding: 10px 12px;
+                margin-bottom: 12px;
+                page-break-inside: avoid;
+                background: white !important;
+                box-shadow: none;
+            }
+
+            .summary p {
+                font-size: 13px;
+                line-height: 1.4;
+            }
+
+            .section {
+                margin-bottom: 14px;
+                page-break-inside: avoid;
+            }
+
+            .section-title {
+                font-size: 16px;
+                margin-bottom: 10px;
+                padding-bottom: 5px;
+                page-break-after: avoid;
+            }
+
+            .section-title::after {
+                display: none;
+            }
+
+            .skills-grid {
+                gap: 8px;
+                margin-bottom: 10px;
+                page-break-inside: avoid;
+            }
+
+            .skill-category {
+                padding: 8px 10px;
+                page-break-inside: avoid;
+                box-shadow: none;
+                border: 1px solid #cbd5e1;
+            }
+
+            .skill-category:hover {
+                transform: none;
+            }
+
+            .skill-category h3 {
+                font-size: 11px;
+                margin-bottom: 6px;
+                padding-bottom: 4px;
+            }
+
+            .skill-category p {
+                font-size: 10px;
+                line-height: 1.3;
+                margin-bottom: 2px;
+            }
+
+            .skill-category p strong {
+                font-size: 10px;
+            }
+
+            .job {
+                page-break-inside: avoid;
+                margin-bottom: 20px;
+            }
+
+            .project {
+                page-break-inside: avoid;
+                background: white !important;
+            }
+
+            .technologies {
+                background: white !important;
+                border: 1px solid #cbd5e1;
+            }
+
+            .education-item {
+                background: white !important;
+            }
+
+            .info-item {
+                background: white !important;
+            }
+
+            a {
+                color: #1e293b;
+                text-decoration: none;
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .job-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div class="header">
+        <h1>ANIL KUMAR THATHA VENKATACHALAPATHY</h1>
+        <div class="contact-info">
+            Elk Grove, CA · +1 (408) 642-0192 · <a href="mailto:aniltv06@gmail.com">aniltv06@gmail.com</a><br>
+            <a href="https://www.linkedin.com/in/anilthatha/" target="_blank">linkedin.com/in/anilthatha</a> ·
+            <a href="https://github.com/aniltv06" target="_blank">github.com/aniltv06</a> ·
+            <a href="https://swiftbytes.blogspot.com" target="_blank">swiftbytes.blogspot.com</a>
+        </div>
+        <div class="title-role">Senior Software Engineer - iOS, macOS & Frameworks</div>
+    </div>
+
+    <!-- Summary -->
+    <div class="summary">
+        <p>Results-driven Senior Software Engineer with 13+ years of expertise building enterprise-scale iOS and macOS applications serving 100,000+ users. Proven track record leading cross-functional teams of 6+ developers while delivering high-impact features that improved performance by up to 70% and user satisfaction by 25%. Expert in Swift and Objective-C with deep knowledge of Apple frameworks, architectural patterns, and modern development practices. Successfully shipped 15+ production applications while mentoring junior developers and establishing engineering best practices across organizations.</p>
+    </div>
+
+    <!-- Technical Skills -->
+    <div class="section">
+        <h2 class="section-title">Technical Skills</h2>
+
+        <div class="skills-grid">
+            <div class="skill-category">
+                <h3>Languages & Frameworks</h3>
+                <p><strong>Languages:</strong> Swift, Objective-C, Python, Bash, SQL</p>
+                <p><strong>iOS/macOS:</strong> UIKit, AppKit, SwiftUI, Combine, Core Data, Core Animation, Core Graphics</p>
+                <p><strong>Advanced:</strong> Core ML, ARKit, Metal, Vision, NaturalLanguage</p>
+                <p><strong>AI & ML:</strong> On-device Foundation Models, LLM Integration, AI-assisted Development, Natural Language Processing</p>
+                <p><strong>Networking:</strong> URLSession, RESTful APIs, WebSockets, XPC</p>
+            </div>
+
+            <div class="skill-category">
+                <h3>Architecture & Design</h3>
+                <p><strong>Patterns:</strong> MVVM, MVP, VIPER, Clean Architecture, MVC</p>
+                <p><strong>Design Patterns:</strong> Singleton, Factory, Observer, Delegate, Coordinator</p>
+                <p><strong>Principles:</strong> Dependency Injection, Protocol-Oriented Programming</p>
+            </div>
+
+            <div class="skill-category">
+                <h3>Development & Tools</h3>
+                <p><strong>IDEs:</strong> Xcode, Visual Studio Code</p>
+                <p><strong>Version Control:</strong> Git, GitHub, Bitbucket</p>
+                <p><strong>Package Management:</strong> SPM, CocoaPods, Carthage</p>
+                <p><strong>CI/CD:</strong> Fastlane, Jenkins, GitHub Actions, Xcode Cloud</p>
+                <p><strong>Code Quality:</strong> SwiftLint, SwiftFormat, Code Coverage</p>
+            </div>
+
+            <div class="skill-category">
+                <h3>Testing & Quality Assurance</h3>
+                <p><strong>Testing:</strong> XCTest, TDD, XCUITest, Snapshot Testing</p>
+                <p><strong>Performance:</strong> Instruments, Memory Profiling, Time Profiler, Allocations</p>
+                <p><strong>Debugging:</strong> LLDB, Breakpoints, Memory Graph Debugger</p>
+            </div>
+
+            <div class="skill-category">
+                <h3>Database & Storage</h3>
+                <p>SQLite, Core Data, Realm, MySQL, UserDefaults, Keychain Services, File System</p>
+            </div>
+
+            <div class="skill-category">
+                <h3>Security & Compliance</h3>
+                <p>Keychain Services, Certificate Pinning, App Transport Security, Data Encryption, Secure Storage, Authentication/Authorization</p>
+            </div>
+
+            <div class="skill-category">
+                <h3>Additional Skills</h3>
+                <p><strong>Accessibility:</strong> VoiceOver, Dynamic Type, Accessibility Inspector</p>
+                <p><strong>Localization:</strong> Internationalization (i18n), String Catalogs</p>
+                <p><strong>Analytics:</strong> Firebase, Crashlytics, App Analytics</p>
+            </div>
+
+            <div class="skill-category">
+                <h3>Tools & Platforms</h3>
+                <p><strong>Design:</strong> Sketch, Adobe XD, Figma</p>
+                <p><strong>Project Management:</strong> JIRA, Confluence, Agile/Scrum</p>
+                <p><strong>Distribution:</strong> TestFlight, App Store Connect, Enterprise Distribution</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Professional Experience -->
+    <div class="section">
+        <h2 class="section-title">Professional Experience</h2>
+
+        <!-- TCS America -->
+        <div class="job">
+            <div class="job-header">
+                <div>
+                    <span class="company">TCS America</span> | <span class="job-title">Lead Engineer</span>
+                </div>
+                <div class="job-duration">June 2021 - Present</div>
+            </div>
+
+            <p class="job-description">Led engineering initiatives for enterprise iOS and macOS applications serving Apple Retail and internal teams. Managed offshore development teams of 8+ engineers while driving architecture decisions, code quality standards, and delivery timelines. Collaborated with product managers, designers, and stakeholders to deliver mission-critical features impacting retail employees worldwide.</p>
+
+            <p class="achievements-title">Key Achievements:</p>
+            <ul>
+                <li>Reduced application crash rate by 80% (from 15% to 3%) through implementation of comprehensive unit testing (85% code coverage) and automated CI/CD pipelines using Fastlane</li>
+                <li>Improved app launch time by 70% through performance profiling and optimization of Core Data stack and network layer</li>
+                <li>Leveraged AI-assisted development and LLM integration to accelerate feature development by 40%, including code generation, automated testing, and intelligent code reviews</li>
+                <li>Led migration of 3 legacy Objective-C applications to Swift, reducing codebase by 25% while improving maintainability</li>
+                <li>Established code review standards and architectural guidelines adopted across 4 development teams</li>
+                <li>Mentored 6 junior developers, with 3 promoted to mid-level roles within 18 months</li>
+            </ul>
+
+            <p class="achievements-title">Notable Projects:</p>
+
+            <div class="project">
+                <p class="project-title">Genius (iOS) & RepairCentral (macOS) - Retail Repair Management Platform</p>
+                <ul>
+                    <li>Architected and developed comprehensive repair management system used by Genius Bar employees across all Apple Retail Stores worldwide</li>
+                    <li>Integrated on-device foundation models for intelligent repair recommendations and natural language diagnostic assistance, reducing average diagnosis time by 35%</li>
+                    <li>Implemented real-time sync between iOS and macOS applications using CloudKit, reducing data conflicts by 90%</li>
+                    <li>Designed intuitive UI/UX reducing average repair creation time from 5 minutes to 2 minutes, improving customer satisfaction scores by 25%</li>
+                    <li>Built robust offline-first architecture ensuring 99.9% uptime even in poor network conditions</li>
+                </ul>
+                <p class="technologies">Technologies: Swift, SwiftUI, Core Data, CloudKit, Core ML, On-device Foundation Models, MVVM architecture, XCTest</p>
+            </div>
+
+            <div class="project">
+                <p class="project-title">Disclosed - Classified macOS Security Application</p>
+                <ul>
+                    <li>Led development of classified security application using proprietary internal frameworks and private APIs for macOS</li>
+                    <li>Implemented military-grade encryption and security protocols in collaboration with Apple Security teams</li>
+                    <li>Managed full SDLC from requirements gathering through deployment for application handling sensitive internal data</li>
+                    <li>Achieved 100% compliance with security audits and zero security incidents in production</li>
+                </ul>
+                <p class="technologies">Technologies: Swift, AppKit, Internal OS SDK, Custom Security Frameworks, Keychain</p>
+            </div>
+
+            <div class="project">
+                <p class="project-title">Kickstart - macOS Device Setup Automation</p>
+                <ul>
+                    <li>Developed automated device provisioning tool reducing new employee setup time from 4 hours to 30 minutes</li>
+                    <li>Implemented package manager integration installing 20+ essential applications with zero-touch deployment</li>
+                    <li>Created intuitive onboarding flow reducing IT support tickets by 40%</li>
+                </ul>
+                <p class="technologies">Technologies: Swift, AppKit, Bash scripting, URLSession, Combine</p>
+            </div>
+
+            <div class="project">
+                <p class="project-title">Devices - macOS Employee Device Management</p>
+                <ul>
+                    <li>Built native macOS application providing real-time device information for Apple employees</li>
+                    <li>Integrated with MDM APIs delivering instant access to device status, serial numbers, and application inventory</li>
+                    <li>Designed self-service portal reducing IT helpdesk requests by 35%</li>
+                </ul>
+                <p class="technologies">Technologies: Swift, AppKit, RESTful APIs, Core Data, SwiftUI</p>
+            </div>
+
+            <div class="project">
+                <p class="project-title">Additional Projects</p>
+                <ul>
+                    <li><strong>Sparkle Framework:</strong> Enhanced open-source framework with enterprise security features deployed across 15+ internal macOS applications</li>
+                    <li><strong>MDM Automation Scripts:</strong> Developed Python and Bash automation scripts reducing manual deployment time by 80%</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Quest Global -->
+        <div class="job">
+            <div class="job-header">
+                <div>
+                    <span class="company">Quest Global</span> | <span class="job-title">System Analyst</span>
+                </div>
+                <div class="job-duration">June 2014 - June 2021</div>
+            </div>
+
+            <p class="job-description">Spearheaded development of 10+ enterprise iOS and macOS applications from concept to App Store deployment. Collaborated with product managers and designers to define requirements, architect solutions, and deliver features impacting Apple employees. Progressed from Software Engineer to System Analyst, taking on increasing responsibilities in architecture, mentoring, and technical leadership.</p>
+
+            <p class="achievements-title">Key Achievements:</p>
+            <ul>
+                <li>Successfully delivered 10+ applications to production with 4.5+ star average rating and 98% crash-free rate</li>
+                <li>Reduced development cycle time by 30% through implementation of Agile methodologies and automated testing</li>
+                <li>Established iOS development best practices adopted company-wide, including coding standards and architectural patterns</li>
+                <li>Mentored 8 junior developers over 8 years, with 5 advancing to senior positions</li>
+                <li>Led technical interviews and grew iOS team from 3 to 12 engineers</li>
+            </ul>
+
+            <p class="achievements-title">Notable Projects:</p>
+
+            <div class="project">
+                <p class="project-title">Apple Travel - iOS Travel Management Application</p>
+                <ul>
+                    <li>Architected and developed enterprise travel management app used by internal Apple employees for booking flights, hotels, and managing itineraries</li>
+                    <li>Integrated with 3 third-party APIs (Concur, Sabre, TripIt) providing seamless booking experience</li>
+                    <li>Implemented push notifications reducing missed booking deadlines by 45%</li>
+                    <li>Achieved 4.6 App Store rating with 95% user satisfaction in internal surveys</li>
+                </ul>
+                <p class="technologies">Technologies: Swift, UIKit, Core Data, RESTful APIs, Push Notifications, MapKit</p>
+            </div>
+
+            <div class="project">
+                <p class="project-title">Expenses - iOS & macOS Expense Management</p>
+                <ul>
+                    <li>Developed cross-platform expense management application with seamless data sync between iOS and macOS</li>
+                    <li>Implemented OCR receipt scanning using Vision framework, reducing manual entry time by 70%</li>
+                    <li>Added GPS-based automatic location filling improving compliance and reducing expense report errors by 50%</li>
+                    <li>Built comprehensive unit test suite with 80% code coverage ensuring reliability</li>
+                </ul>
+                <p class="technologies">Technologies: Swift, SwiftUI, UIKit, AppKit, Vision (OCR), Core Location, CloudKit</p>
+            </div>
+
+            <div class="project">
+                <p class="project-title">Global Security - iOS Security Management System</p>
+                <ul>
+                    <li>Built comprehensive security management app for badge access, notifications, and key/lock service requests</li>
+                    <li>Integrated with Apple's internal security systems serving employees across multiple offices</li>
+                    <li>Implemented QR code scanning reducing badge request processing time by 60%</li>
+                </ul>
+                <p class="technologies">Technologies: Swift, UIKit, Core Data, Vision (QR scanning), Push Notifications</p>
+            </div>
+
+            <div class="project">
+                <p class="project-title">Additional Projects</p>
+                <ul>
+                    <li><strong>Purchase Requisition POC:</strong> iPad application streamlining requisition approval workflow, reducing approval time from 3 days to 4 hours; secured $500K budget</li>
+                    <li><strong>Swift Server Framework:</strong> Built lightweight web framework in Swift for rapid API development; deployed 5+ microservices handling 10,000+ requests/day</li>
+                    <li><strong>Radar:</strong> Enhanced Apple's internal bug tracking system with advanced search and batch operations, achieving 75% code coverage</li>
+                    <li><strong>1099 Tax Management:</strong> IRS filing system reducing filing errors by 85% and saving 200+ hours annually</li>
+                    <li><strong>Funds Management:</strong> Managed dealer reimbursements for advertising, promotion, and hiring costs related to Apple's business</li>
+                    <li><strong>Customs Tracking:</strong> Compliance tracking system reducing manual review time by 70% with zero compliance violations</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Exilant Technologies -->
+        <div class="job">
+            <div class="job-header">
+                <div>
+                    <span class="company">Exilant Technologies Pvt Ltd</span> | <span class="job-title">Software Engineer</span>
+                </div>
+                <div class="job-duration">Jul 2010 - Sep 2012</div>
+            </div>
+
+            <p class="job-description">Gained foundational expertise in iOS and macOS development, contributing to framework development and enterprise applications. Developed strong debugging skills and understanding of low-level system APIs.</p>
+
+            <p class="achievements-title">Key Projects:</p>
+            <ul>
+                <li><strong>Software Depot:</strong> Debugged ISTSU protocol for software installation package management on macOS</li>
+                <li><strong>Enclosure Framework:</strong> Designed Cocoa Client API for file storage interaction with comprehensive unit testing</li>
+                <li><strong>ISTCore Framework:</strong> Contributed to modular framework development with reusable components</li>
+                <li><strong>Mobile Enclosures:</strong> Built file upload/download system with pause/resume and background transfer capabilities, achieving 99% transfer success rate</li>
+            </ul>
+            <p class="technologies">Technologies: Objective-C, Cocoa, AppKit, UIKit, Core Foundation, SQLite, Unit Testing</p>
+        </div>
+    </div>
+
+    <!-- Education -->
+    <div class="section">
+        <h2 class="section-title">Education</h2>
+
+        <div class="education-item">
+            <div>
+                <span class="year">2014</span>
+                <p class="school">Asia University, Taiwan</p>
+                <p class="degree">Master of Science in Computer Science and Information Engineering</p>
+                <p class="education-note">(Career break taken to pursue advanced degree)</p>
+            </div>
+        </div>
+
+        <div class="education-item">
+            <div>
+                <span class="year">2010</span>
+                <p class="school">Visvesvaraya Technological University, India</p>
+                <p class="degree">Bachelor of Engineering in Electronics and Communication Engineering</p>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

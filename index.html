@@ -21,8 +21,85 @@
     <meta property="twitter:url" content="https://aniltv06.github.io/" />
     <meta property="twitter:title" content="Anil Thatha - Senior iOS/macOS Engineer" />
     <meta property="twitter:description" content="Senior iOS/macOS Engineer with 13+ years experience. Expert in Swift, SwiftUI, AI/ML." />
+    <meta property="twitter:image" content="https://aniltv06.github.io/og-image.png" />
 
-    <title>Anil Kumar Thatha Venkatachalapathy - Resume</title>
+    <!-- Open Graph Image -->
+    <meta property="og:image" content="https://aniltv06.github.io/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:alt" content="Anil Kumar Thatha Venkatachalapathy - Lead iOS/macOS Engineer with 13+ years experience" />
+
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👨‍💻</text></svg>">
+
+    <!-- Schema.org Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org/",
+      "@type": "Person",
+      "name": "Anil Kumar Thatha Venkatachalapathy",
+      "jobTitle": "Lead iOS/macOS Engineer",
+      "description": "Senior iOS/macOS Engineer with 13+ years building enterprise-scale applications. Expert in Swift, SwiftUI, AI/ML integration.",
+      "url": "https://aniltv06.github.io",
+      "email": "aniltv06@gmail.com",
+      "telephone": "+1-408-642-0192",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Elk Grove",
+        "addressRegion": "CA",
+        "addressCountry": "US"
+      },
+      "alumniOf": [
+        {
+          "@type": "Organization",
+          "name": "Asia University, Taiwan"
+        },
+        {
+          "@type": "Organization",
+          "name": "Visvesvaraya Technological University"
+        }
+      ],
+      "worksFor": {
+        "@type": "Organization",
+        "name": "TCS America"
+      },
+      "sameAs": [
+        "https://www.linkedin.com/in/anilthatha/",
+        "https://github.com/aniltv06",
+        "https://swiftbytes.blogspot.com"
+      ],
+      "knowsAbout": ["Swift", "iOS Development", "macOS Development", "SwiftUI", "AI/ML", "Core ML", "Software Architecture"]
+    }
+    </script>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9SZZWKV48B"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-9SZZWKV48B');
+    </script>
+
+    <!-- Microsoft Clarity -->
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "u8sjo8xsx6");
+    </script>
+
+    <title>Anil Thatha - Resume</title>
+
+    <!-- Three.js for 3D Background -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+    <!-- Chart.js for Radar and Impact Charts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+
     <style>
         * {
             margin: 0;
@@ -30,715 +107,2353 @@
             box-sizing: border-box;
         }
 
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #60a5fa;
+            --accent-color: #e0f2fe;
+            --success-color: #10b981;
+            --warning-color: #f59e0b;
+            --dark-bg: #1e293b;
+            --dark-text: #f8fafc;
+            --light-bg: #ffffff;
+            --light-text: #333;
+            --card-bg: #f8fafc;
+        }
+
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
             line-height: 1.6;
-            color: #333;
-            background: #ffffff;
-            padding: 35px 25px;
-            max-width: 8.5in;
+            color: var(--light-text);
+            background: var(--light-bg);
+            overflow-x: hidden;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+        body.dark-mode {
+            --light-bg: #0f172a;
+            --light-text: #f8fafc;
+            --card-bg: #1e293b;
+        }
+
+        body.terminal-mode {
+            --light-bg: #0a0e14;
+            --light-text: #00ff41;
+            --card-bg: #1a1f2e;
+            --primary-color: #00ff41;
+            --secondary-color: #39ff14;
+            --accent-color: rgba(0, 255, 65, 0.1);
+            font-family: 'Courier New', 'Monaco', 'Menlo', monospace;
+        }
+
+        body.terminal-mode .hero h1,
+        body.terminal-mode .section-title,
+        body.terminal-mode .company,
+        body.terminal-mode .project-title {
+            text-shadow: 0 0 10px var(--primary-color);
+        }
+
+        body.terminal-mode .stat-number {
+            color: #39ff14;
+            text-shadow: 0 0 8px #39ff14;
+        }
+
+        body.terminal-mode .nav {
+            background: rgba(10, 14, 20, 0.95);
+            border-bottom: 2px solid var(--primary-color);
+        }
+
+        body.terminal-mode .tech-tag {
+            background: transparent;
+            border: 1px solid var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        body.terminal-mode .skill-progress {
+            background: linear-gradient(90deg, #00ff41, #39ff14);
+            box-shadow: 0 0 10px #00ff41;
+        }
+
+        body.terminal-mode .project-card,
+        body.terminal-mode .stat-card,
+        body.terminal-mode .skill-card,
+        body.terminal-mode .experience-card,
+        body.terminal-mode .education-card,
+        body.terminal-mode .dashboard-card {
+            border: 1px solid var(--primary-color);
+            box-shadow: 0 0 15px rgba(0, 255, 65, 0.2);
+        }
+
+        body.terminal-mode .project-card:hover,
+        body.terminal-mode .stat-card:hover,
+        body.terminal-mode .skill-card:hover,
+        body.terminal-mode .experience-card:hover,
+        body.terminal-mode .dashboard-card:hover {
+            box-shadow: 0 0 25px rgba(0, 255, 65, 0.4);
+            border-color: #39ff14;
+        }
+
+        body.terminal-mode .btn {
+            background: transparent;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        body.terminal-mode .btn:hover {
+            background: var(--primary-color);
+            color: #0a0e14;
+            box-shadow: 0 0 20px var(--primary-color);
+        }
+
+        body.terminal-mode #webgl-background {
+            opacity: 0.15;
+        }
+
+        body.terminal-mode .achievements-list li::before {
+            content: '>';
+            color: var(--primary-color);
+        }
+
+        body.terminal-mode .modal-content {
+            border: 2px solid var(--primary-color);
+            box-shadow: 0 0 30px rgba(0, 255, 65, 0.3);
+        }
+
+        /* 3D WebGL Background */
+        #webgl-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.3;
+        }
+
+        body.dark-mode #webgl-background {
+            opacity: 0.5;
+        }
+
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 15px 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .nav {
+            background: rgba(15, 23, 42, 0.95);
+        }
+
+        .nav-content {
+            max-width: 1400px;
             margin: 0 auto;
+            padding: 0 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
-        /* Header Section */
-        .header {
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--light-text);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            cursor: pointer;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .btn {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 10px;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1400px;
+            margin: 80px auto 0;
+            padding: 35px 25px;
+        }
+
+        /* Fade In Animation */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Hero Section */
+        .hero {
             text-align: center;
-            margin-bottom: 25px;
-            border-bottom: 4px solid #2563eb;
-            padding-bottom: 18px;
-            background: linear-gradient(to bottom, #ffffff 0%, #f8fafc 100%);
-            padding-top: 15px;
-            border-radius: 8px 8px 0 0;
+            padding: 80px 0 60px;
+            margin-bottom: 40px;
         }
 
-        .header h1 {
-            font-size: 34px;
+        .hero h1 {
+            font-size: 56px;
             font-weight: 700;
-            color: #1e293b;
-            margin-bottom: 8px;
-            letter-spacing: -0.5px;
+            color: var(--light-text);
+            margin-bottom: 15px;
+            letter-spacing: -1px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .typing-text {
+            font-size: 28px;
+            font-weight: 600;
+            color: var(--primary-color);
+            min-height: 40px;
+            margin-bottom: 20px;
+        }
+
+        .typing-cursor {
+            display: inline-block;
+            width: 3px;
+            height: 28px;
+            background: var(--primary-color);
+            margin-left: 5px;
+            animation: blink 0.7s infinite;
+        }
+
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
         }
 
         .contact-info {
-            font-size: 14px;
-            color: #64748b;
-            margin-top: 8px;
-            line-height: 1.8;
+            font-size: 16px;
+            color: var(--light-text);
+            margin-top: 20px;
         }
 
         .contact-info a {
-            color: #2563eb;
+            color: var(--primary-color);
             text-decoration: none;
+            transition: all 0.3s ease;
         }
 
-        .contact-info a:hover {
-            text-decoration: underline;
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
         }
 
-        .title-role {
-            font-size: 18px;
-            font-weight: 600;
-            color: #2563eb;
-            margin-top: 10px;
+        .stat-card {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(37, 99, 235, 0.15);
+            border-color: var(--primary-color);
+        }
+
+        .stat-number {
+            font-size: 42px;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            color: var(--light-text);
+            font-weight: 500;
             text-transform: uppercase;
-            letter-spacing: 1.5px;
+            letter-spacing: 1px;
         }
 
-        /* Summary Section */
-        .summary {
-            background: linear-gradient(135deg, #f8fafc 0%, #e0f2fe 100%);
-            padding: 18px 20px;
-            border-left: 5px solid #2563eb;
-            margin-bottom: 25px;
-            border-radius: 6px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-        }
-
-        .summary p {
-            font-size: 15px;
-            color: #475569;
-            line-height: 1.7;
-        }
-
-        /* Section Titles */
+        /* Section Styles */
         .section {
-            margin-bottom: 25px;
-            page-break-inside: avoid;
+            margin-bottom: 60px;
         }
 
         .section-title {
-            font-size: 20px;
+            font-size: 36px;
             font-weight: 700;
-            color: #1e293b;
-            margin-bottom: 16px;
-            padding-bottom: 8px;
-            border-bottom: 3px solid #2563eb;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            color: var(--light-text);
+            margin-bottom: 40px;
+            text-align: center;
             position: relative;
+            padding-bottom: 15px;
         }
 
         .section-title::after {
             content: '';
             position: absolute;
-            bottom: -3px;
-            left: 0;
-            width: 80px;
-            height: 3px;
-            background: #60a5fa;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            border-radius: 2px;
         }
 
-        /* Skills Section */
+        /* Skills Radar Section */
+        .skills-radar-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(248, 250, 252, 0.7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        body.dark-mode .skills-radar-container {
+            background: rgba(30, 41, 59, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        body.terminal-mode .skills-radar-container {
+            background: rgba(26, 31, 46, 0.7);
+            border: 1px solid rgba(0, 255, 65, 0.3);
+        }
+
+        .radar-canvas {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Impact Dashboard */
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .dashboard-card {
+            background: rgba(248, 250, 252, 0.7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        body.dark-mode .dashboard-card {
+            background: rgba(30, 41, 59, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        body.terminal-mode .dashboard-card {
+            background: rgba(26, 31, 46, 0.7);
+            border: 1px solid rgba(0, 255, 65, 0.3);
+        }
+
+        .dashboard-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(37, 99, 235, 0.15);
+        }
+
+        .dashboard-card h3 {
+            font-size: 20px;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .impact-icon {
+            font-size: 28px;
+        }
+
+        .chart-container {
+            position: relative;
+            height: 250px;
+        }
+
+        /* Skills Grid */
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 16px;
-            margin-bottom: 15px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
         }
 
-        .skill-category {
-            background: #ffffff;
-            padding: 16px;
-            border: 1px solid #cbd5e1;
-            border-radius: 6px;
+        .skill-card {
+            background: var(--card-bg);
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
             transition: all 0.3s ease;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
         }
 
-        .skill-category:hover {
-            border-color: #2563eb;
-            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.1);
-            transform: translateY(-2px);
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(37, 99, 235, 0.15);
         }
 
-        .skill-category h3 {
-            font-size: 13px;
-            font-weight: 700;
-            color: #2563eb;
-            margin-bottom: 10px;
+        .skill-card h3 {
+            font-size: 18px;
+            color: var(--primary-color);
+            margin-bottom: 15px;
             text-transform: uppercase;
-            letter-spacing: 0.8px;
-            padding-bottom: 8px;
-            border-bottom: 2px solid #e0f2fe;
+            letter-spacing: 1px;
         }
 
-        .skill-category p {
-            font-size: 13px;
-            color: #475569;
-            line-height: 1.6;
-            margin-bottom: 4px;
+        .skill-list {
+            list-style: none;
         }
 
-        .skill-category p strong {
-            color: #1e293b;
-            font-weight: 600;
+        .skill-list li {
+            padding: 8px 0;
+            color: var(--light-text);
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
-        /* Experience Section */
-        .job {
-            margin-bottom: 28px;
-            page-break-inside: avoid;
-            border-left: 3px solid #e2e8f0;
-            padding-left: 20px;
-            transition: border-color 0.3s ease;
+        .skill-list li::before {
+            content: '▹';
+            color: var(--primary-color);
+            font-weight: 700;
+            font-size: 20px;
         }
 
-        .job:hover {
-            border-left-color: #2563eb;
+        /* Experience Cards */
+        .experience-card {
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+            border-left: 5px solid var(--primary-color);
+            transition: all 0.3s ease;
+        }
+
+        .experience-card:hover {
+            transform: translateX(10px);
+            box-shadow: 0 12px 40px rgba(37, 99, 235, 0.15);
         }
 
         .job-header {
             display: flex;
             justify-content: space-between;
-            align-items: baseline;
-            margin-bottom: 10px;
-        }
-
-        .job-title {
-            font-size: 17px;
-            font-weight: 700;
-            color: #1e293b;
+            align-items: flex-start;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
         }
 
         .company {
+            font-size: 28px;
             font-weight: 700;
-            color: #2563eb;
-            font-size: 17px;
+            color: var(--primary-color);
+        }
+
+        .job-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--light-text);
+            margin: 5px 0;
         }
 
         .job-duration {
             font-size: 14px;
             color: #64748b;
             font-style: italic;
+            background: var(--accent-color);
+            padding: 8px 20px;
+            border-radius: 20px;
         }
 
-        .job-description {
-            font-size: 14px;
-            color: #475569;
-            margin-bottom: 12px;
-            line-height: 1.6;
+        .achievements-list {
+            list-style: none;
+            margin: 20px 0;
         }
 
-        .achievements-title {
-            font-size: 14px;
+        .achievements-list li {
+            padding: 10px 0 10px 30px;
+            position: relative;
+            color: var(--light-text);
+            line-height: 1.7;
+        }
+
+        .achievements-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--success-color);
             font-weight: 700;
-            color: #1e293b;
-            margin: 12px 0 8px 0;
+            font-size: 18px;
         }
 
-        .job ul {
-            margin-left: 20px;
-            margin-bottom: 12px;
+        /* Projects Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+            margin-top: 25px;
         }
 
-        .job li {
-            font-size: 13px;
-            color: #475569;
-            margin-bottom: 6px;
-            line-height: 1.6;
+        .project-card {
+            background: linear-gradient(135deg, var(--card-bg) 0%, rgba(37, 99, 235, 0.05) 100%);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            cursor: pointer;
         }
 
-        .project {
-            margin-top: 16px;
-            padding-left: 18px;
-            border-left: 3px solid #60a5fa;
-            background: #f8fafc;
-            padding: 14px;
-            padding-left: 18px;
-            border-radius: 4px;
-            margin-bottom: 12px;
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 35px rgba(37, 99, 235, 0.2);
+            border-color: var(--primary-color);
         }
 
         .project-title {
-            font-size: 15px;
+            font-size: 20px;
             font-weight: 700;
-            color: #1e293b;
-            margin-bottom: 8px;
+            color: var(--primary-color);
+            margin-bottom: 12px;
         }
 
-        .project ul {
-            margin-left: 20px;
+        .project-description {
+            font-size: 15px;
+            color: var(--light-text);
+            line-height: 1.6;
         }
 
-        .project li {
-            font-size: 13px;
-            color: #475569;
-            margin-bottom: 4px;
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 15px;
         }
 
-        .technologies {
-            font-size: 12px;
-            color: #2563eb;
-            margin-top: 10px;
-            font-style: italic;
-            font-weight: 500;
-            background: #e0f2fe;
-            padding: 6px 10px;
-            border-radius: 4px;
-            display: inline-block;
+        .tech-tag {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 6px 14px;
+            border-radius: 15px;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
-        /* Education Section */
-        .education-item {
-            margin-bottom: 18px;
-            padding: 14px;
-            background: #f8fafc;
-            border-left: 4px solid #2563eb;
-            border-radius: 4px;
+        /* Education */
+        .education-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+        }
+
+        .education-card {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            border-left: 4px solid var(--primary-color);
         }
 
         .degree {
-            font-size: 16px;
-            font-weight: 600;
-            color: #1e293b;
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 10px;
         }
 
         .school {
-            font-size: 15px;
-            color: #2563eb;
-            font-weight: 600;
+            font-size: 18px;
+            color: var(--light-text);
+            margin-bottom: 5px;
         }
 
         .year {
             font-size: 14px;
             color: #64748b;
-            float: right;
-            font-weight: 600;
         }
 
-        .education-note {
-            font-size: 13px;
-            color: #64748b;
-            font-style: italic;
-            margin-top: 6px;
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(5px);
+            animation: fadeIn 0.3s ease;
         }
 
-        /* Additional Info */
-        .info-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 10px;
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
 
-        .info-item {
+        .modal-content {
+            background: var(--card-bg);
+            margin: 3% auto;
+            padding: 40px;
+            border-radius: 20px;
+            max-width: 900px;
+            max-height: 85vh;
+            overflow-y: auto;
+            position: relative;
+            animation: slideUp 0.3s ease;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .close-modal {
+            position: absolute;
+            right: 25px;
+            top: 25px;
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--light-text);
+            cursor: pointer;
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            background: transparent;
+        }
+
+        .close-modal:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: rotate(90deg);
+        }
+
+        .modal h2 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
+
+        .modal h3 {
+            color: var(--light-text);
+            margin-bottom: 20px;
+            font-weight: 500;
+            font-size: 18px;
+        }
+
+        .modal h4 {
+            color: var(--primary-color);
+            margin: 25px 0 15px;
+            font-size: 20px;
+        }
+
+        .modal p {
+            font-size: 16px;
+            line-height: 1.8;
+            color: var(--light-text);
+            margin-bottom: 20px;
+        }
+
+        .modal .achievements-list {
+            margin-bottom: 25px;
+        }
+
+        /* Interactive Timeline */
+        .timeline-section {
+            margin: 60px 0;
+            position: relative;
+        }
+
+        .timeline-container {
+            position: relative;
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        .timeline-line {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(180deg, var(--primary-color), var(--secondary-color));
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 50px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .timeline-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content {
+            margin-right: calc(50% + 40px);
+            text-align: right;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content {
+            margin-left: calc(50% + 40px);
+            text-align: left;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            width: 20px;
+            height: 20px;
+            background: var(--primary-color);
+            border: 4px solid var(--light-bg);
+            border-radius: 50%;
+            transform: translate(-50%, 0);
+            z-index: 2;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .timeline-item:hover .timeline-dot {
+            width: 30px;
+            height: 30px;
+            box-shadow: 0 0 20px var(--primary-color);
+        }
+
+        body.terminal-mode .timeline-item:hover .timeline-dot {
+            box-shadow: 0 0 30px #00ff41;
+        }
+
+        .timeline-content {
+            background: var(--card-bg);
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+
+        .timeline-content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(37, 99, 235, 0.15);
+            border-color: var(--primary-color);
+        }
+
+        body.terminal-mode .timeline-content {
+            border: 1px solid var(--primary-color);
+            box-shadow: 0 0 15px rgba(0, 255, 65, 0.2);
+        }
+
+        body.terminal-mode .timeline-content:hover {
+            box-shadow: 0 0 25px rgba(0, 255, 65, 0.4);
+        }
+
+        .timeline-date {
             font-size: 14px;
-            color: #475569;
-            padding: 10px;
-            background: #f8fafc;
-            border-left: 3px solid #60a5fa;
-            border-radius: 4px;
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
-        .info-item strong {
-            color: #1e293b;
+        .timeline-company {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 8px;
+        }
+
+        body.terminal-mode .timeline-company {
+            text-shadow: 0 0 10px var(--primary-color);
+        }
+
+        .timeline-title {
+            font-size: 16px;
             font-weight: 600;
+            color: var(--light-text);
+            margin-bottom: 12px;
+        }
+
+        .timeline-description {
+            font-size: 14px;
+            color: var(--light-text);
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .timeline-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            justify-content: inherit;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-tags {
+            justify-content: flex-end;
+        }
+
+        .timeline-tag {
+            background: var(--primary-color);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+        body.terminal-mode .timeline-tag {
+            background: transparent;
+            border: 1px solid var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        /* Responsive Timeline */
+        @media (max-width: 768px) {
+            .timeline-line {
+                left: 20px;
+            }
+
+            .timeline-item:nth-child(odd) .timeline-content,
+            .timeline-item:nth-child(even) .timeline-content {
+                margin-left: 50px;
+                margin-right: 0;
+                text-align: left;
+            }
+
+            .timeline-dot {
+                left: 20px;
+            }
+
+            .timeline-item:nth-child(odd) .timeline-tags {
+                justify-content: flex-start;
+            }
         }
 
         /* Print Styles */
         @media print {
-            body {
-                padding: 0;
-                max-width: 100%;
-                line-height: 1.4;
+            .nav, .btn, #webgl-background, .modal {
+                display: none !important;
             }
 
-            .header {
-                margin-bottom: 12px;
-                padding-bottom: 10px;
+            body, body.dark-mode, body.terminal-mode {
                 background: white !important;
-                box-shadow: none;
-                padding-top: 0;
+                color: black !important;
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif !important;
             }
 
-            .header h1 {
-                font-size: 28px;
-                margin-bottom: 5px;
+            body.terminal-mode * {
+                text-shadow: none !important;
+                box-shadow: none !important;
+                border-color: #ddd !important;
             }
 
-            .contact-info {
-                font-size: 12px;
-                line-height: 1.4;
+            .container {
+                margin-top: 0;
             }
 
-            .title-role {
-                font-size: 14px;
-                margin-top: 6px;
+            .fade-in {
+                opacity: 1 !important;
+                transform: none !important;
             }
 
-            .summary {
-                padding: 10px 12px;
-                margin-bottom: 12px;
-                page-break-inside: avoid;
-                background: white !important;
-                box-shadow: none;
+            .timeline-item {
+                opacity: 1 !important;
+                transform: none !important;
             }
 
-            .summary p {
-                font-size: 13px;
-                line-height: 1.4;
+            .stat-number, .company, .project-title, .section-title {
+                color: #2563eb !important;
             }
 
-            .section {
-                margin-bottom: 14px;
-                page-break-inside: avoid;
-            }
-
-            .section-title {
-                font-size: 16px;
-                margin-bottom: 10px;
-                padding-bottom: 5px;
-                page-break-after: avoid;
-            }
-
-            .section-title::after {
-                display: none;
-            }
-
-            .skills-grid {
-                gap: 8px;
-                margin-bottom: 10px;
-                page-break-inside: avoid;
-            }
-
-            .skill-category {
-                padding: 8px 10px;
-                page-break-inside: avoid;
-                box-shadow: none;
-                border: 1px solid #cbd5e1;
-            }
-
-            .skill-category:hover {
-                transform: none;
-            }
-
-            .skill-category h3 {
-                font-size: 11px;
-                margin-bottom: 6px;
-                padding-bottom: 4px;
-            }
-
-            .skill-category p {
-                font-size: 10px;
-                line-height: 1.3;
-                margin-bottom: 2px;
-            }
-
-            .skill-category p strong {
-                font-size: 10px;
-            }
-
-            .job {
-                page-break-inside: avoid;
-                margin-bottom: 20px;
-            }
-
-            .project {
-                page-break-inside: avoid;
-                background: white !important;
-            }
-
-            .technologies {
-                background: white !important;
-                border: 1px solid #cbd5e1;
-            }
-
-            .education-item {
-                background: white !important;
-            }
-
-            .info-item {
-                background: white !important;
-            }
-
-            a {
-                color: #1e293b;
-                text-decoration: none;
+            .tech-tag {
+                background: #2563eb !important;
+                color: white !important;
+                border: none !important;
             }
         }
 
         /* Responsive */
         @media (max-width: 768px) {
-            .skills-grid {
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .typing-text {
+                font-size: 20px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .dashboard-grid,
+            .projects-grid,
+            .skills-grid,
+            .education-grid {
                 grid-template-columns: 1fr;
             }
 
-            .job-header {
-                flex-direction: column;
-                align-items: flex-start;
+            .section-title {
+                font-size: 28px;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <div class="header">
-        <h1>ANIL KUMAR THATHA VENKATACHALAPATHY</h1>
-        <div class="contact-info">
-            Elk Grove, CA · +1 (408) 642-0192 · <a href="mailto:aniltv06@gmail.com">aniltv06@gmail.com</a><br>
-            <a href="https://www.linkedin.com/in/anilthatha/" target="_blank">linkedin.com/in/anilthatha</a> ·
-            <a href="https://github.com/aniltv06" target="_blank">github.com/aniltv06</a> ·
-            <a href="https://swiftbytes.blogspot.com" target="_blank">swiftbytes.blogspot.com</a>
-        </div>
-        <div class="title-role">Senior Software Engineer - iOS, macOS & Frameworks</div>
-    </div>
+    <!-- WebGL 3D Background -->
+    <div id="webgl-background"></div>
 
-    <!-- Summary -->
-    <div class="summary">
-        <p>Results-driven Senior Software Engineer with 13+ years of expertise building enterprise-scale iOS and macOS applications serving 100,000+ users. Proven track record leading cross-functional teams of 6+ developers while delivering high-impact features that improved performance by up to 70% and user satisfaction by 25%. Expert in Swift and Objective-C with deep knowledge of Apple frameworks, architectural patterns, and modern development practices. Successfully shipped 15+ production applications while mentoring junior developers and establishing engineering best practices across organizations.</p>
-    </div>
-
-    <!-- Technical Skills -->
-    <div class="section">
-        <h2 class="section-title">Technical Skills</h2>
-
-        <div class="skills-grid">
-            <div class="skill-category">
-                <h3>Languages & Frameworks</h3>
-                <p><strong>Languages:</strong> Swift, Objective-C, Python, Bash, SQL</p>
-                <p><strong>iOS/macOS:</strong> UIKit, AppKit, SwiftUI, Combine, Core Data, Core Animation, Core Graphics</p>
-                <p><strong>Advanced:</strong> Core ML, ARKit, Metal, Vision, NaturalLanguage</p>
-                <p><strong>AI & ML:</strong> On-device Foundation Models, LLM Integration, AI-assisted Development, Natural Language Processing</p>
-                <p><strong>Networking:</strong> URLSession, RESTful APIs, WebSockets, XPC</p>
+    <!-- Navigation -->
+    <nav class="nav" role="navigation" aria-label="Main navigation">
+        <div class="nav-content">
+            <div class="nav-links">
+                <a onclick="scrollToSection('hero')" role="button" tabindex="0" aria-label="Navigate to home section">Home</a>
+                <a onclick="scrollToSection('skills')" role="button" tabindex="0" aria-label="Navigate to skills section">Skills</a>
+                <a onclick="scrollToSection('impact')" role="button" tabindex="0" aria-label="Navigate to impact section">Impact</a>
+                <a onclick="scrollToSection('experience')" role="button" tabindex="0" aria-label="Navigate to experience section">Experience</a>
+                <a onclick="scrollToSection('timeline')" role="button" tabindex="0" aria-label="Navigate to timeline section">Timeline</a>
             </div>
-
-            <div class="skill-category">
-                <h3>Architecture & Design</h3>
-                <p><strong>Patterns:</strong> MVVM, MVP, VIPER, Clean Architecture, MVC</p>
-                <p><strong>Design Patterns:</strong> Singleton, Factory, Observer, Delegate, Coordinator</p>
-                <p><strong>Principles:</strong> Dependency Injection, Protocol-Oriented Programming</p>
-            </div>
-
-            <div class="skill-category">
-                <h3>Development & Tools</h3>
-                <p><strong>IDEs:</strong> Xcode, Visual Studio Code</p>
-                <p><strong>Version Control:</strong> Git, GitHub, Bitbucket</p>
-                <p><strong>Package Management:</strong> SPM, CocoaPods, Carthage</p>
-                <p><strong>CI/CD:</strong> Fastlane, Jenkins, GitHub Actions, Xcode Cloud</p>
-                <p><strong>Code Quality:</strong> SwiftLint, SwiftFormat, Code Coverage</p>
-            </div>
-
-            <div class="skill-category">
-                <h3>Testing & Quality Assurance</h3>
-                <p><strong>Testing:</strong> XCTest, TDD, XCUITest, Snapshot Testing</p>
-                <p><strong>Performance:</strong> Instruments, Memory Profiling, Time Profiler, Allocations</p>
-                <p><strong>Debugging:</strong> LLDB, Breakpoints, Memory Graph Debugger</p>
-            </div>
-
-            <div class="skill-category">
-                <h3>Database & Storage</h3>
-                <p>SQLite, Core Data, Realm, MySQL, UserDefaults, Keychain Services, File System</p>
-            </div>
-
-            <div class="skill-category">
-                <h3>Security & Compliance</h3>
-                <p>Keychain Services, Certificate Pinning, App Transport Security, Data Encryption, Secure Storage, Authentication/Authorization</p>
-            </div>
-
-            <div class="skill-category">
-                <h3>Additional Skills</h3>
-                <p><strong>Accessibility:</strong> VoiceOver, Dynamic Type, Accessibility Inspector</p>
-                <p><strong>Localization:</strong> Internationalization (i18n), String Catalogs</p>
-                <p><strong>Analytics:</strong> Firebase, Crashlytics, App Analytics</p>
-            </div>
-
-            <div class="skill-category">
-                <h3>Tools & Platforms</h3>
-                <p><strong>Design:</strong> Sketch, Adobe XD, Figma</p>
-                <p><strong>Project Management:</strong> JIRA, Confluence, Agile/Scrum</p>
-                <p><strong>Distribution:</strong> TestFlight, App Store Connect, Enterprise Distribution</p>
+            <div class="btn-group">
+                <a href="Anil_Thatha-Resume.pdf" download class="btn" style="text-decoration: none; display: inline-block;" aria-label="Download resume PDF">📥 Download PDF</a>
+                <button class="btn" onclick="toggleDarkMode()" aria-label="Toggle dark mode">🌙 Dark</button>
             </div>
         </div>
-    </div>
+    </nav>
 
-    <!-- Professional Experience -->
-    <div class="section">
-        <h2 class="section-title">Professional Experience</h2>
+    <div class="container">
+        <!-- Hero -->
+        <section id="hero" class="hero fade-in" role="region" aria-label="Introduction">
+            <h1>ANIL KUMAR THATHA VENKATACHALAPATHY</h1>
+            <div class="typing-text" id="typing-text"></div>
+            <div class="contact-info">
+                Elk Grove, CA · +1 (408) 642-0192 · <a href="mailto:aniltv06@gmail.com" aria-label="Email Anil">aniltv06@gmail.com</a><br>
+                <a href="https://www.linkedin.com/in/anilthatha/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile (opens in new tab)">LinkedIn</a> ·
+                <a href="https://github.com/aniltv06" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile (opens in new tab)">GitHub</a> ·
+                <a href="https://swiftbytes.blogspot.com" target="_blank" rel="noopener noreferrer" aria-label="Blog (opens in new tab)">Blog</a>
+            </div>
+        </section>
 
-        <!-- TCS America -->
-        <div class="job">
-            <div class="job-header">
-                <div>
-                    <span class="company">TCS America</span> | <span class="job-title">Lead Engineer</span>
+        <!-- Stats -->
+        <section class="stats-grid fade-in" role="region" aria-label="Career statistics">
+            <div class="stat-card">
+                <span class="stat-number" data-target="13">0</span>
+                <span class="stat-label">Years Experience</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number" data-target="15">0</span>
+                <span class="stat-label">Apps Shipped</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number" data-target="80">0</span>
+                <span class="stat-label">% Crash Reduction</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number" data-target="14">0</span>
+                <span class="stat-label">Developers Mentored</span>
+            </div>
+        </section>
+
+        <!-- Skills Radar Chart -->
+        <section id="skills" class="section fade-in" role="region" aria-label="Technical skills">
+            <h2 class="section-title">Skills Expertise Radar</h2>
+            <div class="skills-radar-container">
+                <canvas id="skillsRadar" class="radar-canvas"></canvas>
+            </div>
+        </section>
+
+        <!-- Detailed Skills Grid -->
+        <section class="section fade-in">
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h3>Languages & Core</h3>
+                    <ul class="skill-list">
+                        <li>Swift (Expert)</li>
+                        <li>Objective-C (Expert)</li>
+                        <li>SwiftUI (Advanced)</li>
+                        <li>UIKit/AppKit (Expert)</li>
+                        <li>Combine (Advanced)</li>
+                    </ul>
                 </div>
-                <div class="job-duration">June 2021 - Present</div>
-            </div>
-
-            <p class="job-description">Led engineering initiatives for enterprise iOS and macOS applications serving Apple Retail and internal teams. Managed offshore development teams of 8+ engineers while driving architecture decisions, code quality standards, and delivery timelines. Collaborated with product managers, designers, and stakeholders to deliver mission-critical features impacting retail employees worldwide.</p>
-
-            <p class="achievements-title">Key Achievements:</p>
-            <ul>
-                <li>Reduced application crash rate by 80% (from 15% to 3%) through implementation of comprehensive unit testing (85% code coverage) and automated CI/CD pipelines using Fastlane</li>
-                <li>Improved app launch time by 70% through performance profiling and optimization of Core Data stack and network layer</li>
-                <li>Leveraged AI-assisted development and LLM integration to accelerate feature development by 40%, including code generation, automated testing, and intelligent code reviews</li>
-                <li>Led migration of 3 legacy Objective-C applications to Swift, reducing codebase by 25% while improving maintainability</li>
-                <li>Established code review standards and architectural guidelines adopted across 4 development teams</li>
-                <li>Mentored 6 junior developers, with 3 promoted to mid-level roles within 18 months</li>
-            </ul>
-
-            <p class="achievements-title">Notable Projects:</p>
-
-            <div class="project">
-                <p class="project-title">Genius (iOS) & RepairCentral (macOS) - Retail Repair Management Platform</p>
-                <ul>
-                    <li>Architected and developed comprehensive repair management system used by Genius Bar employees across all Apple Retail Stores worldwide</li>
-                    <li>Integrated on-device foundation models for intelligent repair recommendations and natural language diagnostic assistance, reducing average diagnosis time by 35%</li>
-                    <li>Implemented real-time sync between iOS and macOS applications using CloudKit, reducing data conflicts by 90%</li>
-                    <li>Designed intuitive UI/UX reducing average repair creation time from 5 minutes to 2 minutes, improving customer satisfaction scores by 25%</li>
-                    <li>Built robust offline-first architecture ensuring 99.9% uptime even in poor network conditions</li>
-                </ul>
-                <p class="technologies">Technologies: Swift, SwiftUI, Core Data, CloudKit, Core ML, On-device Foundation Models, MVVM architecture, XCTest</p>
-            </div>
-
-            <div class="project">
-                <p class="project-title">Disclosed - Classified macOS Security Application</p>
-                <ul>
-                    <li>Led development of classified security application using proprietary internal frameworks and private APIs for macOS</li>
-                    <li>Implemented military-grade encryption and security protocols in collaboration with Apple Security teams</li>
-                    <li>Managed full SDLC from requirements gathering through deployment for application handling sensitive internal data</li>
-                    <li>Achieved 100% compliance with security audits and zero security incidents in production</li>
-                </ul>
-                <p class="technologies">Technologies: Swift, AppKit, Internal OS SDK, Custom Security Frameworks, Keychain</p>
-            </div>
-
-            <div class="project">
-                <p class="project-title">Kickstart - macOS Device Setup Automation</p>
-                <ul>
-                    <li>Developed automated device provisioning tool reducing new employee setup time from 4 hours to 30 minutes</li>
-                    <li>Implemented package manager integration installing 20+ essential applications with zero-touch deployment</li>
-                    <li>Created intuitive onboarding flow reducing IT support tickets by 40%</li>
-                </ul>
-                <p class="technologies">Technologies: Swift, AppKit, Bash scripting, URLSession, Combine</p>
-            </div>
-
-            <div class="project">
-                <p class="project-title">Devices - macOS Employee Device Management</p>
-                <ul>
-                    <li>Built native macOS application providing real-time device information for Apple employees</li>
-                    <li>Integrated with MDM APIs delivering instant access to device status, serial numbers, and application inventory</li>
-                    <li>Designed self-service portal reducing IT helpdesk requests by 35%</li>
-                </ul>
-                <p class="technologies">Technologies: Swift, AppKit, RESTful APIs, Core Data, SwiftUI</p>
-            </div>
-
-            <div class="project">
-                <p class="project-title">Additional Projects</p>
-                <ul>
-                    <li><strong>Sparkle Framework:</strong> Enhanced open-source framework with enterprise security features deployed across 15+ internal macOS applications</li>
-                    <li><strong>MDM Automation Scripts:</strong> Developed Python and Bash automation scripts reducing manual deployment time by 80%</li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- Quest Global -->
-        <div class="job">
-            <div class="job-header">
-                <div>
-                    <span class="company">Quest Global</span> | <span class="job-title">System Analyst</span>
+                <div class="skill-card">
+                    <h3>AI & ML</h3>
+                    <ul class="skill-list">
+                        <li>On-device Foundation Models</li>
+                        <li>Core ML</li>
+                        <li>LLM Integration</li>
+                        <li>Vision Framework</li>
+                        <li>Natural Language</li>
+                    </ul>
                 </div>
-                <div class="job-duration">June 2013 - June 2021</div>
-            </div>
-
-            <p class="job-description">Spearheaded development of 10+ enterprise iOS and macOS applications from concept to App Store deployment. Collaborated with product managers and designers to define requirements, architect solutions, and deliver features impacting Apple employees. Progressed from Software Engineer to System Analyst, taking on increasing responsibilities in architecture, mentoring, and technical leadership.</p>
-
-            <p class="achievements-title">Key Achievements:</p>
-            <ul>
-                <li>Successfully delivered 10+ applications to production with 4.5+ star average rating and 98% crash-free rate</li>
-                <li>Reduced development cycle time by 30% through implementation of Agile methodologies and automated testing</li>
-                <li>Established iOS development best practices adopted company-wide, including coding standards and architectural patterns</li>
-                <li>Mentored 8 junior developers over 8 years, with 5 advancing to senior positions</li>
-                <li>Led technical interviews and grew iOS team from 3 to 12 engineers</li>
-            </ul>
-
-            <p class="achievements-title">Notable Projects:</p>
-
-            <div class="project">
-                <p class="project-title">Apple Travel - iOS Travel Management Application</p>
-                <ul>
-                    <li>Architected and developed enterprise travel management app used by internal Apple employees for booking flights, hotels, and managing itineraries</li>
-                    <li>Integrated with 3 third-party APIs (Concur, Sabre, TripIt) providing seamless booking experience</li>
-                    <li>Implemented push notifications reducing missed booking deadlines by 45%</li>
-                    <li>Achieved 4.6 App Store rating with 95% user satisfaction in internal surveys</li>
-                </ul>
-                <p class="technologies">Technologies: Swift, UIKit, Core Data, RESTful APIs, Push Notifications, MapKit</p>
-            </div>
-
-            <div class="project">
-                <p class="project-title">Expenses - iOS & macOS Expense Management</p>
-                <ul>
-                    <li>Developed cross-platform expense management application with seamless data sync between iOS and macOS</li>
-                    <li>Implemented OCR receipt scanning using Vision framework, reducing manual entry time by 70%</li>
-                    <li>Added GPS-based automatic location filling improving compliance and reducing expense report errors by 50%</li>
-                    <li>Built comprehensive unit test suite with 80% code coverage ensuring reliability</li>
-                </ul>
-                <p class="technologies">Technologies: Swift, SwiftUI, UIKit, AppKit, Vision (OCR), Core Location, CloudKit</p>
-            </div>
-
-            <div class="project">
-                <p class="project-title">Global Security - iOS Security Management System</p>
-                <ul>
-                    <li>Built comprehensive security management app for badge access, notifications, and key/lock service requests</li>
-                    <li>Integrated with Apple's internal security systems serving employees across multiple offices</li>
-                    <li>Implemented QR code scanning reducing badge request processing time by 60%</li>
-                </ul>
-                <p class="technologies">Technologies: Swift, UIKit, Core Data, Vision (QR scanning), Push Notifications</p>
-            </div>
-
-            <div class="project">
-                <p class="project-title">Additional Projects</p>
-                <ul>
-                    <li><strong>Purchase Requisition POC:</strong> iPad application streamlining requisition approval workflow, reducing approval time from 3 days to 4 hours; secured $500K budget</li>
-                    <li><strong>Swift Server Framework:</strong> Built lightweight web framework in Swift for rapid API development; deployed 5+ microservices handling 10,000+ requests/day</li>
-                    <li><strong>Radar:</strong> Enhanced Apple's internal bug tracking system with advanced search and batch operations, achieving 75% code coverage</li>
-                    <li><strong>1099 Tax Management:</strong> IRS filing system reducing filing errors by 85% and saving 200+ hours annually</li>
-                    <li><strong>Funds Management:</strong> Managed dealer reimbursements for advertising, promotion, and hiring costs related to Apple's business</li>
-                    <li><strong>Customs Tracking:</strong> Compliance tracking system reducing manual review time by 70% with zero compliance violations</li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- Exilant Technologies -->
-        <div class="job">
-            <div class="job-header">
-                <div>
-                    <span class="company">Exilant Technologies Pvt Ltd</span> | <span class="job-title">Software Engineer</span>
+                <div class="skill-card">
+                    <h3>Architecture</h3>
+                    <ul class="skill-list">
+                        <li>MVVM</li>
+                        <li>Clean Architecture</li>
+                        <li>Protocol-Oriented</li>
+                        <li>System Design</li>
+                        <li>VIPER</li>
+                    </ul>
                 </div>
-                <div class="job-duration">Jul 2010 - Sep 2012</div>
+                <div class="skill-card">
+                    <h3>Tools & DevOps</h3>
+                    <ul class="skill-list">
+                        <li>Xcode & Instruments</li>
+                        <li>Git & CI/CD</li>
+                        <li>Fastlane & Jenkins</li>
+                        <li>XCTest & TDD</li>
+                        <li>Performance Profiling</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Project Impact Dashboard -->
+        <section id="impact" class="section fade-in" role="region" aria-label="Project impact metrics">
+            <h2 class="section-title">Project Impact Dashboard</h2>
+            <div class="dashboard-grid">
+                <div class="dashboard-card">
+                    <h3><span class="impact-icon">🚀</span> Performance Improvements</h3>
+                    <div class="chart-container">
+                        <canvas id="performanceChart"></canvas>
+                    </div>
+                </div>
+                <div class="dashboard-card">
+                    <h3><span class="impact-icon">📉</span> Crash Rate Reduction</h3>
+                    <div class="chart-container">
+                        <canvas id="crashChart"></canvas>
+                    </div>
+                </div>
+                <div class="dashboard-card">
+                    <h3><span class="impact-icon">👥</span> Team & Mentorship Impact</h3>
+                    <div class="chart-container">
+                        <canvas id="teamChart"></canvas>
+                    </div>
+                </div>
+                <div class="dashboard-card">
+                    <h3><span class="impact-icon">⏱️</span> Time Savings Delivered</h3>
+                    <div class="chart-container">
+                        <canvas id="timeSavingsChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience -->
+        <section id="experience" class="section fade-in" role="region" aria-label="Professional experience">
+            <h2 class="section-title">Professional Experience</h2>
+
+            <div class="experience-card">
+                <div class="job-header">
+                    <div>
+                        <div class="company">TCS America</div>
+                        <div class="job-title">Lead Engineer</div>
+                    </div>
+                    <div class="job-duration">June 2021 - Present</div>
+                </div>
+
+                <p style="margin-bottom: 20px; color: var(--light-text); font-size: 16px;">
+                    Led engineering initiatives for enterprise iOS and macOS applications serving Apple Retail and internal teams. Managed offshore development teams of 8+ engineers while driving architecture decisions, code quality standards, and delivery timelines.
+                </p>
+
+                <ul class="achievements-list">
+                    <li>Reduced application crash rate by 80% (from 15% to 3%) through comprehensive testing and CI/CD</li>
+                    <li>Improved app launch time by 70% through performance profiling and optimization</li>
+                    <li>Leveraged AI-assisted development to accelerate feature development by 40%</li>
+                    <li>Led migration of 3 legacy Objective-C applications to Swift, reducing codebase by 25%</li>
+                    <li>Mentored 6 junior developers, with 3 promoted to mid-level roles within 18 months</li>
+                </ul>
+
+                <h4 style="margin: 25px 0 15px; color: var(--primary-color); font-size: 20px;">Key Projects:</h4>
+                <div class="projects-grid">
+                    <div class="project-card" onclick="showProjectModal('genius')">
+                        <div class="project-title">Genius & RepairCentral</div>
+                        <div class="project-description">
+                            AI-powered repair management system used by Genius Bar employees across all Apple Retail Stores worldwide.
+                        </div>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Swift</span>
+                            <span class="tech-tag">SwiftUI</span>
+                            <span class="tech-tag">Core ML</span>
+                            <span class="tech-tag">CloudKit</span>
+                        </div>
+                    </div>
+
+                    <div class="project-card" onclick="showProjectModal('safeview')">
+                        <div class="project-title">SafeView</div>
+                        <div class="project-description">
+                            Screen-sharing application enabling AppleCare Advisors to share customer's macOS or iOS devices.
+                        </div>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Swift</span>
+                            <span class="tech-tag">AppKit</span>
+                            <span class="tech-tag">Screen Share</span>
+                        </div>
+                    </div>
+
+                    <div class="project-card" onclick="showProjectModal('kickstart')">
+                        <div class="project-title">Kickstart Automation</div>
+                        <div class="project-description">
+                            Device provisioning tool reducing new employee setup time from 4 hours to 30 minutes.
+                        </div>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Swift</span>
+                            <span class="tech-tag">AppKit</span>
+                            <span class="tech-tag">Bash</span>
+                        </div>
+                    </div>
+
+                    <div class="project-card" onclick="showProjectModal('devices')">
+                        <div class="project-title">Devices - Employee Device Management</div>
+                        <div class="project-description">
+                            Native macOS app providing real-time device information for employees, reducing IT requests by 35%.
+                        </div>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Swift</span>
+                            <span class="tech-tag">AppKit</span>
+                            <span class="tech-tag">SwiftUI</span>
+                        </div>
+                    </div>
+
+                    <div class="project-card" onclick="showProjectModal('sparkle')">
+                        <div class="project-title">Sparkle Framework</div>
+                        <div class="project-description">
+                            Enhanced open-source update framework with enterprise security features deployed across 15+ apps.
+                        </div>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Objective-C</span>
+                            <span class="tech-tag">Swift</span>
+                            <span class="tech-tag">Security</span>
+                        </div>
+                    </div>
+
+                    <div class="project-card" onclick="showProjectModal('mdm')">
+                        <div class="project-title">MDM Automation Scripts</div>
+                        <div class="project-description">
+                            Python and Bash automation scripts reducing manual MDM deployment time by 80%.
+                        </div>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Bash</span>
+                            <span class="tech-tag">MDM APIs</span>
+                        </div>
+                    </div>
+                </div>
             </div>
 
-            <p class="job-description">Gained foundational expertise in iOS and macOS development, contributing to framework development and enterprise applications. Developed strong debugging skills and understanding of low-level system APIs.</p>
+            <div class="experience-card">
+                <div class="job-header">
+                    <div>
+                        <div class="company">Quest Global</div>
+                        <div class="job-title">System Analyst</div>
+                    </div>
+                    <div class="job-duration">June 2014 - June 2021</div>
+                </div>
 
-            <p class="achievements-title">Key Projects:</p>
-            <ul>
-                <li><strong>Software Depot:</strong> Debugged ISTSU protocol for software installation package management on macOS</li>
-                <li><strong>Enclosure Framework:</strong> Designed Cocoa Client API for file storage interaction with comprehensive unit testing</li>
-                <li><strong>ISTCore Framework:</strong> Contributed to modular framework development with reusable components</li>
-                <li><strong>Mobile Enclosures:</strong> Built file upload/download system with pause/resume and background transfer capabilities, achieving 99% transfer success rate</li>
-            </ul>
-            <p class="technologies">Technologies: Objective-C, Cocoa, AppKit, UIKit, Core Foundation, SQLite, Unit Testing</p>
+                <p style="margin-bottom: 20px; color: var(--light-text); font-size: 16px;">
+                    Spearheaded development of 10+ enterprise iOS and macOS applications from concept to deployment. Progressed from Software Engineer to System Analyst, taking on increasing responsibilities in architecture and technical leadership.
+                </p>
+
+                <ul class="achievements-list">
+                    <li>Delivered 10+ applications with 4.5+ star average rating and 98% crash-free rate</li>
+                    <li>Reduced development cycle time by 30% through Agile methodologies and automated testing</li>
+                    <li>Established iOS development best practices adopted company-wide</li>
+                    <li>Mentored 8 junior developers over 8 years, with 5 advancing to senior positions</li>
+                    <li>Led technical interviews and grew iOS team from 3 to 12 engineers</li>
+                </ul>
+
+                <h4 style="margin: 25px 0 15px; color: var(--primary-color); font-size: 20px;">Notable Projects:</h4>
+                <div class="projects-grid">
+                    <div class="project-card" onclick="showProjectModal('appletravel')">
+                        <div class="project-title">Apple Travel</div>
+                        <div class="project-description">
+                            Enterprise travel management app with 4.6 rating, integrating 3 third-party APIs.
+                        </div>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Swift</span>
+                            <span class="tech-tag">UIKit</span>
+                            <span class="tech-tag">Core Data</span>
+                        </div>
+                    </div>
+
+                    <div class="project-card" onclick="showProjectModal('purchasereq')">
+                        <div class="project-title">Purchase Requisition POC</div>
+                        <div class="project-description">
+                            iPad POC reducing approval time from 3 days to 4 hours, secured $500K budget.
+                        </div>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Swift</span>
+                            <span class="tech-tag">UIKit</span>
+                            <span class="tech-tag">PDF</span>
+                        </div>
+                    </div>
+
+                    <div class="project-card" onclick="showProjectModal('globalsecurity')">
+                        <div class="project-title">Global Security</div>
+                        <div class="project-description">
+                            Security management app for badge access with QR scanning, reducing processing by 60%.
+                        </div>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Swift</span>
+                            <span class="tech-tag">UIKit</span>
+                            <span class="tech-tag">Vision</span>
+                        </div>
+                    </div>
+
+                    <div class="project-card" onclick="showProjectModal('expenses')">
+                        <div class="project-title">Expenses (iOS & macOS)</div>
+                        <div class="project-description">
+                            Cross-platform expense app with OCR receipt scanning, reducing entry time by 70%.
+                        </div>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Swift</span>
+                            <span class="tech-tag">SwiftUI</span>
+                            <span class="tech-tag">OCR</span>
+                        </div>
+                    </div>
+
+                    <div class="project-card" onclick="showProjectModal('swiftserver')">
+                        <div class="project-title">Swift Server Framework</div>
+                        <div class="project-description">
+                            Lightweight web framework handling 10,000+ requests/day with sub-100ms response times.
+                        </div>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Swift</span>
+                            <span class="tech-tag">MySQL</span>
+                            <span class="tech-tag">Docker</span>
+                        </div>
+                    </div>
+
+                    <div class="project-card" onclick="showProjectModal('radar')">
+                        <div class="project-title">Radar Quality Management</div>
+                        <div class="project-description">
+                            Enhanced Apple's bug tracking system, reducing issue discovery time by 50%.
+                        </div>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Swift</span>
+                            <span class="tech-tag">AppKit</span>
+                            <span class="tech-tag">Core Data</span>
+                        </div>
+                    </div>
+
+                    <div class="project-card" onclick="showProjectModal('tax1099')">
+                        <div class="project-title">1099 Tax Management</div>
+                        <div class="project-description">
+                            IRS filing system reducing errors by 85% and saving 200+ hours annually.
+                        </div>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Swift</span>
+                            <span class="tech-tag">AppKit</span>
+                            <span class="tech-tag">PDF</span>
+                        </div>
+                    </div>
+
+                    <div class="project-card" onclick="showProjectModal('funds')">
+                        <div class="project-title">Funds Management</div>
+                        <div class="project-description">
+                            Dealer reimbursement system with approval workflows and audit logging.
+                        </div>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Swift</span>
+                            <span class="tech-tag">AppKit</span>
+                            <span class="tech-tag">MySQL</span>
+                        </div>
+                    </div>
+
+                    <div class="project-card" onclick="showProjectModal('customs')">
+                        <div class="project-title">Customs Tracking</div>
+                        <div class="project-description">
+                            Compliance tracking system reducing manual review time by 70%.
+                        </div>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Swift</span>
+                            <span class="tech-tag">AppKit</span>
+                            <span class="tech-tag">SQLite</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="experience-card">
+                <div class="job-header">
+                    <div>
+                        <div class="company">Exilant Technologies</div>
+                        <div class="job-title">Software Engineer</div>
+                    </div>
+                    <div class="job-duration">Jul 2010 - Sep 2012</div>
+                </div>
+
+                <p style="color: var(--light-text); font-size: 16px;">
+                    Gained foundational expertise in iOS and macOS development, contributing to framework development and enterprise applications. Developed strong debugging skills and understanding of low-level system APIs.
+                </p>
+
+                <h4 style="margin: 25px 0 15px; color: var(--primary-color); font-size: 20px;">Key Projects:</h4>
+                <div class="projects-grid">
+                    <div class="project-card" onclick="showProjectModal('softwaredepot')">
+                        <div class="project-title">Software Depot</div>
+                        <div class="project-description">
+                            Debugged ISTSU protocol for software installation package management on macOS.
+                        </div>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Objective-C</span>
+                            <span class="tech-tag">Cocoa</span>
+                            <span class="tech-tag">AppKit</span>
+                        </div>
+                    </div>
+
+                    <div class="project-card" onclick="showProjectModal('enclosureframework')">
+                        <div class="project-title">Enclosure Framework</div>
+                        <div class="project-description">
+                            Designed Cocoa Client API for file storage interaction with comprehensive unit testing.
+                        </div>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Objective-C</span>
+                            <span class="tech-tag">Cocoa</span>
+                            <span class="tech-tag">Testing</span>
+                        </div>
+                    </div>
+
+                    <div class="project-card" onclick="showProjectModal('istcore')">
+                        <div class="project-title">ISTCore Framework</div>
+                        <div class="project-description">
+                            Contributed to modular framework development with reusable components.
+                        </div>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Objective-C</span>
+                            <span class="tech-tag">Core Foundation</span>
+                            <span class="tech-tag">SQLite</span>
+                        </div>
+                    </div>
+
+                    <div class="project-card" onclick="showProjectModal('mobileenclosures')">
+                        <div class="project-title">Mobile Enclosures</div>
+                        <div class="project-description">
+                            Built file transfer system with pause/resume capabilities, achieving 99% success rate.
+                        </div>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Objective-C</span>
+                            <span class="tech-tag">UIKit</span>
+                            <span class="tech-tag">Networking</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education -->
+        <section class="section fade-in">
+            <h2 class="section-title">Education</h2>
+            <div class="education-grid">
+                <div class="education-card">
+                    <div class="degree">Master of Science</div>
+                    <div class="school">Computer Science & Information Engineering</div>
+                    <div class="year">Asia University, Taiwan · 2014</div>
+                </div>
+                <div class="education-card">
+                    <div class="degree">Bachelor of Engineering</div>
+                    <div class="school">Electronics & Communication Engineering</div>
+                    <div class="year">Visvesvaraya Tech University, India · 2010</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Career Timeline -->
+        <section id="timeline" class="timeline-section fade-in" role="region" aria-label="Career timeline">
+            <h2 class="section-title">Career Journey</h2>
+            <div class="timeline-container">
+                <div class="timeline-line"></div>
+
+                <!-- TCS America -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">June 2021 - Present</div>
+                        <div class="timeline-company">TCS America</div>
+                        <div class="timeline-title">Lead Engineer</div>
+                        <div class="timeline-description">
+                            Leading iOS/macOS development for Apple Retail and internal teams. Managing offshore teams of 8+ engineers while driving architecture decisions and delivery timelines.
+                        </div>
+                        <div class="timeline-tags">
+                            <span class="timeline-tag">iOS/macOS</span>
+                            <span class="timeline-tag">AI/ML</span>
+                            <span class="timeline-tag">Team Lead</span>
+                            <span class="timeline-tag">Architecture</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quest Global -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">June 2014 - June 2021</div>
+                        <div class="timeline-company">Quest Global</div>
+                        <div class="timeline-title">System Analyst</div>
+                        <div class="timeline-description">
+                            Spearheaded development of 10+ enterprise iOS and macOS applications. Progressed from Software Engineer to System Analyst with increasing responsibilities in architecture and leadership.
+                        </div>
+                        <div class="timeline-tags">
+                            <span class="timeline-tag">iOS/macOS</span>
+                            <span class="timeline-tag">Architecture</span>
+                            <span class="timeline-tag">10+ Apps</span>
+                            <span class="timeline-tag">Mentoring</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Education Masters -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">2014</div>
+                        <div class="timeline-company">Asia University, Taiwan</div>
+                        <div class="timeline-title">Master of Science</div>
+                        <div class="timeline-description">
+                            Computer Science & Information Engineering
+                        </div>
+                        <div class="timeline-tags">
+                            <span class="timeline-tag">Education</span>
+                            <span class="timeline-tag">MS</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Exilant Technologies -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">July 2010 - Sep 2012</div>
+                        <div class="timeline-company">Exilant Technologies</div>
+                        <div class="timeline-title">Software Engineer</div>
+                        <div class="timeline-description">
+                            Gained foundational expertise in iOS and macOS development. Contributed to framework development and enterprise applications.
+                        </div>
+                        <div class="timeline-tags">
+                            <span class="timeline-tag">iOS/macOS</span>
+                            <span class="timeline-tag">Objective-C</span>
+                            <span class="timeline-tag">Frameworks</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Education Bachelors -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">2010</div>
+                        <div class="timeline-company">Visvesvaraya Tech University, India</div>
+                        <div class="timeline-title">Bachelor of Engineering</div>
+                        <div class="timeline-description">
+                            Electronics & Communication Engineering
+                        </div>
+                        <div class="timeline-tags">
+                            <span class="timeline-tag">Education</span>
+                            <span class="timeline-tag">B.E.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Project Modal -->
+    <div id="projectModal" class="modal" role="dialog" aria-labelledby="modalTitle" aria-modal="true">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal()" role="button" tabindex="0" aria-label="Close modal">&times;</span>
+            <div id="modalBody"></div>
         </div>
     </div>
 
-    <!-- Education -->
-    <div class="section">
-        <h2 class="section-title">Education</h2>
+    <script>
+        // ============================================
+        // 3D WebGL Background using Three.js
+        // ============================================
+        let scene, camera, renderer, geometries = [];
 
-        <div class="education-item">
-            <div>
-                <span class="year">2014</span>
-                <p class="school">Asia University, Taiwan</p>
-                <p class="degree">Master of Science in Computer Science and Information Engineering</p>
-                <p class="education-note">(Career break taken to pursue advanced degree)</p>
-            </div>
-        </div>
+        function init3DBackground() {
+            const container = document.getElementById('webgl-background');
 
-        <div class="education-item">
-            <div>
-                <span class="year">2010</span>
-                <p class="school">Visvesvaraya Technological University, India</p>
-                <p class="degree">Bachelor of Engineering in Electronics and Communication Engineering</p>
-            </div>
-        </div>
-    </div>
+            // Scene
+            scene = new THREE.Scene();
 
+            // Camera
+            camera = new THREE.PerspectiveCamera(
+                75,
+                window.innerWidth / window.innerHeight,
+                0.1,
+                1000
+            );
+            camera.position.z = 30;
+
+            // Renderer
+            renderer = new THREE.WebGLRenderer({
+                antialias: true,
+                alpha: true
+            });
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            renderer.setClearColor(0x000000, 0);
+            container.appendChild(renderer.domElement);
+
+            // Create floating geometric shapes
+            const shapes = [
+                new THREE.IcosahedronGeometry(2, 0),
+                new THREE.OctahedronGeometry(2),
+                new THREE.TetrahedronGeometry(2),
+                new THREE.BoxGeometry(2, 2, 2),
+                new THREE.TorusGeometry(1.5, 0.5, 16, 100)
+            ];
+
+            const material = new THREE.MeshPhongMaterial({
+                color: 0x2563eb,
+                wireframe: true,
+                transparent: true,
+                opacity: 0.6
+            });
+
+            for (let i = 0; i < 8; i++) {
+                const geometry = shapes[Math.floor(Math.random() * shapes.length)];
+                const mesh = new THREE.Mesh(geometry, material.clone());
+
+                mesh.position.x = (Math.random() - 0.5) * 50;
+                mesh.position.y = (Math.random() - 0.5) * 50;
+                mesh.position.z = (Math.random() - 0.5) * 30;
+
+                mesh.rotation.x = Math.random() * Math.PI;
+                mesh.rotation.y = Math.random() * Math.PI;
+
+                mesh.userData = {
+                    rotationSpeed: {
+                        x: (Math.random() - 0.5) * 0.01,
+                        y: (Math.random() - 0.5) * 0.01,
+                        z: (Math.random() - 0.5) * 0.01
+                    }
+                };
+
+                scene.add(mesh);
+                geometries.push(mesh);
+            }
+
+            // Lights
+            const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+            scene.add(ambientLight);
+
+            const pointLight = new THREE.PointLight(0x60a5fa, 1);
+            pointLight.position.set(10, 10, 10);
+            scene.add(pointLight);
+
+            // Mouse interaction
+            let mouseX = 0, mouseY = 0;
+
+            document.addEventListener('mousemove', (event) => {
+                mouseX = (event.clientX / window.innerWidth) * 2 - 1;
+                mouseY = -(event.clientY / window.innerHeight) * 2 + 1;
+            });
+
+            // Animation loop
+            function animate() {
+                requestAnimationFrame(animate);
+
+                // Rotate geometries
+                geometries.forEach(mesh => {
+                    mesh.rotation.x += mesh.userData.rotationSpeed.x;
+                    mesh.rotation.y += mesh.userData.rotationSpeed.y;
+                    mesh.rotation.z += mesh.userData.rotationSpeed.z;
+                });
+
+                // Camera follows mouse
+                camera.position.x += (mouseX * 5 - camera.position.x) * 0.05;
+                camera.position.y += (mouseY * 5 - camera.position.y) * 0.05;
+                camera.lookAt(scene.position);
+
+                renderer.render(scene, camera);
+            }
+
+            animate();
+
+            // Handle resize
+            window.addEventListener('resize', () => {
+                camera.aspect = window.innerWidth / window.innerHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize(window.innerWidth, window.innerHeight);
+            });
+        }
+
+        // Initialize 3D background
+        init3DBackground();
+
+        // ============================================
+        // Skills Radar Chart
+        // ============================================
+        const radarCtx = document.getElementById('skillsRadar').getContext('2d');
+        const skillsRadarChart = new Chart(radarCtx, {
+            type: 'radar',
+            data: {
+                labels: [
+                    'Swift/iOS Development',
+                    'AI & ML Integration',
+                    'System Architecture',
+                    'Performance Optimization',
+                    'Team Leadership',
+                    'CI/CD & DevOps',
+                    'Security & Compliance',
+                    'Cross-Platform (iOS/macOS)'
+                ],
+                datasets: [{
+                    label: 'Expertise Level',
+                    data: [95, 88, 90, 92, 88, 85, 90, 95],
+                    backgroundColor: 'rgba(37, 99, 235, 0.2)',
+                    borderColor: 'rgba(37, 99, 235, 1)',
+                    borderWidth: 3,
+                    pointBackgroundColor: 'rgba(37, 99, 235, 1)',
+                    pointBorderColor: '#fff',
+                    pointHoverBackgroundColor: '#fff',
+                    pointHoverBorderColor: 'rgba(37, 99, 235, 1)',
+                    pointRadius: 6,
+                    pointHoverRadius: 8
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: true,
+                scales: {
+                    r: {
+                        beginAtZero: true,
+                        max: 100,
+                        ticks: {
+                            stepSize: 20,
+                            color: '#333',
+                            backdropColor: 'transparent'
+                        },
+                        grid: {
+                            color: 'rgba(37, 99, 235, 0.1)'
+                        },
+                        pointLabels: {
+                            color: '#333',
+                            font: {
+                                size: 14,
+                                weight: '600'
+                            }
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                }
+            }
+        });
+
+        // ============================================
+        // Impact Dashboard Charts
+        // ============================================
+
+        // Performance Improvements Chart
+        const perfCtx = document.getElementById('performanceChart').getContext('2d');
+        const performanceChart = new Chart(perfCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Launch Time', 'Data Sync', 'UI Rendering', 'Memory Usage'],
+                datasets: [{
+                    label: 'Improvement %',
+                    data: [70, 90, 60, 45],
+                    backgroundColor: [
+                        'rgba(16, 185, 129, 0.8)',
+                        'rgba(37, 99, 235, 0.8)',
+                        'rgba(245, 158, 11, 0.8)',
+                        'rgba(139, 92, 246, 0.8)'
+                    ],
+                    borderColor: [
+                        'rgb(16, 185, 129)',
+                        'rgb(37, 99, 235)',
+                        'rgb(245, 158, 11)',
+                        'rgb(139, 92, 246)'
+                    ],
+                    borderWidth: 2,
+                    borderRadius: 8
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 100,
+                        ticks: {
+                            callback: value => value + '%',
+                            color: '#333'
+                        },
+                        grid: { color: 'rgba(0, 0, 0, 0.1)' }
+                    },
+                    x: {
+                        ticks: {
+                            color: '#333'
+                        },
+                        grid: { display: false }
+                    }
+                }
+            }
+        });
+
+        // Crash Rate Chart
+        const crashCtx = document.getElementById('crashChart').getContext('2d');
+        const crashChart = new Chart(crashCtx, {
+            type: 'line',
+            data: {
+                labels: ['Q1 2021', 'Q2 2021', 'Q3 2021', 'Q4 2021', 'Q1 2022', 'Q2 2022'],
+                datasets: [{
+                    label: 'Crash Rate %',
+                    data: [15, 12, 8, 5, 3.5, 3],
+                    borderColor: 'rgb(239, 68, 68)',
+                    backgroundColor: 'rgba(239, 68, 68, 0.1)',
+                    borderWidth: 3,
+                    fill: true,
+                    tension: 0.4,
+                    pointRadius: 6,
+                    pointHoverRadius: 8,
+                    pointBackgroundColor: 'rgb(239, 68, 68)',
+                    pointBorderColor: '#fff',
+                    pointBorderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 20,
+                        ticks: {
+                            callback: value => value + '%',
+                            color: '#333'
+                        },
+                        grid: { color: 'rgba(0, 0, 0, 0.1)' }
+                    },
+                    x: {
+                        ticks: {
+                            color: '#333'
+                        },
+                        grid: { display: false }
+                    }
+                }
+            }
+        });
+
+        // Team Impact Chart
+        const teamCtx = document.getElementById('teamChart').getContext('2d');
+        const teamChart = new Chart(teamCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Mentored', 'Promoted', 'Hired', 'Trained'],
+                datasets: [{
+                    data: [14, 8, 9, 20],
+                    backgroundColor: [
+                        'rgba(37, 99, 235, 0.8)',
+                        'rgba(16, 185, 129, 0.8)',
+                        'rgba(245, 158, 11, 0.8)',
+                        'rgba(139, 92, 246, 0.8)'
+                    ],
+                    borderColor: '#fff',
+                    borderWidth: 3
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            color: '#333',
+                            padding: 15,
+                            font: { size: 12 }
+                        }
+                    }
+                }
+            }
+        });
+
+        // Time Savings Chart
+        const timeCtx = document.getElementById('timeSavingsChart').getContext('2d');
+        const timeSavingsChart = new Chart(timeCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Setup Automation', 'Code Review', 'Testing', 'Deployment'],
+                datasets: [{
+                    label: 'Hours Saved/Week',
+                    data: [120, 45, 85, 60],
+                    backgroundColor: 'rgba(37, 99, 235, 0.8)',
+                    borderColor: 'rgb(37, 99, 235)',
+                    borderWidth: 2,
+                    borderRadius: 8
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                indexAxis: 'y',
+                plugins: {
+                    legend: { display: false }
+                },
+                scales: {
+                    x: {
+                        beginAtZero: true,
+                        ticks: {
+                            callback: value => value + 'h',
+                            color: '#333'
+                        },
+                        grid: { color: 'rgba(0, 0, 0, 0.1)' }
+                    },
+                    y: {
+                        ticks: {
+                            color: '#333'
+                        },
+                        grid: { display: false }
+                    }
+                }
+            }
+        });
+
+        // ============================================
+        // Typing Animation
+        // ============================================
+        const typingText = document.getElementById('typing-text');
+        const phrases = [
+            'Senior iOS/macOS Engineer',
+            'Swift & SwiftUI Expert',
+            'AI/ML Integration Specialist',
+            '13+ Years Experience'
+        ];
+        let phraseIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+
+        function type() {
+            const currentPhrase = phrases[phraseIndex];
+
+            if (isDeleting) {
+                typingText.innerHTML = currentPhrase.substring(0, charIndex - 1) +
+                    '<span class="typing-cursor"></span>';
+                charIndex--;
+            } else {
+                typingText.innerHTML = currentPhrase.substring(0, charIndex + 1) +
+                    '<span class="typing-cursor"></span>';
+                charIndex++;
+            }
+
+            if (!isDeleting && charIndex === currentPhrase.length) {
+                setTimeout(() => isDeleting = true, 2000);
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                phraseIndex = (phraseIndex + 1) % phrases.length;
+            }
+
+            setTimeout(type, isDeleting ? 50 : 100);
+        }
+
+        type();
+
+        // ============================================
+        // Counter Animation
+        // ============================================
+        function animateCounter(element) {
+            const target = parseInt(element.getAttribute('data-target'));
+            let current = 0;
+            const increment = target / 50;
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    element.textContent = target + '+';
+                    clearInterval(timer);
+                } else {
+                    element.textContent = Math.floor(current);
+                }
+            }, 30);
+        }
+
+        // ============================================
+        // Scroll Animations
+        // ============================================
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+
+                    if (entry.target.classList.contains('stats-grid')) {
+                        entry.target.querySelectorAll('.stat-number').forEach(animateCounter);
+                    }
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+        document.querySelectorAll('.timeline-item').forEach(el => observer.observe(el));
+
+        // ============================================
+        // Update Charts for Theme
+        // ============================================
+        function updateChartsForTheme(theme) {
+            // theme can be: 'light', 'dark', or 'terminal'
+            let primaryColor, primaryColorAlpha, textColor, gridColor;
+
+            if (theme === 'terminal') {
+                primaryColor = '#00ff41';
+                primaryColorAlpha = 'rgba(0, 255, 65, 0.2)';
+                textColor = '#00ff41';
+                gridColor = 'rgba(0, 255, 65, 0.15)';
+            } else if (theme === 'dark') {
+                primaryColor = 'rgba(37, 99, 235, 1)';
+                primaryColorAlpha = 'rgba(37, 99, 235, 0.2)';
+                textColor = '#f8fafc';
+                gridColor = 'rgba(100, 116, 139, 0.3)';
+            } else {
+                // light mode
+                primaryColor = 'rgba(37, 99, 235, 1)';
+                primaryColorAlpha = 'rgba(37, 99, 235, 0.2)';
+                textColor = '#333';
+                gridColor = 'rgba(0, 0, 0, 0.1)';
+            }
+
+            // Update Radar Chart
+            skillsRadarChart.data.datasets[0].backgroundColor = primaryColorAlpha;
+            skillsRadarChart.data.datasets[0].borderColor = primaryColor;
+            skillsRadarChart.data.datasets[0].pointBackgroundColor = primaryColor;
+            skillsRadarChart.data.datasets[0].pointHoverBorderColor = primaryColor;
+            skillsRadarChart.options.scales.r.ticks.color = textColor;
+            skillsRadarChart.options.scales.r.pointLabels.color = textColor;
+            skillsRadarChart.options.scales.r.grid.color = gridColor;
+            skillsRadarChart.update();
+
+            // Update Performance Chart
+            performanceChart.options.scales.y.ticks.color = textColor;
+            performanceChart.options.scales.x.ticks.color = textColor;
+            performanceChart.options.scales.y.grid.color = gridColor;
+            performanceChart.update();
+
+            // Update Crash Chart
+            crashChart.options.scales.y.ticks.color = textColor;
+            crashChart.options.scales.x.ticks.color = textColor;
+            crashChart.options.scales.y.grid.color = gridColor;
+            crashChart.update();
+
+            // Update Team Chart
+            teamChart.options.plugins.legend.labels.color = textColor;
+            teamChart.update();
+
+            // Update Time Savings Chart
+            timeSavingsChart.options.scales.x.ticks.color = textColor;
+            timeSavingsChart.options.scales.y.ticks.color = textColor;
+            timeSavingsChart.options.scales.x.grid.color = gridColor;
+            timeSavingsChart.update();
+        }
+
+        // ============================================
+        // Dark Mode Toggle
+        // ============================================
+        function toggleDarkMode() {
+            const body = document.body;
+            const btn = event.target;
+
+            // Cycle through: light -> dark -> terminal -> light
+            if (body.classList.contains('terminal-mode')) {
+                // Terminal -> Light
+                body.classList.remove('terminal-mode');
+                btn.textContent = '🌙 Dark';
+                localStorage.setItem('theme', 'light');
+                updateChartsForTheme('light');
+            } else if (body.classList.contains('dark-mode')) {
+                // Dark -> Terminal
+                body.classList.remove('dark-mode');
+                body.classList.add('terminal-mode');
+                btn.textContent = '☀️ Light';
+                localStorage.setItem('theme', 'terminal');
+                updateChartsForTheme('terminal');
+            } else {
+                // Light -> Dark
+                body.classList.add('dark-mode');
+                btn.textContent = '💻 Terminal';
+                localStorage.setItem('theme', 'dark');
+                updateChartsForTheme('dark');
+            }
+        }
+
+        // Load theme preference
+        const savedTheme = localStorage.getItem('theme');
+        const themeBtn = document.querySelector('.btn-group .btn:last-child');
+
+        if (savedTheme === 'dark') {
+            document.body.classList.add('dark-mode');
+            themeBtn.textContent = '💻 Terminal';
+            updateChartsForTheme('dark');
+        } else if (savedTheme === 'terminal') {
+            document.body.classList.add('terminal-mode');
+            themeBtn.textContent = '☀️ Light';
+            updateChartsForTheme('terminal');
+        } else {
+            // Light mode (default or explicitly saved as 'light')
+            themeBtn.textContent = '🌙 Dark';
+            // Charts already initialized with light mode colors
+        }
+
+        // ============================================
+        // Smooth Scroll
+        // ============================================
+        function scrollToSection(id) {
+            document.getElementById(id).scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+
+        // ============================================
+        // Project Modal System
+        // ============================================
+        const projectData = {
+            genius: {
+                title: 'Genius (iOS) & RepairCentral (macOS)',
+                subtitle: 'Retail Repair Management Platform',
+                description: 'Architected and developed comprehensive repair management system used by Genius Bar employees across all Apple Retail Stores worldwide.',
+                achievements: [
+                    'Integrated on-device foundation models for intelligent repair recommendations and natural language diagnostic assistance, reducing average diagnosis time by 35%',
+                    'Implemented real-time sync between iOS and macOS applications using CloudKit, reducing data conflicts by 90%',
+                    'Designed intuitive UI/UX reducing average repair creation time from 5 minutes to 2 minutes, improving customer satisfaction scores by 25%',
+                    'Built robust offline-first architecture ensuring 99.9% uptime even in poor network conditions'
+                ],
+                technologies: ['Swift', 'SwiftUI', 'Core Data', 'CloudKit', 'Core ML', 'On-device Foundation Models', 'MVVM', 'XCTest']
+            },
+            safeview: {
+                title: 'SafeView - macOS Screen Sharing Application',
+                subtitle: 'AppleCare Customer Support Platform',
+                description: 'Screen-sharing application that lets AppleCare Advisors share a customer\'s macOS or iOS device for remote support and troubleshooting.',
+                achievements: [
+                    'Enabled remote support for millions of AppleCare customers worldwide',
+                    'Implemented secure screen sharing with end-to-end encryption ensuring customer privacy',
+                    'Built cross-platform support for both macOS and iOS device sharing',
+                    'Developed intuitive interface allowing advisors to efficiently diagnose and resolve customer issues',
+                    'Achieved 99.9% uptime ensuring reliable customer support experience'
+                ],
+                technologies: ['Swift', 'AppKit', 'Screen Capture APIs', 'Networking', 'Security Framework', 'Real-time Communication']
+            },
+            kickstart: {
+                title: 'Kickstart - macOS Device Setup Automation',
+                subtitle: 'Device Provisioning Tool',
+                description: 'Developed automated device provisioning tool for new employee onboarding.',
+                achievements: [
+                    'Reduced new employee setup time from 4 hours to 30 minutes',
+                    'Implemented package manager integration installing 20+ essential applications with zero-touch deployment',
+                    'Created intuitive onboarding flow reducing IT support tickets by 40%',
+                    'Built self-healing scripts that automatically resolve common installation failures'
+                ],
+                technologies: ['Swift', 'AppKit', 'Bash scripting', 'URLSession', 'Combine']
+            },
+            devices: {
+                title: 'Devices - macOS Employee Device Management',
+                subtitle: 'Real-time Device Information Portal',
+                description: 'Built native macOS application providing real-time device information for Apple employees.',
+                achievements: [
+                    'Integrated with MDM APIs delivering instant access to device status, serial numbers, and application inventory',
+                    'Designed self-service portal reducing IT helpdesk requests by 35%',
+                    'Implemented real-time sync ensuring data accuracy across distributed systems',
+                    'Built with SwiftUI for modern, responsive user interface'
+                ],
+                technologies: ['Swift', 'AppKit', 'SwiftUI', 'RESTful APIs', 'Core Data']
+            },
+            sparkle: {
+                title: 'Sparkle Framework - Software Update Framework',
+                subtitle: 'Enterprise Software Update Solution',
+                description: 'Enhanced open-source Sparkle framework with enterprise security features.',
+                achievements: [
+                    'Implemented mutual SSL authentication for secure update delivery',
+                    'Added Limited Lifetime Token (LLT) protection against CSRF and man-in-the-middle attacks',
+                    'Deployed across 15+ internal macOS applications',
+                    'Ensured backward compatibility while adding enterprise security features'
+                ],
+                technologies: ['Objective-C', 'Swift', 'Security Framework', 'SSL/TLS', 'Framework Development']
+            },
+            mdm: {
+                title: 'MDM Automation Scripts',
+                subtitle: 'Mobile Device Management Automation',
+                description: 'Developed Python and Bash automation scripts for MDM deployment.',
+                achievements: [
+                    'Reduced manual deployment time by 80% through intelligent automation',
+                    'Created self-healing scripts automatically resolving common installation failures',
+                    'Integrated with Jamf Pro for enterprise device management',
+                    'Built comprehensive logging and monitoring for deployment tracking'
+                ],
+                technologies: ['Bash', 'Python', 'MDM APIs', 'Jamf Pro']
+            },
+            appletravel: {
+                title: 'Apple Travel - iOS Travel Management Application',
+                subtitle: 'Enterprise Travel Booking Platform',
+                description: 'Architected and developed enterprise travel management app used by internal Apple employees for booking flights, hotels, and managing itineraries.',
+                achievements: [
+                    'Integrated with 3 third-party APIs (Concur, Sabre, TripIt) providing seamless booking experience',
+                    'Implemented push notifications reducing missed booking deadlines by 45%',
+                    'Optimized for offline use with local data persistence, ensuring 100% functionality without connectivity',
+                    'Achieved 4.6 App Store rating with 95% user satisfaction in internal surveys'
+                ],
+                technologies: ['Swift', 'UIKit', 'Core Data', 'RESTful APIs', 'Push Notifications', 'MapKit']
+            },
+            purchasereq: {
+                title: 'Purchase Requisition - iOS Purchase Management POC',
+                subtitle: 'Purchase Approval Workflow System',
+                description: 'Designed and developed POC iPad application streamlining purchase requisition approval workflow.',
+                achievements: [
+                    'Reduced approval time from 3 days to 4 hours through mobile-first approach and real-time notifications',
+                    'Successfully pitched to executive leadership, securing $500K budget for full production development',
+                    'Implemented digital signatures for secure approval workflow',
+                    'Built PDF generation for purchase order documents'
+                ],
+                technologies: ['Swift', 'UIKit', 'PDF Generation', 'Digital Signatures', 'RESTful APIs']
+            },
+            globalsecurity: {
+                title: 'Global Security - iOS Security Management System',
+                subtitle: 'Badge Access & Security Platform',
+                description: 'Built comprehensive security management app for badge access, notifications, and key/lock service requests.',
+                achievements: [
+                    'Integrated with Apple\'s internal security systems serving employees across multiple offices',
+                    'Implemented QR code scanning reducing badge request processing time by 60%',
+                    'Added real-time status tracking improving transparency and reducing support calls by 40%',
+                    'Built push notification system for security alerts and updates'
+                ],
+                technologies: ['Swift', 'UIKit', 'Core Data', 'QR Code scanning (Vision framework)', 'Push Notifications']
+            },
+            expenses: {
+                title: 'Expenses - iOS & macOS Expense Management',
+                subtitle: 'Cross-Platform Expense Tracking',
+                description: 'Developed cross-platform expense management application with seamless data sync between iOS and macOS.',
+                achievements: [
+                    'Implemented OCR receipt scanning using Vision framework, reducing manual entry time by 70%',
+                    'Added GPS-based automatic location filling improving compliance and reducing expense report errors by 50%',
+                    'Built comprehensive unit test suite with 80% code coverage ensuring reliability',
+                    'Achieved seamless data sync using CloudKit across iOS and macOS platforms'
+                ],
+                technologies: ['Swift', 'SwiftUI', 'UIKit', 'AppKit', 'Vision (OCR)', 'Core Location', 'CloudKit', 'Unit Testing']
+            },
+            swiftserver: {
+                title: 'Swift Server Framework - Backend Web Framework',
+                subtitle: 'Lightweight Swift Web Framework',
+                description: 'Architected and built lightweight web framework in Swift for rapid API development.',
+                achievements: [
+                    'Implemented URL routing, middleware pipeline, static file serving, and JSON parsing',
+                    'Integrated MySQL database layer with connection pooling and ORM-like capabilities',
+                    'Deployed 5+ microservices handling 10,000+ requests/day with sub-100ms response times',
+                    'Built comprehensive documentation and sample projects for team adoption'
+                ],
+                technologies: ['Swift on Linux', 'MySQL', 'Vapor', 'RESTful API design', 'Docker']
+            },
+            radar: {
+                title: 'Radar - macOS Quality Management System',
+                subtitle: 'Bug Tracking & Quality Management',
+                description: 'Enhanced Apple\'s internal bug tracking and quality management system used across all hardware/software teams.',
+                achievements: [
+                    'Implemented advanced search with 20+ filter criteria reducing issue discovery time by 50%',
+                    'Added batch operations enabling QA teams to process 100+ issues simultaneously',
+                    'Integrated comprehensive unit testing achieving 75% code coverage',
+                    'Built complex UI with NSTableView and NSSplitView for efficient data visualization'
+                ],
+                technologies: ['Swift', 'AppKit', 'Core Data', 'RESTful APIs', 'Complex UI (NSTableView, NSSplitView)']
+            },
+            tax1099: {
+                title: '1099 Tax Management - macOS Application',
+                subtitle: 'IRS Tax Information Filing System',
+                description: 'Developed IRS tax information filing system for vendor and contractor annual reporting.',
+                achievements: [
+                    'Automated data validation reducing filing errors by 85% and saving 200+ hours annually',
+                    'Implemented secure PDF generation and encryption for sensitive tax documents',
+                    'Built compliance reporting ensuring zero filing violations',
+                    'Created audit trail for all tax-related operations'
+                ],
+                technologies: ['Swift', 'AppKit', 'PDF Generation', 'Data Validation', 'Encryption']
+            },
+            funds: {
+                title: 'Funds Management - macOS Reimbursement System',
+                subtitle: 'Dealer Reimbursement Platform',
+                description: 'Managed dealer reimbursements for advertising, promotion, and hiring costs related to Apple\'s business.',
+                achievements: [
+                    'Implemented approval workflows with role-based access control',
+                    'Added audit logging and compliance reporting reducing audit preparation time by 60%',
+                    'Built complex business logic for calculating reimbursements across multiple categories',
+                    'Integrated with MySQL database for reliable data storage'
+                ],
+                technologies: ['Swift', 'AppKit', 'MySQL', 'Complex Business Logic', 'Reporting']
+            },
+            customs: {
+                title: 'Customs - macOS Import Tracking System',
+                subtitle: 'Customs Compliance Tracking',
+                description: 'Developed customs compliance tracking system monitoring import records for regulatory compliance.',
+                achievements: [
+                    'Automated compliance checks reducing manual review time by 70%',
+                    'Generated compliance reports for legal and finance teams ensuring zero compliance violations',
+                    'Built data import/export capabilities for integration with external systems',
+                    'Implemented real-time tracking of customs documentation'
+                ],
+                technologies: ['Swift', 'AppKit', 'SQLite', 'Reporting', 'Data Import/Export']
+            },
+            softwaredepot: {
+                title: 'Software Depot',
+                subtitle: 'Software Installation Package Management',
+                description: 'Debugged ISTSU protocol for software installation package management on macOS.',
+                achievements: [
+                    'Resolved critical protocol issues enabling reliable software distribution',
+                    'Improved installation success rate through comprehensive debugging',
+                    'Gained deep understanding of macOS software installation mechanisms',
+                    'Collaborated with senior engineers on complex system-level debugging'
+                ],
+                technologies: ['Objective-C', 'Cocoa', 'AppKit', 'System APIs']
+            },
+            enclosureframework: {
+                title: 'Enclosure Framework',
+                subtitle: 'File Storage Client API',
+                description: 'Designed Cocoa Client API for file storage interaction with comprehensive unit testing.',
+                achievements: [
+                    'Created clean, well-documented API for file storage operations',
+                    'Implemented comprehensive unit test suite ensuring reliability',
+                    'Designed for extensibility and reusability across multiple projects',
+                    'Followed Apple\'s framework design guidelines'
+                ],
+                technologies: ['Objective-C', 'Cocoa', 'Unit Testing', 'Framework Design']
+            },
+            istcore: {
+                title: 'ISTCore Framework',
+                subtitle: 'Modular Component Framework',
+                description: 'Contributed to modular framework development with reusable components.',
+                achievements: [
+                    'Developed reusable components used across multiple internal applications',
+                    'Implemented Core Foundation and SQLite integration',
+                    'Participated in code reviews and architecture discussions',
+                    'Gained foundational knowledge of framework architecture'
+                ],
+                technologies: ['Objective-C', 'Core Foundation', 'SQLite', 'Framework Development']
+            },
+            mobileenclosures: {
+                title: 'Mobile Enclosures',
+                subtitle: 'File Upload/Download System',
+                description: 'Built file upload/download system with pause/resume and background transfer capabilities.',
+                achievements: [
+                    'Achieved 99% transfer success rate through robust error handling',
+                    'Implemented pause/resume functionality for large file transfers',
+                    'Added background transfer support for improved user experience',
+                    'Built progress tracking and cancellation capabilities'
+                ],
+                technologies: ['Objective-C', 'UIKit', 'Networking', 'Background Transfer']
+            }
+        };
+
+        function showProjectModal(projectKey) {
+            const project = projectData[projectKey];
+            const modal = document.getElementById('projectModal');
+            const modalBody = document.getElementById('modalBody');
+
+            modalBody.innerHTML = `
+                <h2>${project.title}</h2>
+                <h3>${project.subtitle}</h3>
+                <p>${project.description}</p>
+                <h4>Key Achievements:</h4>
+                <ul class="achievements-list">
+                    ${project.achievements.map(achievement => `<li>${achievement}</li>`).join('')}
+                </ul>
+                <h4>Technologies:</h4>
+                <div class="tech-tags">
+                    ${project.technologies.map(tech => `<span class="tech-tag">${tech}</span>`).join('')}
+                </div>
+            `;
+
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            document.getElementById('projectModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('projectModal');
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeModal();
+            }
+        });
+    </script>
 </body>
 </html>
