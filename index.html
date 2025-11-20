@@ -30,8 +30,12 @@
     <meta property="og:image:type" content="image/png" />
     <meta property="og:image:alt" content="Anil Kumar Thatha Venkatachalapathy - Lead iOS/macOS Engineer with 13+ years experience" />
 
-    <!-- Favicon -->
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👨‍💻</text></svg>">
+    <!-- Favicons -->
+    <link rel="icon" type="image/svg+xml" href="favicon/favicon.svg">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="favicon/favicon-96x96.png">
+    <link rel="icon" href="favicon/favicon.ico">
+    <link rel="manifest" href="favicon/site.webmanifest">
 
     <!-- Sitemap -->
     <link rel="sitemap" type="application/xml" href="/sitemap.xml">
@@ -1794,7 +1798,7 @@
         <section id="skills" class="section fade-in" role="region" aria-label="Technical skills">
             <h2 class="section-title">Skills Expertise Radar</h2>
             <div class="skills-radar-container">
-                <canvas id="skillsRadar" class="radar-canvas"></canvas>
+                <canvas id="skillsRadar" class="radar-canvas" role="img" aria-label="Skills expertise radar chart showing proficiency in Swift/iOS Development, AI & ML Integration, System Architecture, Performance Optimization, Team Leadership, CI/CD & DevOps, Security & Compliance, and Cross-Platform development"></canvas>
             </div>
         </section>
 
@@ -1851,25 +1855,25 @@
                 <div class="dashboard-card">
                     <h3><span class="impact-icon">🚀</span> Performance Improvements</h3>
                     <div class="chart-container">
-                        <canvas id="performanceChart"></canvas>
+                        <canvas id="performanceChart" role="img" aria-label="Bar chart showing performance improvements: 70% launch time reduction, 90% data sync improvement, 60% UI rendering enhancement, and 45% memory usage optimization"></canvas>
                     </div>
                 </div>
                 <div class="dashboard-card">
                     <h3><span class="impact-icon">📉</span> Crash Rate Reduction</h3>
                     <div class="chart-container">
-                        <canvas id="crashChart"></canvas>
+                        <canvas id="crashChart" role="img" aria-label="Line chart showing crash rate reduction from 15% to 3% over 6 quarters"></canvas>
                     </div>
                 </div>
                 <div class="dashboard-card">
                     <h3><span class="impact-icon">👥</span> Team & Mentorship Impact</h3>
                     <div class="chart-container">
-                        <canvas id="teamChart"></canvas>
+                        <canvas id="teamChart" role="img" aria-label="Doughnut chart showing team impact: 14 developers mentored, 8 promoted, 9 hired, and 20 trained"></canvas>
                     </div>
                 </div>
                 <div class="dashboard-card">
                     <h3><span class="impact-icon">⏱️</span> Time Savings Delivered</h3>
                     <div class="chart-container">
-                        <canvas id="timeSavingsChart"></canvas>
+                        <canvas id="timeSavingsChart" role="img" aria-label="Horizontal bar chart showing time savings: 120 hours in setup automation, 45 hours in code review, 85 hours in testing, and 60 hours in deployment per week"></canvas>
                     </div>
                 </div>
             </div>
@@ -2302,7 +2306,7 @@
 
                 <div class="easter-egg-hint" onclick="trackEvent('easter_egg_hint_click', {location: 'footer', hint_type: 'konami_code'});">
                     <span class="hint-icon">🎮</span>
-                    <span>Gamers & curious minds: Try the classic code from the '80s...</span>
+                    <span>Gamers & curious minds: Try the classic code... or tap me 7 times!</span>
                 </div>
 
                 <div class="footer-links">
@@ -2364,6 +2368,7 @@
         console.log('%c🎮 Looking for something fun?', 'color: #60a5fa; font-size: 16px; font-weight: bold;');
         console.log('%cTry the classic gaming code from the 80s: ↑↑↓↓←→←→BA', 'color: #10b981; font-size: 14px;');
         console.log('%cHint: Use your arrow keys, then press B and A', 'color: #64748b; font-size: 12px; font-style: italic;');
+        console.log('%c📱 On mobile? Tap the 🎮 hint at the bottom 7 times!', 'color: #f59e0b; font-size: 12px;');
         console.log('%c\n💼 Want to chat? Email me at aniltv06@gmail.com', 'color: #2563eb; font-size: 14px;');
         console.log('%cOr just say you found the easter egg - I\'d love to hear from you! 🚀\n', 'color: #64748b; font-size: 12px;');
 
@@ -3796,6 +3801,12 @@
 
             document.getElementById('projectModal').style.display = 'none';
             document.body.style.overflow = 'auto';
+
+            // Reset easter egg state to allow re-triggering
+            easterEggTriggered = false;
+            konamiIndex = 0;
+            mobileKonamiSequence = [];
+            hintTapCount = 0;
         }
 
         // Close modal when clicking outside
@@ -4045,7 +4056,7 @@
 
                 if (konamiIndex === konamiCode.length) {
                     if (!easterEggTriggered) {
-                        triggerEasterEgg();
+                        triggerEasterEgg('keyboard');
                         easterEggTriggered = true;
                     }
                     konamiIndex = 0;
@@ -4055,11 +4066,126 @@
             }
         });
 
-        function triggerEasterEgg() {
-            // Track the easter egg discovery
+        // ============================================
+        // Mobile Konami Code (Swipe + Tap)
+        // ============================================
+        let mobileKonamiSequence = [];
+        const mobileKonamiCode = ['up', 'up', 'down', 'down', 'left', 'right', 'left', 'right', 'tap', 'tap'];
+        let touchStartX = 0;
+        let touchStartY = 0;
+        let touchEndX = 0;
+        let touchEndY = 0;
+        const swipeThreshold = 50; // minimum distance for a swipe
+
+        document.addEventListener('touchstart', function(e) {
+            touchStartX = e.changedTouches[0].screenX;
+            touchStartY = e.changedTouches[0].screenY;
+        }, false);
+
+        document.addEventListener('touchend', function(e) {
+            if (easterEggTriggered) return;
+
+            touchEndX = e.changedTouches[0].screenX;
+            touchEndY = e.changedTouches[0].screenY;
+
+            handleSwipe();
+        }, false);
+
+        function handleSwipe() {
+            const xDiff = touchEndX - touchStartX;
+            const yDiff = touchEndY - touchStartY;
+
+            // Determine if it's a tap or swipe
+            if (Math.abs(xDiff) < 10 && Math.abs(yDiff) < 10) {
+                // It's a tap
+                mobileKonamiSequence.push('tap');
+            } else if (Math.abs(xDiff) > Math.abs(yDiff)) {
+                // Horizontal swipe
+                if (Math.abs(xDiff) > swipeThreshold) {
+                    if (xDiff > 0) {
+                        mobileKonamiSequence.push('right');
+                    } else {
+                        mobileKonamiSequence.push('left');
+                    }
+                }
+            } else {
+                // Vertical swipe
+                if (Math.abs(yDiff) > swipeThreshold) {
+                    if (yDiff > 0) {
+                        mobileKonamiSequence.push('down');
+                    } else {
+                        mobileKonamiSequence.push('up');
+                    }
+                }
+            }
+
+            // Keep only last 10 gestures
+            if (mobileKonamiSequence.length > 10) {
+                mobileKonamiSequence.shift();
+            }
+
+            // Check if sequence matches
+            if (mobileKonamiSequence.length === 10) {
+                let matches = true;
+                for (let i = 0; i < 10; i++) {
+                    if (mobileKonamiSequence[i] !== mobileKonamiCode[i]) {
+                        matches = false;
+                        break;
+                    }
+                }
+
+                if (matches && !easterEggTriggered) {
+                    triggerEasterEgg('mobile_swipe');
+                    easterEggTriggered = true;
+                    mobileKonamiSequence = [];
+                }
+            }
+        }
+
+        // ============================================
+        // Simple Mobile Alternative: Tap Easter Egg Hint
+        // ============================================
+        let hintTapCount = 0;
+        let hintTapTimeout;
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const easterEggHint = document.querySelector('.easter-egg-hint');
+            if (easterEggHint) {
+                easterEggHint.addEventListener('click', function(e) {
+                    if (easterEggTriggered) return;
+
+                    hintTapCount++;
+
+                    // Visual feedback on tap
+                    this.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        this.style.transform = '';
+                    }, 100);
+
+                    // Reset counter after 3 seconds of inactivity
+                    clearTimeout(hintTapTimeout);
+                    hintTapTimeout = setTimeout(() => {
+                        hintTapCount = 0;
+                    }, 3000);
+
+                    // Trigger after 7 taps
+                    if (hintTapCount >= 7 && !easterEggTriggered) {
+                        triggerEasterEgg('mobile_hint_tap');
+                        easterEggTriggered = true;
+                        hintTapCount = 0;
+                    }
+                });
+            }
+        });
+
+        function triggerEasterEgg(method) {
+            method = method || 'keyboard';
+
+            // Track the easter egg discovery with method
             trackEvent('easter_egg', {
                 type: 'konami_code',
-                achievement: 'secret_discovered'
+                achievement: 'secret_discovered',
+                discovery_method: method
             });
 
             // Create confetti
