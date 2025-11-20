@@ -13,6 +13,7 @@ It's got some cool features like:
 - Interactive charts showing my impact (crash rate reductions, performance improvements, etc.)
 - Dark mode and even a retro "terminal mode" theme
 - Responsive design that works great on mobile
+- **Hidden easter egg** - Try the classic gaming code from the '80s 🎮
 
 ## 👨‍💻 What I Do
 

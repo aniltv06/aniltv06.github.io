@@ -1558,6 +1558,99 @@
             }
         }
 
+        /* Footer */
+        .footer {
+            margin-top: 80px;
+            padding: 60px 0 40px;
+            text-align: center;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        body.dark-mode .footer {
+            border-top-color: rgba(255, 255, 255, 0.1);
+        }
+
+        body.terminal-mode .footer {
+            border-top-color: rgba(0, 255, 65, 0.2);
+        }
+
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .footer p {
+            font-size: 16px;
+            color: var(--light-text);
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .easter-egg-hint {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 20px;
+            padding: 12px 24px;
+            background: rgba(37, 99, 235, 0.1);
+            border: 1px solid rgba(37, 99, 235, 0.3);
+            border-radius: 20px;
+            font-size: 14px;
+            color: var(--primary-color);
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        body.terminal-mode .easter-egg-hint {
+            background: rgba(0, 255, 65, 0.1);
+            border-color: rgba(0, 255, 65, 0.3);
+        }
+
+        .easter-egg-hint:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+        }
+
+        body.terminal-mode .easter-egg-hint:hover {
+            box-shadow: 0 0 15px rgba(0, 255, 65, 0.3);
+        }
+
+        .easter-egg-hint .hint-icon {
+            font-size: 20px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 30px 0 20px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary-color);
+        }
+
+        .copyright {
+            font-size: 14px;
+            color: #64748b;
+            margin-top: 30px;
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             .hero h1 {
@@ -1593,6 +1686,15 @@
 
             .section-title {
                 font-size: 28px;
+            }
+
+            .footer {
+                margin-top: 60px;
+                padding: 40px 20px 30px;
+            }
+
+            .footer-links {
+                gap: 20px;
             }
         }
     </style>
@@ -2191,6 +2293,31 @@
                 </div>
             </div>
         </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <p>Thanks for taking the time to check out my resume!</p>
+                <p>I'm always excited to connect with fellow engineers and explore new opportunities.</p>
+
+                <div class="easter-egg-hint" onclick="trackEvent('easter_egg_hint_click', {location: 'footer', hint_type: 'konami_code'});">
+                    <span class="hint-icon">🎮</span>
+                    <span>Gamers & curious minds: Try the classic code from the '80s...</span>
+                </div>
+
+                <div class="footer-links">
+                    <a href="mailto:aniltv06@gmail.com" onclick="trackEvent('email_click', {location: 'footer'});">Email</a>
+                    <a href="https://www.linkedin.com/in/anilthatha/" target="_blank" rel="noopener noreferrer" onclick="trackEvent('external_link_click', {platform: 'linkedin', location: 'footer'});">LinkedIn</a>
+                    <a href="https://github.com/aniltv06" target="_blank" rel="noopener noreferrer" onclick="trackEvent('external_link_click', {platform: 'github', location: 'footer'});">GitHub</a>
+                    <a href="https://swiftbytes.blogspot.com" target="_blank" rel="noopener noreferrer" onclick="trackEvent('external_link_click', {platform: 'blog', location: 'footer'});">Blog</a>
+                    <a href="Anil_Thatha-Resume.pdf" download onclick="trackEvent('pdf_download', {button: 'download_pdf', location: 'footer'});">Download PDF</a>
+                </div>
+
+                <p class="copyright">
+                    © Anil Kumar Thatha Venkatachalapathy · Built with curiosity & attention to detail
+                </p>
+            </div>
+        </footer>
     </div>
 
     <!-- Floating Action Buttons -->
@@ -2230,6 +2357,28 @@
     </div>
 
     <script>
+        // ============================================
+        // Console Easter Egg Hints
+        // ============================================
+        console.log('%c👋 Hey there, curious developer!', 'color: #2563eb; font-size: 20px; font-weight: bold;');
+        console.log('%c🎮 Looking for something fun?', 'color: #60a5fa; font-size: 16px; font-weight: bold;');
+        console.log('%cTry the classic gaming code from the 80s: ↑↑↓↓←→←→BA', 'color: #10b981; font-size: 14px;');
+        console.log('%cHint: Use your arrow keys, then press B and A', 'color: #64748b; font-size: 12px; font-style: italic;');
+        console.log('%c\n💼 Want to chat? Email me at aniltv06@gmail.com', 'color: #2563eb; font-size: 14px;');
+        console.log('%cOr just say you found the easter egg - I\'d love to hear from you! 🚀\n', 'color: #64748b; font-size: 12px;');
+
+        // Track console message view (developers who check console)
+        setTimeout(function() {
+            try {
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'console_viewed', {
+                        message_type: 'easter_egg_hint',
+                        engagement: 'developer_curious'
+                    });
+                }
+            } catch (e) {}
+        }, 1000);
+
         // ============================================
         // Lazy Load External Libraries
         // ============================================
@@ -3879,6 +4028,128 @@
                 });
             }
         });
+
+        // ============================================
+        // Konami Code Easter Egg
+        // ============================================
+        const konamiCode = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown',
+                            'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
+        let konamiIndex = 0;
+        let easterEggTriggered = false;
+
+        document.addEventListener('keydown', function(e) {
+            const key = e.key.toLowerCase();
+
+            if (key === konamiCode[konamiIndex] || key === konamiCode[konamiIndex].toLowerCase()) {
+                konamiIndex++;
+
+                if (konamiIndex === konamiCode.length) {
+                    if (!easterEggTriggered) {
+                        triggerEasterEgg();
+                        easterEggTriggered = true;
+                    }
+                    konamiIndex = 0;
+                }
+            } else {
+                konamiIndex = 0;
+            }
+        });
+
+        function triggerEasterEgg() {
+            // Track the easter egg discovery
+            trackEvent('easter_egg', {
+                type: 'konami_code',
+                achievement: 'secret_discovered'
+            });
+
+            // Create confetti
+            createConfetti();
+
+            // Show special message after a brief delay
+            setTimeout(function() {
+                showEasterEggModal();
+            }, 1000);
+        }
+
+        function createConfetti() {
+            const colors = ['#2563eb', '#60a5fa', '#e0f2fe', '#10b981', '#f59e0b', '#ec4899'];
+            const confettiCount = 100;
+
+            for (let i = 0; i < confettiCount; i++) {
+                setTimeout(function() {
+                    const confetti = document.createElement('div');
+                    confetti.style.position = 'fixed';
+                    confetti.style.width = '10px';
+                    confetti.style.height = '10px';
+                    confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                    confetti.style.left = Math.random() * window.innerWidth + 'px';
+                    confetti.style.top = '-10px';
+                    confetti.style.borderRadius = Math.random() > 0.5 ? '50%' : '0';
+                    confetti.style.opacity = '1';
+                    confetti.style.zIndex = '10000';
+                    confetti.style.pointerEvents = 'none';
+                    confetti.style.transform = 'rotate(' + (Math.random() * 360) + 'deg)';
+
+                    document.body.appendChild(confetti);
+
+                    const fallDuration = 3000 + Math.random() * 2000;
+                    const fallDistance = window.innerHeight + 100;
+                    const drift = (Math.random() - 0.5) * 200;
+
+                    confetti.animate([
+                        {
+                            transform: 'translateY(0) translateX(0) rotate(0deg)',
+                            opacity: 1
+                        },
+                        {
+                            transform: 'translateY(' + fallDistance + 'px) translateX(' + drift + 'px) rotate(' + (Math.random() * 720) + 'deg)',
+                            opacity: 0
+                        }
+                    ], {
+                        duration: fallDuration,
+                        easing: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)'
+                    });
+
+                    setTimeout(function() {
+                        confetti.remove();
+                    }, fallDuration);
+                }, i * 30);
+            }
+        }
+
+        function showEasterEggModal() {
+            const modal = document.getElementById('projectModal');
+            const modalBody = document.getElementById('modalBody');
+
+            modalBody.innerHTML = `
+                <div style="text-align: center; padding: 20px;">
+                    <div style="font-size: 80px; margin-bottom: 20px;">🎉</div>
+                    <h2 style="color: var(--primary-color); margin-bottom: 20px; font-size: 36px;">
+                        You Found the Secret!
+                    </h2>
+                    <p style="font-size: 20px; line-height: 1.8; color: var(--light-text); margin-bottom: 30px;">
+                        Thanks for being curious - that's exactly the kind of engineer I am.
+                    </p>
+                    <p style="font-size: 16px; line-height: 1.8; color: var(--light-text); margin-bottom: 20px;">
+                        I believe in <strong>curiosity</strong>, <strong>attention to detail</strong>,
+                        and <strong>having fun</strong> while building great software.
+                    </p>
+                    <p style="font-size: 14px; color: #64748b; font-style: italic; margin-top: 30px;">
+                        (You just entered the Konami code: ↑↑↓↓←→←→BA)
+                    </p>
+                    <div style="margin-top: 40px;">
+                        <a href="mailto:aniltv06@gmail.com?subject=Found%20Your%20Easter%20Egg!&body=Hi%20Anil%2C%0A%0AI%20found%20the%20Konami%20code%20on%20your%20resume!%20Let's%20talk.%0A%0A"
+                           style="display: inline-block; background: var(--primary-color); color: white; padding: 15px 35px; border-radius: 30px; text-decoration: none; font-weight: 600; font-size: 16px;"
+                           onclick="trackEvent('easter_egg_cta', {action: 'email_click'});">
+                            📧 Let's Talk!
+                        </a>
+                    </div>
+                </div>
+            `;
+
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
     </script>
 </body>
 </html>
