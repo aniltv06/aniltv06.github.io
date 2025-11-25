@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Essential Meta Tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- Primary Meta Tags -->
+    <title>Projects - Anil Thatha | iOS/macOS Portfolio</title>
+    <meta name="title" content="Projects - Anil Thatha | iOS/macOS Portfolio">
+    <meta name="description" content="Explore my portfolio of enterprise iOS/macOS applications including AI-powered systems, customer platforms, and productivity tools. Swift, SwiftUI, Core ML expertise.">
+    <meta name="keywords" content="iOS Projects, macOS Projects, Swift Portfolio, SwiftUI Apps, Enterprise Applications, AI/ML Projects">
+    <meta name="author" content="Anil Kumar Thatha Venkatachalapathy">
+    <meta name="robots" content="index, follow">
+
+    <!-- Theme Color & PWA -->
+    <meta name="theme-color" content="#2563eb">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Anil Thatha">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://aniltv06.github.io/projects.html">
+    <meta property="og:site_name" content="Anil Thatha - Portfolio">
+    <meta property="og:title" content="Projects - Anil Thatha | iOS/macOS Portfolio">
+    <meta property="og:description" content="Explore my portfolio of enterprise iOS/macOS applications including AI-powered systems and productivity tools.">
+    <meta property="og:image" content="https://aniltv06.github.io/og-image.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="Projects - Anil Thatha | iOS/macOS Portfolio">
+    <meta property="twitter:image" content="https://aniltv06.github.io/og-image.jpg">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://aniltv06.github.io/projects.html">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+    <link rel="manifest" href="/manifest.json">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="/src/main.css">
+    <link rel="stylesheet" href="/src/projects.css">
+</head>
+
+<body data-theme="light" data-component="projects-page" data-testid="projects-page">
+    <!-- Skip to Content -->
+    <a href="#main-content" class="skip-link" data-testid="skip-link">Skip to main content</a>
+
+    <!-- Scroll Progress -->
+    <div class="scroll-progress" role="progressbar" aria-label="Page scroll progress" data-component="scroll-progress" data-testid="scroll-progress"></div>
+
+    <!-- WebGL Background -->
+    <div class="webgl-background" data-component="webgl-background" aria-hidden="true" data-testid="webgl-background"></div>
+
+    <!-- Navigation -->
+    <nav class="nav" role="navigation" aria-label="Main navigation" data-component="navigation" data-testid="main-nav">
+        <div class="nav__content">
+            <div class="nav__links" role="menubar">
+                <a href="/index.html" class="nav__link" role="menuitem" data-testid="nav-home">Home</a>
+                <a href="/index.html#skills" class="nav__link" role="menuitem" data-testid="nav-skills">Skills</a>
+                <a href="/index.html#experience" class="nav__link" role="menuitem" data-testid="nav-experience">Experience</a>
+                <a href="/projects.html" class="nav__link nav__link--active" role="menuitem" data-testid="nav-projects">Projects</a>
+                <a href="/index.html#education" class="nav__link" role="menuitem" data-testid="nav-education">Education</a>
+            </div>
+
+            <div class="nav__actions">
+                <a href="/Anil_Thatha-Resume.pdf" download class="button button--primary" aria-label="Download resume PDF" data-action="download-resume" data-testid="btn-download">📥 Resume</a>
+                <button class="button" aria-label="Toggle theme" data-action="toggle-theme" data-testid="btn-theme"><span data-theme-icon>🌙</span></button>
+                <button class="hamburger" aria-label="Toggle menu" aria-expanded="false" data-action="toggle-mobile-menu" data-testid="hamburger">
+                    <span class="hamburger__bar"></span>
+                    <span class="hamburger__bar"></span>
+                    <span class="hamburger__bar"></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-nav__overlay" data-state="closed" data-component="mobile-overlay" data-testid="mobile-overlay"></div>
+    <nav class="mobile-nav__menu" data-state="closed" data-component="mobile-nav" data-testid="mobile-nav">
+        <a href="/index.html" class="mobile-nav__link">Home</a>
+        <a href="/index.html#skills" class="mobile-nav__link">Skills</a>
+        <a href="/index.html#experience" class="mobile-nav__link">Experience</a>
+        <a href="/projects.html" class="mobile-nav__link">Projects</a>
+        <a href="/index.html#education" class="mobile-nav__link">Education</a>
+    </nav>
+
+    <!-- Main Content -->
+    <main id="main-content" class="container">
+        <!-- Hero Section -->
+        <section class="projects-hero">
+            <h1 class="projects-hero__title">My Projects</h1>
+            <p class="projects-hero__subtitle">
+                A showcase of enterprise-scale iOS and macOS applications I've built,
+                featuring AI/ML integration, real-time systems, and innovative user experiences.
+            </p>
+
+            <!-- Stats -->
+            <div class="projects-stats">
+                <div class="projects-stats__item">
+                    <span class="projects-stats__number" data-stat="total">4</span>
+                    <span class="projects-stats__label">Projects</span>
+                </div>
+                <div class="projects-stats__item">
+                    <span class="projects-stats__number" data-stat="platforms">2</span>
+                    <span class="projects-stats__label">Platforms</span>
+                </div>
+                <div class="projects-stats__item">
+                    <span class="projects-stats__number" data-stat="technologies">15+</span>
+                    <span class="projects-stats__label">Technologies</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Filter & Search Section -->
+        <section class="projects-filters" data-component="projects-filters">
+            <!-- Search Bar -->
+            <div class="projects-search">
+                <label for="projects-search-input" class="visually-hidden">Search projects</label>
+                <input
+                    type="search"
+                    id="projects-search-input"
+                    class="projects-search__input"
+                    placeholder="Search projects..."
+                    aria-label="Search projects by name or technology"
+                    data-filter="search"
+                    data-testid="search-input"
+                >
+                <span class="projects-search__icon" aria-hidden="true">🔍</span>
+            </div>
+
+            <!-- Filter Chips -->
+            <div class="projects-filters__chips">
+                <button class="filter-chip filter-chip--active" data-filter-type="all" data-testid="filter-all">
+                    All Projects
+                </button>
+                <button class="filter-chip" data-filter-type="platform" data-filter-value="iOS" data-testid="filter-ios">
+                    iOS
+                </button>
+                <button class="filter-chip" data-filter-type="platform" data-filter-value="macOS" data-testid="filter-macos">
+                    macOS
+                </button>
+                <button class="filter-chip" data-filter-type="type" data-filter-value="Enterprise" data-testid="filter-enterprise">
+                    Enterprise
+                </button>
+                <button class="filter-chip" data-filter-type="type" data-filter-value="AI/ML" data-testid="filter-aiml">
+                    AI/ML
+                </button>
+                <button class="filter-chip" data-filter-type="tech" data-filter-value="SwiftUI" data-testid="filter-swiftui">
+                    SwiftUI
+                </button>
+                <button class="filter-chip" data-filter-type="tech" data-filter-value="Core ML" data-testid="filter-coreml">
+                    Core ML
+                </button>
+            </div>
+
+            <!-- Sort Dropdown -->
+            <div class="projects-sort">
+                <label for="projects-sort-select" class="projects-sort__label">Sort by:</label>
+                <select id="projects-sort-select" class="projects-sort__select" data-sort-control data-testid="sort-select">
+                    <option value="year-desc">Newest First</option>
+                    <option value="year-asc">Oldest First</option>
+                    <option value="title-asc">Title (A-Z)</option>
+                    <option value="title-desc">Title (Z-A)</option>
+                </select>
+            </div>
+        </section>
+
+        <!-- Results Count -->
+        <div class="projects-results">
+            <p class="projects-results__text">
+                Showing <span data-results-count>4</span> project<span data-results-plural>s</span>
+            </p>
+        </div>
+
+        <!-- Projects Grid -->
+        <section class="projects-grid" data-component="projects-grid" data-testid="projects-grid">
+            <!-- Projects will be dynamically inserted here -->
+        </section>
+
+        <!-- Empty State -->
+        <div class="projects-empty" data-component="empty-state" style="display: none;">
+            <div class="projects-empty__icon">🔍</div>
+            <h2 class="projects-empty__title">No projects found</h2>
+            <p class="projects-empty__text">Try adjusting your filters or search term</p>
+            <button class="button button--primary" data-action="reset-filters">Clear All Filters</button>
+        </div>
+    </main>
+
+    <!-- Modal for Project Details -->
+    <div class="modal" data-component="modal" data-state="closed" role="dialog" aria-modal="true" aria-labelledby="modal-title" data-testid="modal">
+        <div class="modal__content" role="document" tabindex="-1">
+            <button class="modal__close" data-action="close-modal" aria-label="Close modal" data-testid="modal-close">&times;</button>
+            <div data-modal-body>
+                <!-- Modal content will be inserted here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Actions -->
+    <div class="floating-actions">
+        <a href="#main-content" class="fab fab--hidden" aria-label="Scroll to top" data-action="scroll-to-top" data-testid="fab-top">↑</a>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo" data-component="footer">
+        <div class="footer__content">
+            <p class="footer__text">Thanks for taking the time to check out my resume!</p>
+            <p class="footer__text">I'm always excited to connect with fellow engineers and explore new opportunities.</p>
+
+            <div class="footer__easter-egg-hint" data-action="easter-egg-hint" data-testid="easter-egg-hint" tabindex="0" role="button">
+                <span class="footer__hint-icon">🎮</span>
+                <span>Gamers & curious minds: Try the classic code... or tap me 7 times!</span>
+            </div>
+
+            <div class="footer__links">
+                <a href="mailto:aniltv06@gmail.com" class="footer__link" data-analytics="email-footer">Email</a>
+                <a href="https://www.linkedin.com/in/anilthatha/" target="_blank" rel="noopener noreferrer" class="footer__link" data-analytics="linkedin">LinkedIn</a>
+                <a href="https://github.com/aniltv06" target="_blank" rel="noopener noreferrer" class="footer__link" data-analytics="github">GitHub</a>
+                <a href="/Anil_Thatha-Resume.pdf" download class="footer__link" data-analytics="download-footer">Download PDF</a>
+            </div>
+
+            <p class="footer__copyright">© Anil Kumar Thatha Venkatachalapathy · Engineered with the same precision I bring to every project</p>
+        </div>
+    </footer>
+
+    <!-- Toast Notification -->
+    <div class="toast" role="status" aria-live="polite" data-component="toast" data-testid="toast"></div>
+
+    <!-- Main JavaScript -->
+    <script type="module" src="/src/js/projects-main.js"></script>
+</body>
+</html>

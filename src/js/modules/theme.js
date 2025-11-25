@@ -5,6 +5,7 @@
 
 import { qs, qsa, getTheme, setTheme, announce } from './utils.js';
 import { trackEvent } from './analytics.js';
+import { updateChartsTheme } from './charts.js';
 import { THEMES, THEME_ICONS, THEME_LABELS } from '../config/constants.js';
 
 const THEME_ORDER = [THEMES.LIGHT, THEMES.DARK, THEMES.TERMINAL];
@@ -68,6 +69,9 @@ function applyTheme(theme) {
 
   // Update button labels
   updateThemeButtons(theme);
+
+  // Update charts to match new theme
+  updateChartsTheme();
 }
 
 function updateThemeButtons(currentTheme) {
@@ -93,5 +97,12 @@ function updateThemeButtons(currentTheme) {
     };
     btn.setAttribute('aria-label', `Current theme: ${themeNames[currentTheme]}. Click to switch to ${themeNames[nextTheme]} mode`);
     btn.setAttribute('title', `Switch to ${themeNames[nextTheme]} mode`);
+  });
+}
+
+// Enable HMR for theme module
+if (import.meta.hot) {
+  import.meta.hot.accept(() => {
+    console.log('HMR: Theme module hot-reloaded');
   });
 }

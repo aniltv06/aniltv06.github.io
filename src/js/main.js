@@ -12,6 +12,7 @@ import { initEasterEgg } from './modules/easter-egg.js';
 import { initCharts } from './modules/charts.js';
 import { initWebGL } from './modules/webgl.js';
 import { initKeyboardShortcuts } from './modules/keyboard.js';
+import { initFooter } from './modules/footer.js';
 
 /**
  * Initialize application
@@ -26,6 +27,7 @@ function init() {
   initEasterEgg();
   initKeyboardShortcuts();
   initRippleEffect();
+  initFooter();
 
   // Lazy load heavy libraries
   lazyLoadLibraries();
@@ -269,4 +271,32 @@ if (process.env.NODE_ENV === 'development') {
       initWebGL,
     },
   };
+}
+
+// Enable Vite HMR
+if (import.meta.hot) {
+  import.meta.hot.accept((newModule) => {
+    console.log('HMR: Main module updated');
+    // Reinitialize core modules on HMR update
+    initTheme();
+    initNavigation();
+  });
+
+  // Accept updates to CSS
+  import.meta.hot.accept(['../main.css'], () => {
+    console.log('HMR: CSS updated');
+  });
+
+  // Accept updates to individual modules
+  import.meta.hot.accept(['./modules/theme.js'], () => {
+    console.log('HMR: Theme module updated');
+    initTheme();
+  });
+
+  import.meta.hot.accept(['./modules/charts.js'], () => {
+    console.log('HMR: Charts module updated, reloading charts');
+    if (window.Chart) {
+      initCharts().catch(err => console.warn('HMR: Chart reload failed', err));
+    }
+  });
 }

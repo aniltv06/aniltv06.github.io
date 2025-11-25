@@ -21,6 +21,10 @@ export default defineConfig({
       }
     },
     rollupOptions: {
+      input: {
+        main: './index.html',
+        projects: './projects.html'
+      },
       output: {
         manualChunks: {
           'vendor-three': ['three'],
@@ -129,7 +133,16 @@ export default defineConfig({
     port: 5173,
     open: true,
     host: true,
-    strictPort: false
+    strictPort: false,
+    hmr: {
+      overlay: true,
+      protocol: 'ws',
+      host: 'localhost',
+    },
+    watch: {
+      usePolling: false,
+      interval: 100,
+    }
   },
   preview: {
     port: 4173,

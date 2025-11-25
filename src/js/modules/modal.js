@@ -10,69 +10,11 @@ let currentModal = null;
 let previousFocus = null;
 let removeFocusTrap = null;
 
-const MODAL_CONTENT = {
-  genius: {
-    title: 'Genius & RepairCentral',
-    subtitle: 'AI-Powered Repair Management System',
-    content: `
-      <p>Transformative AI-powered system serving 500+ Apple Retail stores worldwide.</p>
-      <h3>Key Features:</h3>
-      <ul>
-        <li>AI/ML models reducing diagnostic time by 40%</li>
-        <li>95% accuracy in repair recommendations</li>
-        <li>Real-time inventory management</li>
-        <li>Intelligent workflow automation with Claude AI</li>
-      </ul>
-      <h3>Impact:</h3>
-      <ul>
-        <li>Reduced customer wait time by 30%</li>
-        <li>Improved repair success rate by 25%</li>
-        <li>Saved $2M annually in operational costs</li>
-      </ul>
-    `,
-  },
-  'customer-success': {
-    title: 'Customer Success Platform',
-    subtitle: 'Enterprise Customer Management System',
-    content: `
-      <p>Comprehensive platform managing 1000+ daily users with 99.9% uptime.</p>
-      <h3>Features:</h3>
-      <ul>
-        <li>Real-time customer analytics dashboard</li>
-        <li>Automated workflow management</li>
-        <li>Integration with 5+ backend systems</li>
-        <li>Advanced reporting and insights</li>
-      </ul>
-    `,
-  },
-  appletravel: {
-    title: 'Apple Travel',
-    subtitle: 'Enterprise Travel Management',
-    content: `
-      <p>Comprehensive travel management app with 4.6 star rating.</p>
-      <h3>Features:</h3>
-      <ul>
-        <li>Integration with 3 third-party travel APIs</li>
-        <li>Real-time flight and hotel booking</li>
-        <li>Expense tracking and reporting</li>
-        <li>Offline support for travel itineraries</li>
-      </ul>
-    `,
-  },
-  expenses: {
-    title: 'Expenses (iOS & macOS)',
-    subtitle: 'Cross-Platform Expense Management',
-    content: `
-      <p>Universal app for iOS and macOS with seamless sync.</p>
-      <h3>Features:</h3>
-      <ul>
-        <li>OCR receipt scanning reducing entry time by 70%</li>
-        <li>CloudKit sync across devices</li>
-        <li>Automated expense categorization</li>
-        <li>Export to multiple formats (PDF, Excel, QuickBooks)</li>
-      </ul>
-    `,
-  },
+// Import projects data dynamically
+let projectsData = null;
+
+// Legacy modal content for education (non-project modals)
+const LEGACY_MODAL_CONTENT = {
   masters: {
     title: 'Master of Science',
     subtitle: 'Computer Science & Information Engineering',
@@ -104,6 +46,160 @@ const MODAL_CONTENT = {
   },
 };
 
+/**
+ * Load projects data lazily
+ */
+async function loadProjectsData() {
+  if (projectsData) return projectsData;
+
+  try {
+    const module = await import('../data/projects.js');
+    projectsData = module.projects;
+    return projectsData;
+  } catch (error) {
+    console.warn('Could not load projects data:', error);
+    return [];
+  }
+}
+
+/**
+ * Get modal content for a given ID
+ */
+async function getModalContent(modalId) {
+  // Check legacy content first (education)
+  if (LEGACY_MODAL_CONTENT[modalId]) {
+    return LEGACY_MODAL_CONTENT[modalId];
+  }
+
+  // Load projects data
+  const projects = await loadProjectsData();
+  const project = projects.find(p => p.id === modalId);
+
+  if (project) {
+    return generateProjectModalContent(project);
+  }
+
+  return null;
+}
+
+/**
+ * Generate rich modal content from project data
+ */
+function generateProjectModalContent(project) {
+  const statsHtml = Object.entries(project.stats).map(([key, value]) => `
+    <div class="project-stat-inline">
+      <strong>${formatStatLabel(key)}:</strong> ${escapeHtml(value)}
+    </div>
+  `).join('');
+
+  const content = `
+    <div class="modal-project">
+      <div class="modal-project__meta">
+        <span class="modal-project__year">Year: ${project.year}</span>
+        ${project.featured ? '<span class="modal-project__badge">⭐ Featured</span>' : ''}
+      </div>
+
+      <div class="modal-project__stats">
+        ${statsHtml}
+      </div>
+
+      ${project.problem ? `
+        <h3>The Challenge</h3>
+        <p>${escapeHtml(project.problem)}</p>
+      ` : ''}
+
+      ${project.solution ? `
+        <h3>The Solution</h3>
+        <p>${escapeHtml(project.solution)}</p>
+      ` : ''}
+
+      <h3>Key Features</h3>
+      <ul>
+        ${project.features.map(f => `<li>${escapeHtml(f)}</li>`).join('')}
+      </ul>
+
+      <h3>Impact & Results</h3>
+      <ul>
+        ${project.impact.map(i => `<li>${escapeHtml(i)}</li>`).join('')}
+      </ul>
+
+      <h3>My Role</h3>
+      <ul>
+        ${project.myRole.map(r => `<li>${escapeHtml(r)}</li>`).join('')}
+      </ul>
+
+      <h3>Technology Stack</h3>
+      <div class="modal-tech-stack">
+        ${project.techStack.languages ? `
+          <div class="tech-stack-section">
+            <h4>Languages</h4>
+            <p>${project.techStack.languages.join(', ')}</p>
+          </div>
+        ` : ''}
+        ${project.techStack.frameworks ? `
+          <div class="tech-stack-section">
+            <h4>Frameworks</h4>
+            <p>${project.techStack.frameworks.join(', ')}</p>
+          </div>
+        ` : ''}
+        ${project.techStack.architecture ? `
+          <div class="tech-stack-section">
+            <h4>Architecture</h4>
+            <p>${project.techStack.architecture.join(', ')}</p>
+          </div>
+        ` : ''}
+      </div>
+
+      <div class="modal-project__timeline">
+        <strong>Timeline:</strong> ${project.timeline.duration}
+        ${project.timeline.start ? ` (${project.timeline.start} - ${project.timeline.end})` : ''}
+      </div>
+    </div>
+  `;
+
+  return {
+    title: project.title,
+    subtitle: project.subtitle,
+    content
+  };
+}
+
+/**
+ * Format stat label
+ */
+function formatStatLabel(key) {
+  const labels = {
+    users: 'Users',
+    stores: 'Stores',
+    accuracy: 'Accuracy',
+    impact: 'Impact',
+    uptime: 'Uptime',
+    integrations: 'Integrations',
+    rating: 'Rating',
+    apis: 'APIs',
+    bookings: 'Bookings',
+    savings: 'Savings',
+    platforms: 'Platforms',
+    timeSaved: 'Time Saved',
+    receipts: 'Receipts Scanned'
+  };
+  return labels[key] || key.charAt(0).toUpperCase() + key.slice(1);
+}
+
+/**
+ * Escape HTML
+ */
+function escapeHtml(text) {
+  const map = {
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&#039;'
+  };
+  return String(text).replace(/[&<>"']/g, m => map[m]);
+}
+
 export function initModal() {
   setupModalTriggers();
   setupModalClose();
@@ -111,20 +207,28 @@ export function initModal() {
 }
 
 function setupModalTriggers() {
-  document.querySelectorAll('[data-modal-trigger]').forEach(trigger => {
-    trigger.addEventListener('click', handleModalOpen);
-    trigger.addEventListener('keydown', e => {
-      if (e.key === 'Enter' || e.key === ' ') {
+  // Use event delegation on document for dynamically created triggers
+  document.addEventListener('click', async (e) => {
+    const trigger = e.target.closest('[data-modal-trigger]');
+    if (trigger) {
+      await handleModalOpen.call(trigger, e);
+    }
+  });
+
+  document.addEventListener('keydown', async (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      const trigger = e.target.closest('[data-modal-trigger]');
+      if (trigger) {
         e.preventDefault();
-        handleModalOpen.call(trigger);
+        await handleModalOpen.call(trigger, e);
       }
-    });
+    }
   });
 }
 
-function handleModalOpen() {
+async function handleModalOpen() {
   const modalId = this.dataset.modalTrigger;
-  const content = MODAL_CONTENT[modalId];
+  const content = await getModalContent(modalId);
 
   if (content) {
     openModal(content);

@@ -209,6 +209,18 @@ body {
     box-shadow: 0 0 30px rgba(0, 255, 65, 0.3);
 }
 
+.theme--terminal .modal__close {
+    color: var(--color-terminal-primary);
+    border: 2px solid var(--color-terminal-primary);
+}
+
+.theme--terminal .modal__close:hover,
+.theme--terminal .modal__close:focus {
+    background: var(--color-terminal-primary);
+    color: #0a0e14;
+    box-shadow: 0 0 20px var(--color-terminal-primary);
+}
+
 .theme--terminal .scroll-progress {
     background: linear-gradient(90deg, #00ff41, #39ff14);
     box-shadow: 0 0 10px #00ff41;
@@ -244,6 +256,22 @@ body {
 
 .theme--terminal .footer {
     border-top-color: rgba(0, 255, 65, 0.2);
+}
+
+.theme--terminal .footer__text,
+.theme--terminal .footer__copyright {
+    color: var(--color-terminal-primary);
+}
+
+.theme--terminal .footer__link {
+    color: var(--color-terminal-secondary);
+    text-shadow: 0 0 5px var(--color-terminal-secondary);
+}
+
+.theme--terminal .footer__link:hover,
+.theme--terminal .footer__link:focus {
+    color: var(--color-terminal-primary);
+    text-shadow: 0 0 10px var(--color-terminal-primary);
 }
 
 .theme--terminal .easter-egg-hint {
@@ -317,6 +345,18 @@ body {
     box-shadow: 0 0 30px rgba(0, 255, 65, 0.4);
 }
 
+.theme--terminal .skill-card,
+.theme--terminal .dashboard-card,
+.theme--terminal .skills-radar-container {
+    background: rgba(10, 14, 20, 0.8);
+}
+
+.theme--terminal .experience__duration {
+    background: rgba(0, 255, 65, 0.1);
+    color: var(--color-terminal-primary);
+    border: 1px solid var(--color-terminal-primary);
+}
+
 /* Dark Mode .webgl-background */
 .theme--dark .webgl-background {
     opacity: 0.5;
@@ -334,6 +374,11 @@ body {
 .theme--dark .dashboard-card {
     background: rgba(30, 41, 59, 0.7);
     border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.theme--dark .experience__duration {
+    background: rgba(37, 99, 235, 0.2);
+    color: var(--color-secondary);
 }
 
 /* ==========================================================================
@@ -1872,6 +1917,10 @@ kbd {
     font-weight: 500;
     transition: all var(--transition-base);
     cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
 }
 
 .footer__easter-egg-hint:hover,
