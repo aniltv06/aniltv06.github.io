@@ -4,9 +4,9 @@
   "description": "Professional resume website for Anil Kumar Thatha Venkatachalapathy - Senior iOS/macOS Engineer",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview",
+    "dev": "npx vite",
+    "build": "npx vite build",
+    "preview": "npx vite preview",
     "deploy": "npm run build && echo 'Built successfully! Push to GitHub to deploy.'",
     "test": "playwright test",
     "test:ui": "playwright test --ui",
