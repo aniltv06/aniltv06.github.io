@@ -1,0 +1,2187 @@
+/* ==========================================================================
+   RESUME WEBSITE - MAIN STYLESHEET
+   Using BEM (Block Element Modifier) Naming Convention
+   ========================================================================== */
+
+/* ==========================================================================
+   1. CSS VARIABLES & DESIGN TOKENS
+   ========================================================================== */
+:root {
+    /* Colors - Primary Palette */
+    --color-primary: #2563eb;
+    --color-secondary: #60a5fa;
+    --color-accent: #e0f2fe;
+    --color-success: #10b981;
+    --color-warning: #f59e0b;
+
+    /* Colors - Backgrounds */
+    --color-bg-light: #ffffff;
+    --color-bg-dark: #0f172a;
+    --color-bg-card: #f8fafc;
+    --color-bg-card-dark: #1e293b;
+
+    /* Colors - Text */
+    --color-text-light: #333;
+    --color-text-dark: #f8fafc;
+    --color-text-muted: #64748b;
+
+    /* Colors - Terminal Mode */
+    --color-terminal-bg: #0a0e14;
+    --color-terminal-primary: #00ff41;
+    --color-terminal-secondary: #39ff14;
+    --color-terminal-accent: rgba(0, 255, 65, 0.1);
+
+    /* Spacing */
+    --spacing-xs: 5px;
+    --spacing-sm: 10px;
+    --spacing-md: 15px;
+    --spacing-lg: 20px;
+    --spacing-xl: 30px;
+    --spacing-2xl: 40px;
+    --spacing-3xl: 60px;
+
+    /* Typography */
+    --font-family-base: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    --font-family-mono: 'Courier New', 'Monaco', 'Menlo', monospace;
+
+    /* Font Sizes */
+    --font-size-xs: 11px;
+    --font-size-sm: 12px;
+    --font-size-base: 14px;
+    --font-size-md: 16px;
+    --font-size-lg: 18px;
+    --font-size-xl: 20px;
+    --font-size-2xl: 28px;
+    --font-size-3xl: 36px;
+    --font-size-4xl: 56px;
+
+    /* Transitions */
+    --transition-base: 0.3s ease;
+    --transition-fast: 0.2s ease;
+
+    /* Border Radius */
+    --radius-sm: 5px;
+    --radius-md: 15px;
+    --radius-lg: 20px;
+    --radius-full: 50%;
+
+    /* Shadows */
+    --shadow-sm: 0 2px 10px rgba(0,0,0,0.1);
+    --shadow-md: 0 4px 15px rgba(0,0,0,0.08);
+    --shadow-lg: 0 8px 25px rgba(0,0,0,0.15);
+    --shadow-xl: 0 20px 60px rgba(0,0,0,0.3);
+
+    /* Z-index Layers */
+    --z-index-background: -1;
+    --z-index-base: 1;
+    --z-index-dropdown: 100;
+    --z-index-sticky: 1000;
+    --z-index-modal-overlay: 2000;
+    --z-index-modal: 2001;
+    --z-index-toast: 10000;
+    --z-index-progress: 10001;
+    --z-index-skip-link: 10002;
+}
+
+/* ==========================================================================
+   2. RESET & BASE STYLES
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* Scroll margin for sections to account for fixed navbar */
+section[id] {
+    scroll-margin-top: 100px;
+}
+
+body {
+    font-family: var(--font-family-base);
+    line-height: 1.6;
+    color: var(--color-text-light);
+    background: var(--color-bg-light);
+    overflow-x: hidden;
+    transition: background var(--transition-base), color var(--transition-base);
+}
+
+/* ==========================================================================
+   3. THEME VARIATIONS
+   ========================================================================== */
+
+/* Dark Mode Theme */
+.theme--dark {
+    --color-bg-light: #0f172a;
+    --color-text-light: #f8fafc;
+    --color-bg-card: #1e293b;
+}
+
+.theme--dark .nav {
+    background: rgba(15, 23, 42, 0.95);
+}
+
+/* Terminal Mode Theme */
+.theme--terminal {
+    --color-bg-light: #0a0e14;
+    --color-text-light: #00ff41;
+    --color-bg-card: #1a1f2e;
+    --color-primary: #00ff41;
+    --color-secondary: #39ff14;
+    --color-accent: rgba(0, 255, 65, 0.1);
+    font-family: var(--font-family-mono);
+}
+
+.theme--terminal .hero__title,
+.theme--terminal .section__title,
+.theme--terminal .experience__company,
+.theme--terminal .project-card__title {
+    text-shadow: 0 0 10px var(--color-primary);
+}
+
+.theme--terminal .stat-card__number {
+    color: var(--color-terminal-secondary);
+    text-shadow: 0 0 8px var(--color-terminal-secondary);
+}
+
+.theme--terminal .nav {
+    background: rgba(10, 14, 20, 0.95);
+    border-bottom: 2px solid var(--color-primary);
+}
+
+.theme--terminal .tech-tag {
+    background: transparent;
+    border: 1px solid var(--color-primary);
+    color: var(--color-primary);
+}
+
+.theme--terminal .skill__progress {
+    background: linear-gradient(90deg, #00ff41, #39ff14);
+    box-shadow: 0 0 10px #00ff41;
+}
+
+.theme--terminal .project-card,
+.theme--terminal .stat-card,
+.theme--terminal .skill-card,
+.theme--terminal .experience-card,
+.theme--terminal .education-card,
+.theme--terminal .dashboard-card {
+    border: 1px solid var(--color-primary);
+    box-shadow: 0 0 15px rgba(0, 255, 65, 0.2);
+}
+
+.theme--terminal .project-card:hover,
+.theme--terminal .stat-card:hover,
+.theme--terminal .skill-card:hover,
+.theme--terminal .experience-card:hover,
+.theme--terminal .dashboard-card:hover {
+    box-shadow: 0 0 25px rgba(0, 255, 65, 0.4);
+    border-color: var(--color-terminal-secondary);
+}
+
+.theme--terminal .button {
+    background: transparent;
+    border: 2px solid var(--color-primary);
+    color: var(--color-primary);
+}
+
+.theme--terminal .button:hover {
+    background: var(--color-primary);
+    color: #0a0e14;
+    box-shadow: 0 0 20px var(--color-primary);
+}
+
+.theme--terminal .webgl-background {
+    opacity: 0.15;
+}
+
+.theme--terminal .achievements-list__item::before {
+    content: '>';
+    color: var(--color-primary);
+}
+
+.theme--terminal .modal__content {
+    border: 2px solid var(--color-primary);
+    box-shadow: 0 0 30px rgba(0, 255, 65, 0.3);
+}
+
+.theme--terminal .scroll-progress {
+    background: linear-gradient(90deg, #00ff41, #39ff14);
+    box-shadow: 0 0 10px #00ff41;
+}
+
+.theme--terminal .fab {
+    background: transparent;
+    border: 2px solid var(--color-primary);
+    color: var(--color-primary);
+}
+
+.theme--terminal .fab:hover {
+    background: var(--color-primary);
+    color: #0a0e14;
+    box-shadow: 0 0 25px var(--color-primary);
+}
+
+.theme--terminal .social-btn {
+    background: transparent;
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+}
+
+.theme--terminal .social-btn:hover {
+    background: var(--color-primary);
+    color: #0a0e14;
+    box-shadow: 0 0 20px var(--color-primary);
+}
+
+.theme--terminal .mobile-nav__link {
+    border-bottom-color: rgba(0, 255, 65, 0.2);
+}
+
+.theme--terminal .footer {
+    border-top-color: rgba(0, 255, 65, 0.2);
+}
+
+.theme--terminal .easter-egg-hint {
+    background: rgba(0, 255, 65, 0.1);
+    border-color: rgba(0, 255, 65, 0.3);
+}
+
+.theme--terminal .easter-egg-hint:hover {
+    box-shadow: 0 0 15px rgba(0, 255, 65, 0.3);
+}
+
+.theme--terminal .timeline-content {
+    border: 1px solid var(--color-primary);
+    box-shadow: 0 0 15px rgba(0, 255, 65, 0.2);
+}
+
+.theme--terminal .timeline-content:hover {
+    box-shadow: 0 0 25px rgba(0, 255, 65, 0.4);
+}
+
+.theme--terminal .timeline-item:hover .timeline__dot {
+    box-shadow: 0 0 30px #00ff41;
+}
+
+.theme--terminal .timeline__tag {
+    background: transparent;
+    border: 1px solid var(--color-primary);
+    color: var(--color-primary);
+}
+
+.theme--terminal .timeline__company {
+    text-shadow: 0 0 10px var(--color-primary);
+}
+
+.theme--terminal .button--primary {
+    background: transparent;
+    border: 2px solid var(--color-primary);
+    color: var(--color-primary);
+    box-shadow: 0 0 15px rgba(0, 255, 65, 0.3);
+}
+
+.theme--terminal .button--primary:hover {
+    background: var(--color-primary);
+    color: #0a0e14;
+    box-shadow: 0 0 25px var(--color-primary);
+}
+
+.theme--terminal .button--secondary:hover {
+    box-shadow: 0 0 25px var(--color-primary);
+}
+
+.theme--terminal .project-card::after {
+    background: transparent;
+    border: 1px solid var(--color-primary);
+    color: var(--color-primary);
+}
+
+.theme--terminal .education-card::after {
+    background: transparent;
+    border: 1px solid var(--color-primary);
+    color: var(--color-primary);
+}
+
+.theme--terminal .clickable-indicator {
+    background: rgba(0, 255, 65, 0.1);
+    color: var(--color-primary);
+}
+
+.theme--terminal .education-card:hover,
+.theme--terminal .project-card:hover {
+    box-shadow: 0 0 30px rgba(0, 255, 65, 0.4);
+}
+
+/* Dark Mode .webgl-background */
+.theme--dark .webgl-background {
+    opacity: 0.5;
+}
+
+.theme--dark .mobile-nav__link {
+    border-bottom-color: rgba(255,255,255,0.1);
+}
+
+.theme--dark .footer {
+    border-top-color: rgba(255, 255, 255, 0.1);
+}
+
+.theme--dark .skills-radar-container,
+.theme--dark .dashboard-card {
+    background: rgba(30, 41, 59, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* ==========================================================================
+   4. LAYOUT COMPONENTS
+   ========================================================================== */
+
+/* Container */
+.container {
+    max-width: 1400px;
+    margin: 80px auto 0;
+    padding: 35px 25px;
+}
+
+/* WebGL Background */
+.webgl-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: var(--z-index-background);
+    opacity: 0.3;
+}
+
+/* ==========================================================================
+   5. NAVIGATION COMPONENT (BEM)
+   ========================================================================== */
+
+/* Block: nav */
+.nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    padding: var(--spacing-md) 0;
+    z-index: var(--z-index-sticky);
+    box-shadow: var(--shadow-sm);
+    transition: all var(--transition-base);
+}
+
+/* Element: nav__content */
+.nav__content {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Element: nav__links */
+.nav__links {
+    display: flex;
+    gap: var(--spacing-xl);
+    align-items: center;
+}
+
+/* Element: nav__link */
+.nav__link {
+    color: var(--color-text-light);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color var(--transition-base);
+    cursor: pointer;
+}
+
+.nav__link:hover,
+.nav__link:focus {
+    color: var(--color-primary);
+    outline: none;
+}
+
+/* Modifier: nav__link--active */
+.nav__link--active {
+    color: var(--color-primary);
+    font-weight: 600;
+    position: relative;
+}
+
+.nav__link--active::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--color-primary);
+    border-radius: 2px;
+}
+
+/* Element: nav__actions */
+.nav__actions {
+    display: flex;
+    gap: var(--spacing-sm);
+}
+
+/* ==========================================================================
+   6. BUTTON COMPONENT (BEM)
+   ========================================================================== */
+
+/* Block: button */
+.button {
+    background: var(--color-primary);
+    color: white;
+    border: none;
+    padding: var(--spacing-sm) var(--spacing-lg);
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    transition: all var(--transition-base);
+    text-decoration: none;
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+}
+
+.button:hover,
+.button:focus {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+/* Ripple effect for interactive elements */
+.ripple {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.6);
+    transform: scale(0);
+    animation: ripple-animation 0.6s ease-out;
+    pointer-events: none;
+}
+
+@keyframes ripple-animation {
+    to {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
+/* Modifier: button--primary */
+.button--primary {
+    background: var(--color-primary);
+    color: white;
+    padding: var(--spacing-md) 35px;
+    border-radius: 30px;
+    font-size: var(--font-size-md);
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+}
+
+.button--primary:hover,
+.button--primary:focus {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(37, 99, 235, 0.4);
+}
+
+/* Modifier: button--secondary */
+.button--secondary {
+    background: transparent;
+    color: var(--color-primary);
+    border: 2px solid var(--color-primary);
+    padding: var(--spacing-md) 35px;
+    border-radius: 30px;
+    font-size: var(--font-size-md);
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.button--secondary:hover,
+.button--secondary:focus {
+    background: var(--color-primary);
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(37, 99, 235, 0.3);
+}
+
+/* ==========================================================================
+   7. HAMBURGER MENU COMPONENT (BEM)
+   ========================================================================== */
+
+/* Block: hamburger */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    padding: var(--spacing-sm);
+    background: transparent;
+    border: none;
+    border-radius: var(--radius-sm);
+    z-index: calc(var(--z-index-sticky) + 1);
+    transition: transform 0.2s ease, background-color 0.3s ease;
+}
+
+.hamburger:hover {
+    background-color: rgba(37, 99, 235, 0.1);
+}
+
+.hamburger:active {
+    transform: scale(0.95);
+}
+
+/* Element: hamburger__bar */
+.hamburger__bar {
+    width: 25px;
+    height: 3px;
+    background: var(--color-text-light);
+    margin: 3px 0;
+    transition: transform 0.3s ease, opacity 0.3s ease, background-color 0.3s ease;
+    border-radius: 2px;
+}
+
+/* Modifier: hamburger--active */
+.hamburger--active {
+    background-color: rgba(37, 99, 235, 0.15);
+}
+
+.hamburger--active .hamburger__bar {
+    background-color: var(--color-primary);
+}
+
+.hamburger--active .hamburger__bar:nth-child(1) {
+    transform: rotate(45deg) translate(8px, 8px);
+}
+
+.hamburger--active .hamburger__bar:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger--active .hamburger__bar:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+}
+
+/* ==========================================================================
+   8. MOBILE NAVIGATION COMPONENT (BEM)
+   ========================================================================== */
+
+/* Block: mobile-nav */
+.mobile-nav__overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: calc(var(--z-index-sticky) - 1);
+}
+
+/* Modifier: mobile-nav__overlay--active */
+.mobile-nav__overlay--active {
+    display: block;
+}
+
+/* Element: mobile-nav__menu */
+.mobile-nav__menu {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 70%;
+    max-width: 300px;
+    height: 100%;
+    background: var(--color-bg-card);
+    z-index: var(--z-index-sticky);
+    transition: right var(--transition-base);
+    padding: 80px 30px 30px;
+    box-shadow: -5px 0 15px rgba(0,0,0,0.3);
+}
+
+/* Modifier: mobile-nav__menu--active */
+.mobile-nav__menu--active {
+    right: 0;
+}
+
+/* Element: mobile-nav__link */
+.mobile-nav__link {
+    display: block;
+    color: var(--color-text-light);
+    text-decoration: none;
+    padding: var(--spacing-md) 0;
+    font-weight: 500;
+    font-size: var(--font-size-lg);
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    transition: color var(--transition-base);
+}
+
+.mobile-nav__link:hover,
+.mobile-nav__link:focus {
+    color: var(--color-primary);
+    outline: none;
+}
+
+/* ==========================================================================
+   9. SCROLL PROGRESS COMPONENT (BEM)
+   ========================================================================== */
+
+/* Block: scroll-progress */
+.scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+    z-index: var(--z-index-progress);
+    transition: width 0.1s ease;
+}
+
+/* ==========================================================================
+   10. SKIP TO CONTENT COMPONENT (BEM)
+   ========================================================================== */
+
+/* Block: skip-link */
+.skip-link {
+    position: fixed;
+    top: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--color-primary);
+    color: white;
+    padding: 12px 24px;
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    z-index: var(--z-index-skip-link);
+    font-weight: 600;
+    transition: top var(--transition-base);
+}
+
+.skip-link:focus {
+    top: var(--spacing-sm);
+    outline: 2px solid white;
+    outline-offset: 2px;
+}
+
+/* ==========================================================================
+   11. HERO SECTION COMPONENT (BEM)
+   ========================================================================== */
+
+/* Block: hero */
+.hero {
+    text-align: center;
+    padding: 80px 0 60px;
+    margin-bottom: var(--spacing-2xl);
+}
+
+/* Element: hero__title */
+.hero__title {
+    font-size: var(--font-size-4xl);
+    font-weight: 700;
+    color: var(--color-text-light);
+    margin-bottom: var(--spacing-md);
+    letter-spacing: -1px;
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Element: hero__typing-text */
+.hero__typing-text {
+    font-size: var(--font-size-2xl);
+    font-weight: 600;
+    color: var(--color-primary);
+    min-height: 40px;
+    margin-bottom: var(--spacing-lg);
+}
+
+/* Element: hero__typing-cursor */
+.hero__typing-cursor {
+    display: inline-block;
+    width: 3px;
+    height: 28px;
+    background: var(--color-primary);
+    margin-left: var(--spacing-xs);
+    animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+}
+
+/* Element: hero__contact-info */
+.hero__contact-info {
+    font-size: var(--font-size-md);
+    color: var(--color-text-light);
+    margin-top: var(--spacing-lg);
+}
+
+.hero__contact-info a {
+    color: var(--color-primary);
+    text-decoration: none;
+    transition: all var(--transition-base);
+}
+
+.hero__contact-info a:hover,
+.hero__contact-info a:focus {
+    text-decoration: underline;
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+/* Element: hero__summary */
+.hero__summary {
+    max-width: 800px;
+    margin: var(--spacing-xl) auto;
+    padding: 0 var(--spacing-lg);
+}
+
+.hero__summary p {
+    font-size: var(--font-size-xl);
+    line-height: 1.7;
+    color: var(--color-text-light);
+    font-weight: 400;
+}
+
+/* Element: hero__cta */
+.hero__cta {
+    display: flex;
+    gap: var(--spacing-lg);
+    justify-content: center;
+    margin-top: 35px;
+    flex-wrap: wrap;
+}
+
+/* ==========================================================================
+   12. STAT CARD COMPONENT (BEM)
+   ========================================================================== */
+
+/* Block: stats-grid */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 25px;
+    margin: var(--spacing-2xl) 0;
+}
+
+/* Block: stat-card */
+.stat-card {
+    background: var(--color-bg-card);
+    padding: var(--spacing-xl);
+    border-radius: var(--radius-md);
+    text-align: center;
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition-base);
+    border: 2px solid transparent;
+}
+
+.stat-card:hover,
+.stat-card:focus-within {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(37, 99, 235, 0.15);
+    border-color: var(--color-primary);
+}
+
+/* Element: stat-card__number */
+.stat-card__number {
+    font-size: 42px;
+    font-weight: 700;
+    color: var(--color-primary);
+    display: block;
+    margin-bottom: var(--spacing-sm);
+}
+
+/* Element: stat-card__label */
+.stat-card__label {
+    font-size: var(--font-size-base);
+    color: var(--color-text-light);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* ==========================================================================
+   13. SECTION COMPONENT (BEM)
+   ========================================================================== */
+
+/* Block: section */
+.section {
+    margin-bottom: var(--spacing-3xl);
+}
+
+/* Element: section__title */
+.section__title {
+    font-size: var(--font-size-3xl);
+    font-weight: 700;
+    color: var(--color-text-light);
+    margin-bottom: var(--spacing-2xl);
+    text-align: center;
+    position: relative;
+    padding-bottom: var(--spacing-md);
+}
+
+.section__title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+    border-radius: 2px;
+}
+
+/* ==========================================================================
+   14. FADE IN ANIMATION (BEM)
+   ========================================================================== */
+
+/* Block: fade-in */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+/* Modifier: fade-in--visible */
+.fade-in--visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ==========================================================================
+   15. SKILLS RADAR COMPONENT (BEM)
+   ========================================================================== */
+
+/* Block: skills-radar-container */
+.skills-radar-container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: rgba(248, 250, 252, 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: var(--spacing-2xl);
+    border-radius: var(--radius-lg);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Element: skills-radar__canvas */
+.skills-radar__canvas {
+    max-width: 100%;
+    height: auto;
+}
+
+/* ==========================================================================
+   16. DASHBOARD COMPONENT (BEM)
+   ========================================================================== */
+
+/* Block: dashboard-grid */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: var(--spacing-xl);
+    margin-top: var(--spacing-xl);
+}
+
+/* Block: dashboard-card */
+.dashboard-card {
+    background: rgba(248, 250, 252, 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: var(--spacing-xl);
+    border-radius: var(--radius-lg);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+    transition: all var(--transition-base);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.dashboard-card:hover,
+.dashboard-card:focus-within {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(37, 99, 235, 0.15);
+}
+
+/* Element: dashboard-card__title */
+.dashboard-card__title {
+    font-size: var(--font-size-xl);
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-lg);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+/* Element: dashboard-card__icon */
+.dashboard-card__icon {
+    font-size: 28px;
+}
+
+/* Element: dashboard-card__chart-container */
+.dashboard-card__chart-container {
+    position: relative;
+    height: 250px;
+}
+
+/* Loading state with shimmer effect */
+.dashboard-card__chart-container[data-loading],
+.skills-radar-container[data-loading] {
+    background: linear-gradient(
+        90deg,
+        var(--color-bg-card) 0%,
+        var(--color-accent) 50%,
+        var(--color-bg-card) 100%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 1.5s ease-in-out infinite;
+    min-height: 250px;
+    border-radius: var(--radius-md);
+}
+
+@keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+}
+
+/* ==========================================================================
+   17. SKILLS GRID COMPONENT (BEM)
+   ========================================================================== */
+
+/* Block: skills-grid */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin-top: var(--spacing-xl);
+}
+
+/* Block: skill-card */
+.skill-card {
+    background: var(--color-bg-card);
+    padding: 25px;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition-base);
+}
+
+.skill-card:hover,
+.skill-card:focus-within {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(37, 99, 235, 0.15);
+}
+
+/* Element: skill-card__title */
+.skill-card__title {
+    font-size: var(--font-size-lg);
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-md);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Element: skill-card__list */
+.skill-card__list {
+    list-style: none;
+}
+
+/* Element: skill-card__item */
+.skill-card__item {
+    padding: 8px 0;
+    color: var(--color-text-light);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.skill-card__item::before {
+    content: '▹';
+    color: var(--color-primary);
+    font-weight: 700;
+    font-size: var(--font-size-xl);
+}
+
+/* ==========================================================================
+   18. EXPERIENCE CARD COMPONENT (BEM)
+   ========================================================================== */
+
+/* Block: experience-card */
+.experience-card {
+    background: var(--color-bg-card);
+    padding: var(--spacing-2xl);
+    border-radius: var(--radius-lg);
+    margin-bottom: var(--spacing-xl);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+    border-left: 5px solid var(--color-primary);
+    transition: all var(--transition-base);
+}
+
+.experience-card:hover,
+.experience-card:focus-within {
+    transform: translateX(10px);
+    box-shadow: 0 12px 40px rgba(37, 99, 235, 0.15);
+}
+
+/* Element: experience-card__header */
+.experience-card__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: var(--spacing-lg);
+    flex-wrap: wrap;
+}
+
+/* Element: experience__company */
+.experience__company {
+    font-size: var(--font-size-2xl);
+    font-weight: 700;
+    color: var(--color-primary);
+}
+
+/* Element: experience__job-title */
+.experience__job-title {
+    font-size: var(--font-size-xl);
+    font-weight: 600;
+    color: var(--color-text-light);
+    margin: var(--spacing-xs) 0;
+}
+
+/* Element: experience__duration */
+.experience__duration {
+    font-size: var(--font-size-base);
+    color: var(--color-text-muted);
+    font-style: italic;
+    background: var(--color-accent);
+    padding: 8px var(--spacing-lg);
+    border-radius: 20px;
+}
+
+/* Element: experience__description */
+.experience__description {
+    margin-bottom: var(--spacing-lg);
+    color: var(--color-text-light);
+    font-size: var(--font-size-md);
+}
+
+/* Element: achievements-list */
+.achievements-list {
+    list-style: none;
+    margin: var(--spacing-lg) 0;
+}
+
+/* Element: achievements-list__item */
+.achievements-list__item {
+    padding: var(--spacing-sm) 0 var(--spacing-sm) var(--spacing-xl);
+    position: relative;
+    color: var(--color-text-light);
+    line-height: 1.7;
+}
+
+.achievements-list__item::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--color-success);
+    font-weight: 700;
+    font-size: var(--font-size-lg);
+}
+
+/* Element: experience__projects-title */
+.experience__projects-title {
+    margin: 25px 0 var(--spacing-md);
+    color: var(--color-primary);
+    font-size: var(--font-size-xl);
+}
+
+/* ==========================================================================
+   19. PROJECT CARD COMPONENT (BEM)
+   ========================================================================== */
+
+/* Block: projects-grid */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 25px;
+    margin-top: 25px;
+}
+
+/* Block: project-card */
+.project-card {
+    background: linear-gradient(135deg, var(--color-bg-card) 0%, rgba(37, 99, 235, 0.05) 100%);
+    padding: var(--spacing-xl);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 2px solid transparent;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    -webkit-tap-highlight-color: rgba(37, 99, 235, 0.2);
+    touch-action: manipulation;
+}
+
+.project-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    transition: left 0.5s ease;
+    pointer-events: none;
+    z-index: var(--z-index-base);
+}
+
+.project-card::after {
+    content: 'Click to view details →';
+    position: absolute;
+    bottom: var(--spacing-md);
+    right: var(--spacing-lg);
+    background: var(--color-primary);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all var(--transition-base);
+    pointer-events: none;
+    z-index: var(--z-index-base);
+}
+
+.project-card:hover::before {
+    left: 100%;
+}
+
+.project-card:hover::after {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.project-card:hover,
+.project-card:focus {
+    transform: translateY(-12px) rotateX(5deg);
+    box-shadow: 0 20px 40px rgba(37, 99, 235, 0.25);
+    border-color: var(--color-primary);
+    padding-bottom: 50px;
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+/* Element: project-card__title */
+.project-card__title {
+    font-size: var(--font-size-xl);
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-bottom: 12px;
+}
+
+/* Element: project-card__description */
+.project-card__description {
+    font-size: var(--font-size-md);
+    color: var(--color-text-light);
+    line-height: 1.6;
+}
+
+/* Element: project-card__indicator */
+.project-card__indicator {
+    position: absolute;
+    top: var(--spacing-md);
+    right: var(--spacing-md);
+    width: 32px;
+    height: 32px;
+    background: rgba(37, 99, 235, 0.1);
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--font-size-md);
+    color: var(--color-primary);
+    animation: pulse-indicator 2s infinite;
+    pointer-events: none;
+    z-index: 2;
+}
+
+@keyframes pulse-indicator {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 0.7;
+    }
+}
+
+/* ==========================================================================
+   20. TECH TAGS COMPONENT (BEM)
+   ========================================================================== */
+
+/* Block: tech-tags */
+.tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: var(--spacing-md);
+}
+
+/* Block: tech-tag */
+.tech-tag {
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    color: white;
+    padding: 6px 14px;
+    border-radius: var(--radius-md);
+    font-size: var(--font-size-xs);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* ==========================================================================
+   21. EDUCATION CARD COMPONENT (BEM)
+   ========================================================================== */
+
+/* Block: education-grid */
+.education-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 25px;
+}
+
+/* Block: education-card */
+.education-card {
+    background: var(--color-bg-card);
+    padding: var(--spacing-xl);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+    border-left: 4px solid var(--color-primary);
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+    -webkit-tap-highlight-color: rgba(37, 99, 235, 0.2);
+    touch-action: manipulation;
+}
+
+.education-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    transition: left 0.5s ease;
+    pointer-events: none;
+    z-index: var(--z-index-base);
+}
+
+.education-card::after {
+    content: 'Click for details →';
+    position: absolute;
+    bottom: var(--spacing-md);
+    right: var(--spacing-lg);
+    background: var(--color-primary);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all var(--transition-base);
+    pointer-events: none;
+    z-index: var(--z-index-base);
+}
+
+.education-card:hover::before {
+    left: 100%;
+}
+
+.education-card:hover::after {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.education-card:hover,
+.education-card:focus {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(37, 99, 235, 0.2);
+    border-left-width: 6px;
+    padding-bottom: 50px;
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+/* Element: education-card__degree */
+.education-card__degree {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-sm);
+}
+
+/* Element: education-card__school */
+.education-card__school {
+    font-size: var(--font-size-lg);
+    color: var(--color-text-light);
+    margin-bottom: var(--spacing-xs);
+}
+
+/* Element: education-card__year */
+.education-card__year {
+    font-size: var(--font-size-base);
+    color: var(--color-text-muted);
+}
+
+/* ==========================================================================
+   22. MODAL COMPONENT (BEM)
+   ========================================================================== */
+
+/* Block: modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: var(--z-index-modal-overlay);
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(5px);
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Modifier: modal--active */
+.modal--active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Element: modal__content */
+.modal__content {
+    background: var(--color-bg-card);
+    margin: 3% auto;
+    padding: var(--spacing-2xl);
+    border-radius: var(--radius-lg);
+    max-width: 900px;
+    max-height: 85vh;
+    overflow-y: auto;
+    position: relative;
+    animation: modalScaleIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: var(--shadow-xl);
+}
+
+@keyframes modalScaleIn {
+    from {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Element: modal__close */
+.modal__close {
+    position: absolute;
+    right: 25px;
+    top: 25px;
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--color-text-light);
+    cursor: pointer;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-full);
+    transition: all var(--transition-base);
+    background: transparent;
+}
+
+.modal__close:hover,
+.modal__close:focus {
+    background: var(--color-primary);
+    color: white;
+    transform: rotate(90deg);
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+/* Element: modal__title */
+.modal__title {
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-sm);
+    font-size: var(--font-size-2xl);
+}
+
+/* Element: modal__subtitle */
+.modal__subtitle {
+    color: var(--color-text-light);
+    margin-bottom: var(--spacing-lg);
+    font-weight: 500;
+    font-size: var(--font-size-lg);
+}
+
+/* Element: modal__section-title */
+.modal__section-title {
+    color: var(--color-primary);
+    margin: 25px 0 var(--spacing-md);
+    font-size: var(--font-size-xl);
+}
+
+/* Element: modal__text */
+.modal__text {
+    font-size: var(--font-size-md);
+    line-height: 1.8;
+    color: var(--color-text-light);
+    margin-bottom: var(--spacing-lg);
+}
+
+/* Modal text content typography */
+.modal__text h3 {
+    font-size: var(--font-size-xl);
+    color: var(--color-primary);
+    margin-top: var(--spacing-xl);
+    margin-bottom: var(--spacing-md);
+    font-weight: 600;
+}
+
+.modal__text h4 {
+    font-size: var(--font-size-lg);
+    color: var(--color-text-light);
+    margin-top: var(--spacing-lg);
+    margin-bottom: var(--spacing-sm);
+    font-weight: 600;
+}
+
+.modal__text p {
+    margin-bottom: var(--spacing-md);
+    line-height: 1.8;
+}
+
+.modal__text ul {
+    margin-left: var(--spacing-xl);
+    margin-bottom: var(--spacing-lg);
+    list-style-type: disc;
+}
+
+.modal__text li {
+    margin-bottom: var(--spacing-sm);
+    line-height: 1.8;
+    padding-left: var(--spacing-xs);
+}
+
+.modal__text li::marker {
+    color: var(--color-primary);
+}
+
+/* Keyboard key styling */
+kbd {
+    display: inline-block;
+    padding: 3px 8px;
+    font-family: var(--font-family-mono);
+    font-size: var(--font-size-sm);
+    color: var(--color-text-light);
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-text-muted);
+    border-radius: 4px;
+    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.1);
+    font-weight: 600;
+}
+
+/* ==========================================================================
+   22A. TOAST NOTIFICATION COMPONENT
+   ========================================================================== */
+
+.toast {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    background: var(--color-primary);
+    color: white;
+    padding: 16px 24px;
+    border-radius: 8px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    z-index: var(--z-index-toast);
+    font-size: var(--font-size-md);
+    font-weight: 500;
+    opacity: 0;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    max-width: 90%;
+    text-align: center;
+}
+
+.toast--visible {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+/* Toast dark theme adjustments */
+.theme--dark .toast,
+.theme--terminal .toast {
+    background: var(--color-success);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+}
+
+/* ==========================================================================
+   23. TIMELINE COMPONENT (BEM)
+   ========================================================================== */
+
+/* Block: timeline */
+.timeline {
+    position: relative;
+    max-width: 1000px;
+    margin: var(--spacing-2xl) auto;
+    padding: var(--spacing-lg);
+}
+
+/* Element: timeline__line */
+.timeline__line {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: linear-gradient(180deg, var(--color-primary), var(--color-secondary));
+    transform: translateX(-50%);
+}
+
+/* Block: timeline-item */
+.timeline-item {
+    position: relative;
+    margin-bottom: 50px;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease;
+}
+
+/* Modifier: timeline-item--visible */
+.timeline-item--visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Odd items - content on the left */
+.timeline-item:nth-child(odd) .timeline__content {
+    margin-right: calc(50% + 40px);
+    text-align: right;
+}
+
+/* Even items - content on the right */
+.timeline-item:nth-child(even) .timeline__content {
+    margin-left: calc(50% + 40px);
+    text-align: left;
+}
+
+/* Element: timeline__dot */
+.timeline__dot {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    width: 20px;
+    height: 20px;
+    background: var(--color-primary);
+    border: 4px solid var(--color-bg-light);
+    border-radius: var(--radius-full);
+    transform: translate(-50%, 0);
+    z-index: 2;
+    transition: all var(--transition-base);
+    cursor: pointer;
+}
+
+.timeline-item:hover .timeline__dot,
+.timeline-item:focus-within .timeline__dot {
+    width: 30px;
+    height: 30px;
+    box-shadow: 0 0 20px var(--color-primary);
+}
+
+/* Element: timeline__content */
+.timeline__content {
+    background: var(--color-bg-card);
+    padding: 25px;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition-base);
+    cursor: pointer;
+    border: 2px solid transparent;
+}
+
+.timeline__content:hover,
+.timeline__content:focus {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(37, 99, 235, 0.15);
+    border-color: var(--color-primary);
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+/* Element: timeline__date */
+.timeline__date {
+    font-size: var(--font-size-base);
+    color: var(--color-primary);
+    font-weight: 600;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Element: timeline__company */
+.timeline__company {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-bottom: 8px;
+}
+
+/* Element: timeline__title */
+.timeline__title {
+    font-size: var(--font-size-md);
+    font-weight: 600;
+    color: var(--color-text-light);
+    margin-bottom: 12px;
+}
+
+/* Element: timeline__description */
+.timeline__description {
+    font-size: var(--font-size-base);
+    color: var(--color-text-light);
+    line-height: 1.6;
+    margin-bottom: var(--spacing-md);
+}
+
+/* Element: timeline__tags */
+.timeline__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: inherit;
+}
+
+.timeline-item:nth-child(odd) .timeline__tags {
+    justify-content: flex-end;
+}
+
+/* Element: timeline__tag */
+.timeline__tag {
+    background: var(--color-primary);
+    color: white;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: var(--font-size-xs);
+    font-weight: 600;
+}
+
+/* ==========================================================================
+   24. FLOATING ACTION BUTTONS (BEM)
+   ========================================================================== */
+
+/* Block: floating-actions */
+.floating-actions {
+    position: fixed;
+    bottom: var(--spacing-xl);
+    right: var(--spacing-xl);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+    z-index: var(--z-index-sticky);
+}
+
+/* Block: fab */
+.fab {
+    width: 56px;
+    height: 56px;
+    border-radius: var(--radius-full);
+    background: var(--color-primary);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.4);
+    transition: all var(--transition-base);
+    border: none;
+    text-decoration: none;
+}
+
+.fab:hover,
+.fab:focus {
+    transform: translateY(-5px) scale(1.1);
+    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.6);
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+/* Modifier: fab--hidden */
+.fab--hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* Modifier: fab--visible */
+.fab--visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* ==========================================================================
+   25. SOCIAL SHARE COMPONENT (BEM)
+   ========================================================================== */
+
+/* Block: social-share */
+.social-share {
+    position: fixed;
+    left: var(--spacing-xl);
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+    z-index: var(--z-index-sticky);
+}
+
+/* Block: social-btn */
+.social-btn {
+    width: 45px;
+    height: 45px;
+    border-radius: var(--radius-full);
+    background: var(--color-bg-card);
+    color: var(--color-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--font-size-xl);
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transition: all var(--transition-base);
+    border: 2px solid transparent;
+    text-decoration: none;
+}
+
+.social-btn:hover,
+.social-btn:focus {
+    transform: translateX(-5px) scale(1.1);
+    border-color: var(--color-primary);
+    box-shadow: 0 6px 20px rgba(37, 99, 235, 0.3);
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+/* ==========================================================================
+   26. FOOTER COMPONENT (BEM)
+   ========================================================================== */
+
+/* Block: footer */
+.footer {
+    margin-top: 80px;
+    padding: var(--spacing-3xl) 0 var(--spacing-2xl);
+    text-align: center;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+/* Element: footer__content */
+.footer__content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Element: footer__text */
+.footer__text {
+    font-size: var(--font-size-md);
+    color: var(--color-text-light);
+    margin-bottom: var(--spacing-md);
+    line-height: 1.6;
+}
+
+/* Element: footer__links */
+.footer__links {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-xl);
+    margin: var(--spacing-xl) 0 var(--spacing-lg);
+    flex-wrap: wrap;
+}
+
+/* Element: footer__link */
+.footer__link {
+    color: var(--color-primary);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color var(--transition-base);
+}
+
+.footer__link:hover,
+.footer__link:focus {
+    color: var(--color-secondary);
+    text-decoration: underline;
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+/* Element: footer__copyright */
+.footer__copyright {
+    font-size: var(--font-size-base);
+    color: var(--color-text-muted);
+    margin-top: var(--spacing-xl);
+}
+
+/* Element: footer__easter-egg-hint */
+.footer__easter-egg-hint {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    margin-top: var(--spacing-lg);
+    padding: 12px 24px;
+    background: rgba(37, 99, 235, 0.1);
+    border: 1px solid rgba(37, 99, 235, 0.3);
+    border-radius: 20px;
+    font-size: var(--font-size-base);
+    color: var(--color-primary);
+    font-weight: 500;
+    transition: all var(--transition-base);
+    cursor: pointer;
+}
+
+.footer__easter-egg-hint:hover,
+.footer__easter-egg-hint:focus {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+/* Element: footer__hint-icon */
+.footer__hint-icon {
+    font-size: var(--font-size-xl);
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+
+/* ==========================================================================
+   27. PRINT STYLES
+   ========================================================================== */
+
+@media print {
+    .nav,
+    .button,
+    .webgl-background,
+    .modal,
+    .floating-actions,
+    .social-share,
+    .hamburger,
+    .mobile-nav__menu,
+    .mobile-nav__overlay,
+    .fab,
+    .social-btn {
+        display: none !important;
+    }
+
+    body,
+    .theme--dark,
+    .theme--terminal {
+        background: white !important;
+        color: black !important;
+        font-family: var(--font-family-base) !important;
+    }
+
+    .theme--terminal * {
+        text-shadow: none !important;
+        box-shadow: none !important;
+        border-color: #ddd !important;
+    }
+
+    .container {
+        margin-top: 0;
+    }
+
+    .fade-in,
+    .timeline-item {
+        opacity: 1 !important;
+        transform: none !important;
+    }
+
+    /* Page break controls */
+    section {
+        page-break-inside: avoid;
+    }
+
+    .experience-card,
+    .project-card,
+    .education-card,
+    .skill-card {
+        page-break-inside: avoid;
+    }
+
+    .hero,
+    .stats-grid {
+        page-break-after: avoid;
+    }
+
+    /* Show URLs after external links */
+    a[href^="http"]:not([href*="aniltv06.github.io"])::after {
+        content: " (" attr(href) ")";
+        font-size: 0.8em;
+        color: #666;
+        word-break: break-all;
+    }
+
+    /* Optimize spacing for print */
+    .section {
+        margin-bottom: 30px;
+    }
+
+    /* Ensure important contact info is visible */
+    .hero__contact-info {
+        font-size: 14px;
+        font-weight: bold;
+    }
+
+    .stat-card__number,
+    .experience__company,
+    .project-card__title,
+    .section__title {
+        color: #2563eb !important;
+    }
+
+    .tech-tag {
+        background: #2563eb !important;
+        color: white !important;
+        border: none !important;
+    }
+}
+
+/* ==========================================================================
+   28. RESPONSIVE DESIGN - MOBILE
+   ========================================================================== */
+
+@media (max-width: 768px) {
+    /* Reduce scroll margin on mobile */
+    section[id] {
+        scroll-margin-top: 80px;
+    }
+
+    /* Hero */
+    .hero__title {
+        font-size: var(--font-size-3xl);
+    }
+
+    .hero__typing-text {
+        font-size: var(--font-size-xl);
+    }
+
+    .hero__summary p {
+        font-size: var(--font-size-lg);
+    }
+
+    .hero__cta {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .button--primary,
+    .button--secondary {
+        width: 100%;
+        max-width: 300px;
+        justify-content: center;
+    }
+
+    /* Navigation */
+    .nav__links {
+        display: none;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .mobile-nav__menu {
+        display: block;
+    }
+
+    .nav__actions .button:first-child {
+        display: none;
+    }
+
+    /* Grids */
+    .dashboard-grid,
+    .projects-grid,
+    .skills-grid,
+    .education-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Section */
+    .section__title {
+        font-size: var(--font-size-2xl);
+    }
+
+    /* Footer */
+    .footer {
+        margin-top: var(--spacing-3xl);
+        padding: var(--spacing-2xl) var(--spacing-lg) var(--spacing-xl);
+    }
+
+    .footer__links {
+        gap: var(--spacing-lg);
+    }
+
+    /* Social Share - Hide on mobile (available in footer) */
+    .social-share {
+        display: none;
+    }
+
+    /* Floating Actions */
+    .floating-actions {
+        right: var(--spacing-sm);
+        bottom: var(--spacing-lg);
+    }
+
+    /* Hide email FAB on mobile (email available in footer) */
+    .fab[data-testid="fab-email"] {
+        display: none;
+    }
+
+    .fab {
+        width: 48px;
+        height: 48px;
+        font-size: var(--font-size-xl);
+    }
+
+    .social-btn {
+        width: 38px;
+        height: 38px;
+        font-size: var(--font-size-md);
+    }
+
+    /* Timeline */
+    .timeline__line {
+        left: var(--spacing-lg);
+    }
+
+    .timeline-item:nth-child(odd) .timeline__content,
+    .timeline-item:nth-child(even) .timeline__content {
+        margin-left: 50px;
+        margin-right: 0;
+        text-align: left;
+    }
+
+    .timeline__dot {
+        left: var(--spacing-lg);
+    }
+
+    .timeline-item:nth-child(odd) .timeline__tags {
+        justify-content: flex-start;
+    }
+
+    /* Project and Education Cards */
+    .project-card:hover,
+    .education-card:hover {
+        transform: translateY(-8px);
+        padding-bottom: var(--spacing-xl);
+    }
+
+    .project-card::after,
+    .education-card::after {
+        content: 'Tap to view details →';
+    }
+}
+
+/* ==========================================================================
+   29. UTILITY CLASSES
+   ========================================================================== */
+
+/* Visually Hidden (Accessibility) */
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* Focus Visible - Custom Focus Styles */
+.focus-visible:focus {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+/* Text Utilities */
+.text--center {
+    text-align: center;
+}
+
+.text--muted {
+    color: var(--color-text-muted);
+}
+
+/* Display Utilities */
+.hidden {
+    display: none !important;
+}
+
+.flex {
+    display: flex;
+}
+
+.flex--center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Spacing Utilities */
+.mt-0 { margin-top: 0; }
+.mt-1 { margin-top: var(--spacing-xs); }
+.mt-2 { margin-top: var(--spacing-sm); }
+.mt-3 { margin-top: var(--spacing-md); }
+.mt-4 { margin-top: var(--spacing-lg); }
+
+.mb-0 { margin-bottom: 0; }
+.mb-1 { margin-bottom: var(--spacing-xs); }
+.mb-2 { margin-bottom: var(--spacing-sm); }
+.mb-3 { margin-bottom: var(--spacing-md); }
+.mb-4 { margin-bottom: var(--spacing-lg); }
+
+/* ==========================================================================
+   END OF STYLESHEET
+   ========================================================================== */
