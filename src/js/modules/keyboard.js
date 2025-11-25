@@ -27,36 +27,36 @@ function handleKeyPress(e) {
   const key = e.key.toLowerCase();
 
   switch (key) {
-    case 't':
-      // Toggle theme with 'T' key
-      e.preventDefault();
-      const themeBtn = qs('[data-action="toggle-theme"]');
-      if (themeBtn) {
-        themeBtn.click();
-        trackEvent('keyboard_shortcut', { key: 'T', action: 'toggle_theme' });
-      }
-      break;
+  case 't':
+    // Toggle theme with 'T' key
+    e.preventDefault();
+    const themeBtn = qs('[data-action="toggle-theme"]');
+    if (themeBtn) {
+      themeBtn.click();
+      trackEvent('keyboard_shortcut', { key: 'T', action: 'toggle_theme' });
+    }
+    break;
 
-    case '?':
-      // Show keyboard shortcuts help with '?' key
-      e.preventDefault();
-      showKeyboardHelp();
-      trackEvent('keyboard_shortcut', { key: '?', action: 'show_help' });
-      break;
+  case '?':
+    // Show keyboard shortcuts help with '?' key
+    e.preventDefault();
+    showKeyboardHelp();
+    trackEvent('keyboard_shortcut', { key: '?', action: 'show_help' });
+    break;
 
-    case '1':
-    case '2':
-    case '3':
-    case '4':
-    case '5':
-      // Jump to section with number keys
-      e.preventDefault();
-      const sectionId = SECTIONS[key];
-      if (sectionId) {
-        scrollToSection(sectionId);
-        trackEvent('keyboard_shortcut', { key, action: 'jump_to_section', section: sectionId });
-      }
-      break;
+  case '1':
+  case '2':
+  case '3':
+  case '4':
+  case '5':
+    // Jump to section with number keys
+    e.preventDefault();
+    const sectionId = SECTIONS[key];
+    if (sectionId) {
+      scrollToSection(sectionId);
+      trackEvent('keyboard_shortcut', { key, action: 'jump_to_section', section: sectionId });
+    }
+    break;
   }
 }
 

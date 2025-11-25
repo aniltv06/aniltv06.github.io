@@ -11,7 +11,7 @@
     "test": "playwright test",
     "test:ui": "playwright test --ui",
     "test:headed": "playwright test --headed",
-    "lint": "eslint src --ext .js",
+    "lint": "eslint src",
     "format": "prettier --write \"src/**/*.{js,css,html}\""
   },
   "keywords": [
@@ -26,8 +26,10 @@
   "license": "MIT",
   "devDependencies": {
     "@axe-core/playwright": "^4.8.2",
+    "@eslint/js": "^9.39.1",
     "@playwright/test": "^1.40.1",
-    "eslint": "^8.55.0",
+    "eslint": "^9.39.1",
+    "globals": "^16.5.0",
     "prettier": "^3.1.1",
     "vite": "^7.2.4",
     "vite-plugin-pwa": "^1.1.0",
