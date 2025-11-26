@@ -1,8 +1,8 @@
 # Netlify Configuration for Anil Thatha Portfolio
 
 [build]
-  # Build command - Explicitly install dependencies then build
-  command = "npm install && npm run build"
+  # Build command - Netlify auto-installs deps with NPM_FLAGS from environment
+  command = "npm run build"
 
   # Directory to publish (build output)
   publish = "dist"
@@ -13,6 +13,7 @@
 # Node version
 [build.environment]
   NODE_VERSION = "20"
+  NPM_FLAGS = "--include=dev"
 
 # Redirects and rewrites
 [[redirects]]
