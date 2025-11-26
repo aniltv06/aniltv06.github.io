@@ -23,16 +23,20 @@ export const projects = [
       tech: ['Swift', 'SwiftUI', 'Core ML', 'Claude API', 'REST APIs'],
       role: ['Lead Developer', 'Architecture']
     },
-    problem: `Apple Retail stores faced significant challenges with diagnostic efficiency and repair workflows. Technicians spent excessive time diagnosing issues, leading to longer customer wait times and reduced throughput. Manual processes resulted in inconsistent repair recommendations and inventory management inefficiencies.`,
-    solution: `Developed a comprehensive AI-powered repair management system that integrates machine learning models for automated diagnostics, intelligent workflow automation using Claude AI, and real-time inventory management. The system provides technicians with instant repair recommendations and automated parts ordering.`,
+    overview: `Developed a comprehensive AI-powered repair management system transforming Apple Retail operations across 500+ stores worldwide. The system integrates machine learning models for automated diagnostics, intelligent workflow automation using Claude AI, and real-time inventory management. Provides technicians with instant repair recommendations, automated parts ordering, and system-level integration using macOS APIs and Internal SDK.`,
     features: [
       'AI/ML models reducing diagnostic time by 40%',
       '95% accuracy in repair recommendations',
       'Real-time inventory management across 500+ stores',
       'Intelligent workflow automation with Claude AI',
+      'XPC services for secure inter-process communication',
+      'Unified Logging system for diagnostics and debugging',
+      'Low-level process behavior monitoring and instrumentation',
+      'Advanced multithreading with Grand Central Dispatch',
+      'File system event monitoring with FSEvents',
       'Automated parts ordering and tracking',
       'Comprehensive repair history and analytics',
-      'Integration with existing Apple retail systems'
+      'Integration with existing Apple retail systems using Internal SDK'
     ],
     impact: [
       'Reduced customer wait time by 30%',
@@ -42,17 +46,27 @@ export const projects = [
       'Reduced parts inventory waste by 20%'
     ],
     techStack: {
-      languages: ['Swift', 'Python'],
-      frameworks: ['SwiftUI', 'Combine', 'Core ML'],
-      apis: ['Claude API', 'REST APIs', 'GraphQL'],
+      languages: ['Swift', 'Objective-C', 'Python'],
+      frameworks: ['SwiftUI', 'AppKit', 'Combine', 'Core ML'],
+      systemAPIs: ['Grand Central Dispatch', 'XPC Services', 'FSEvents', 'FileManager (low-level)', 'OSLog/Unified Logging', 'Unix APIs (POSIX, pthreads, signals)'],
+      apis: ['Claude API', 'REST APIs', 'GraphQL', 'Internal SDK'],
       architecture: ['MVVM', 'Clean Architecture', 'Microservices'],
-      tools: ['Xcode', 'Git', 'CI/CD', 'Analytics']
+      infrastructure: ['Launchd agents & daemons', 'macOS sandbox & entitlements', 'System Extensions'],
+      tools: ['Xcode', 'Internal SDK', 'Git', 'CI/CD', 'Analytics']
     },
     myRole: [
       'Led technical architecture and design decisions',
       'Implemented AI/ML integration with Core ML',
-      'Designed and built SwiftUI-based user interface',
+      'Designed and built SwiftUI/AppKit hybrid user interface',
+      'Developed XPC services for secure system-level operations',
+      'Implemented low-level instrumentation for process, memory, and CPU tracing',
+      'Integrated Unified Logging (OSLog) for comprehensive system diagnostics',
+      'Built async scheduling system using Grand Central Dispatch and multithreading',
+      'Configured macOS sandbox, entitlements, and security policies',
+      'Developed launchd agents and daemons for background services',
+      'Utilized Internal SDK for deep system integration',
       'Integrated Claude API for intelligent automation',
+      'Implemented file system monitoring with FSEvents and low-level FileManager APIs',
       'Established CI/CD pipeline and deployment strategy',
       'Mentored team of 4 junior developers'
     ],
@@ -90,8 +104,7 @@ export const projects = [
       tech: ['Swift', 'SwiftUI', 'Combine', 'REST APIs'],
       role: ['Senior Developer', 'Architecture']
     },
-    problem: `Apple's customer success teams needed a unified platform to manage customer relationships, track support tickets, and analyze customer health metrics. Existing solutions were fragmented across multiple systems, leading to inefficiencies and poor visibility into customer status.`,
-    solution: `Built a comprehensive customer success platform that consolidates customer data from 5+ backend systems into a single, intuitive interface. Implemented real-time analytics dashboard, automated workflow management, and intelligent reporting capabilities.`,
+    overview: `Built a comprehensive customer success platform serving 1000+ daily users with 99.9% uptime, consolidating customer data from 5+ backend systems into a single, intuitive interface. The system features real-time analytics dashboard, automated workflow management, and intelligent reporting capabilities, significantly improving customer relationship management and support ticket handling across Apple's customer success teams.`,
     features: [
       'Real-time customer analytics dashboard',
       'Automated workflow management',
@@ -154,8 +167,7 @@ export const projects = [
       tech: ['Swift', 'UIKit', 'Core Data', 'REST APIs'],
       role: ['Lead iOS Developer']
     },
-    problem: `Apple employees needed a streamlined way to book corporate travel, manage itineraries, and track expenses. Existing third-party solutions didn't integrate well with Apple's internal systems and lacked offline capabilities crucial for travelers.`,
-    solution: `Developed a native iOS/macOS travel management app that integrates with 3 major travel APIs (flights, hotels, car rentals), provides offline access to itineraries, and seamlessly syncs with Apple's expense management system. Implemented intelligent search and booking workflows.`,
+    overview: `Developed a native iOS/macOS travel management application streamlining corporate travel booking and expense tracking for Apple employees. The app integrates with 3 major travel APIs (flights, hotels, car rentals), provides offline access to itineraries, and seamlessly syncs with Apple's expense management system. Features intelligent search and booking workflows, earning a 4.6/5 user rating and saving $1.5M annually.`,
     features: [
       'Integration with 3 third-party travel APIs',
       'Real-time flight and hotel booking',
@@ -218,8 +230,7 @@ export const projects = [
       tech: ['Swift', 'SwiftUI', 'CloudKit', 'Vision'],
       role: ['Solo Developer', 'Full Stack']
     },
-    problem: `Manual expense entry is time-consuming and error-prone. Employees needed a faster way to capture receipts, categorize expenses, and generate reports for reimbursement. Cross-device sync was essential for users switching between iPhone, iPad, and Mac.`,
-    solution: `Built a universal SwiftUI app for iOS and macOS with intelligent OCR receipt scanning using Vision framework, CloudKit-based synchronization, and ML-powered automated categorization. Implemented export functionality for multiple formats including PDF, Excel, and QuickBooks.`,
+    overview: `Built a universal SwiftUI expense management application for iOS and macOS, transforming manual expense entry with intelligent OCR receipt scanning using Vision framework, CloudKit-based synchronization, and ML-powered automated categorization. The app enables faster expense capture, seamless cross-device sync between iPhone, iPad, and Mac, and supports multiple export formats including PDF, Excel, and QuickBooks.`,
     features: [
       'OCR receipt scanning reducing entry time by 70%',
       'CloudKit sync across iOS and macOS devices',
@@ -284,36 +295,35 @@ export const projects = [
       tech: ['Swift', 'Proprietary Frameworks', 'Encryption'],
       role: ['Lead Developer', 'Security']
     },
-    problem: `Apple required a highly secure internal application for classified operations, utilizing proprietary internal frameworks. The application needed to meet military-grade security standards and achieve 100% compliance with rigorous security audits.`,
-    solution: `Led development of a classified security application leveraging Apple's proprietary internal frameworks. Implemented advanced encryption techniques and security protocols to ensure complete compliance with security requirements.`,
+    overview: `Developed a high-security macOS application designed for classified enterprise operations. The application meets military-grade security standards, achieves full audit compliance, and leverages system-level macOS APIs and proprietary frameworks to deliver reliable and secure functionality.`,
     features: [
-      'Military-grade encryption implementation',
-      'Integration with proprietary Apple frameworks',
-      '100% security audit compliance',
-      'Advanced authentication and authorization',
-      'Secure data storage and transmission',
-      'Comprehensive audit logging',
-      'Zero security vulnerabilities in production'
+      'System-Level Services: Built XPC services for secure inter-process communication and background security operations using Launchd agents and daemons',
+      'Low-Level Instrumentation: Implemented process, memory, and CPU monitoring using POSIX APIs, pthreads, and signals',
+      'File & Event Monitoring: Secured critical operations via FSEvents and file-system-level monitoring',
+      'Security & Encryption: Applied military-grade encryption, secure storage, and data transmission using CryptoKit',
+      'Logging & Auditing: Integrated Unified Logging (OSLog) for comprehensive event tracking, diagnostics, and audit compliance',
+      'Concurrency & Performance: Designed async and multithreaded operations with Grand Central Dispatch for performance and responsiveness',
+      'macOS Security Controls: Enforced sandboxing, entitlements, and strict security policies for system-level reliability'
     ],
     impact: [
       'Achieved 100% compliance with security audits',
       'Zero security incidents since deployment',
-      'Met all classified operation requirements',
-      'Established security development standards'
+      'Delivered a robust, system-level security tool that established new internal standards for secure macOS development'
     ],
     techStack: {
-      languages: ['Swift'],
-      frameworks: ['Proprietary Apple Frameworks', 'Security Framework', 'CryptoKit'],
+      languages: ['Swift', 'Objective-C'],
+      frameworks: ['AppKit', 'Proprietary Apple Frameworks', 'Security Framework', 'CryptoKit'],
+      systemAPIs: ['Grand Central Dispatch', 'XPC Services', 'FSEvents', 'FileManager (low-level)', 'OSLog/Unified Logging', 'Unix APIs (POSIX, pthreads, signals)'],
       architecture: ['Clean Architecture', 'Security-First Design'],
-      tools: ['Xcode', 'Security Audit Tools', 'Penetration Testing']
+      infrastructure: ['Launchd agents & daemons', 'macOS sandbox & entitlements', 'System Extensions'],
+      tools: ['Xcode', 'Internal SDK', 'Security Audit Tools', 'Penetration Testing']
     },
     myRole: [
-      'Led development of classified security application',
-      'Implemented military-grade encryption',
-      'Designed security architecture',
-      'Ensured 100% audit compliance',
-      'Collaborated with security teams for validation',
-      'Established secure coding practices'
+      'Led architecture, development, and implementation of system-level macOS features',
+      'Designed security-first architecture and secure coding standards',
+      'Developed background services, low-level monitoring, and secure inter-process communication',
+      'Implemented file system monitoring, encryption, and auditing mechanisms',
+      'Collaborated with security teams to validate compliance and reliability'
     ],
     timeline: {
       duration: '12 months',
@@ -347,8 +357,7 @@ export const projects = [
       tech: ['Swift', 'Bash', 'AppleScript'],
       role: ['Lead Developer', 'DevOps']
     },
-    problem: `New employee device setup at Apple was a manual, time-consuming process taking up to 4 hours per employee. IT support teams faced high ticket volumes for setup assistance, and the process was inconsistent across different departments.`,
-    solution: `Developed an automated macOS device setup tool that streamlines the entire onboarding process. The application automatically configures system settings, installs required applications, sets up security protocols, and integrates with corporate systems - all with minimal user intervention.`,
+    overview: `Developed an automated macOS device setup tool that revolutionized new employee onboarding at Apple, reducing setup time from 4 hours to 30 minutes. The application automatically configures system settings, installs required applications, sets up security protocols, and integrates with corporate systems with minimal user intervention. Achieved 95% automation rate and cut IT support tickets by 40%, serving 10,000+ employees.`,
     features: [
       'Automated system configuration and setup',
       'One-click application installation',
@@ -412,8 +421,7 @@ export const projects = [
       tech: ['Swift', 'AppKit', 'System APIs'],
       role: ['Developer']
     },
-    problem: `Apple employees needed quick access to device information for IT support requests. Existing solutions required multiple steps or IT helpdesk involvement to retrieve basic system details like serial numbers, OS versions, and hardware specs.`,
-    solution: `Built a native macOS application providing instant access to comprehensive device information. The app displays real-time system stats, hardware details, and network information in an intuitive interface, empowering employees to self-serve for common IT support needs.`,
+    overview: `Built a native macOS utility application providing instant access to comprehensive device information for IT support. The app displays real-time system stats, hardware details, serial numbers, OS versions, and network information in an intuitive interface, empowering Apple employees to self-serve for common IT support needs and reducing helpdesk dependency.`,
     features: [
       'Real-time device information display',
       'Hardware specifications and serial numbers',
@@ -474,8 +482,7 @@ export const projects = [
       tech: ['Swift', 'UIKit', 'Vision', 'QR Codes'],
       role: ['iOS Developer']
     },
-    problem: `Apple employees needed a streamlined way to request badge access, report security incidents, and manage security-related workflows. Manual processes resulted in slow request processing and inefficient security management.`,
-    solution: `Developed an iOS security management app featuring QR code scanning for quick badge access requests, security incident reporting, and real-time status tracking. Integrated with Apple's security systems for automated approval workflows.`,
+    overview: `Developed an iOS security management application streamlining badge access requests, security incident reporting, and security-related workflows for Apple employees. The app features QR code scanning for quick badge access requests, real-time status tracking, and automated approval workflows integrated with Apple's security systems, significantly reducing request processing time and improving security management efficiency.`,
     features: [
       'QR code scanning for badge requests',
       'Security incident reporting',
@@ -537,8 +544,7 @@ export const projects = [
       tech: ['Swift', 'UIKit', 'REST APIs'],
       role: ['iOS Developer']
     },
-    problem: `Apple's procurement team needed to modernize their purchase requisition process. Paper-based and desktop-only workflows slowed down approvals and made it difficult for managers to review requests on the go.`,
-    solution: `Created a proof-of-concept iPad application demonstrating streamlined purchase requisition workflows. The app featured intuitive forms, automated approval routing, and real-time status tracking, proving the viability of mobile-first procurement.`,
+    overview: `Created a proof-of-concept iPad application demonstrating streamlined purchase requisition workflows for Apple's procurement team. The app featured intuitive forms, automated approval routing, and real-time status tracking, proving the viability of mobile-first procurement and modernizing the paper-based desktop-only workflow that slowed down approvals for on-the-go managers.`,
     features: [
       'iPad-optimized purchase requisition forms',
       'Automated approval routing',
@@ -600,8 +606,7 @@ export const projects = [
       tech: ['Objective-C', 'ISTSU Protocol'],
       role: ['Software Engineer']
     },
-    problem: `Apple needed a centralized system for distributing and managing software packages across thousands of macOS devices. Manual package distribution was error-prone and difficult to maintain at scale.`,
-    solution: `Contributed to Software Depot, a macOS package management system using the ISTSU protocol. Debugged critical protocol issues and improved package deployment reliability across the enterprise.`,
+    overview: `Contributed to Software Depot, a centralized macOS package management system for distributing and managing software packages across thousands of macOS devices at Apple. Debugged critical ISTSU protocol issues and improved package deployment reliability, addressing error-prone manual distribution challenges and enhancing enterprise-scale software management.`,
     features: [
       'ISTSU protocol implementation',
       'Centralized package distribution',
@@ -663,8 +668,7 @@ export const projects = [
       tech: ['Objective-C', 'Foundation'],
       role: ['Framework Developer']
     },
-    problem: `Multiple Apple internal applications needed common functionality like networking, data persistence, authentication, and logging. Code duplication across apps led to maintenance challenges and inconsistent implementations.`,
-    solution: `Contributed to the development of ISTCore Framework, a comprehensive modular framework providing reusable components for enterprise applications. The framework offered standardized implementations for common tasks, reducing development time and improving code quality.`,
+    overview: `Contributed to the development of ISTCore Framework, a comprehensive modular framework providing reusable components for Apple's enterprise applications. The framework offers standardized implementations for common functionality including networking, data persistence, authentication, and logging, significantly reducing development time, improving code quality, and eliminating code duplication across multiple internal applications.`,
     features: [
       'Modular architecture with 20+ components',
       'Networking and API integration utilities',
@@ -726,8 +730,7 @@ export const projects = [
       tech: ['Objective-C', 'Hardware APIs'],
       role: ['Framework Developer']
     },
-    problem: `Integrating various hardware devices with iOS and macOS applications required different APIs and approaches for each device type. Developers needed a unified framework for consistent hardware integration.`,
-    solution: `Designed the Enclosure Framework API providing a unified interface for hardware device integration. The framework abstracted device-specific complexities and provided a consistent API for developers to integrate various hardware peripherals.`,
+    overview: `Designed the Enclosure Framework API providing a unified interface for hardware device integration across iOS and macOS applications. The framework abstracts device-specific complexities and provides a consistent API for developers to integrate various hardware peripherals, addressing the challenge of using different APIs and approaches for each device type.`,
     features: [
       'Unified hardware integration API',
       'Support for 50+ device types',
@@ -789,8 +792,7 @@ export const projects = [
       tech: ['Objective-C', 'Networking'],
       role: ['iOS Developer']
     },
-    problem: `Enterprise users needed a reliable system for transferring large files between mobile devices and servers. Existing solutions had poor success rates, especially on unreliable network connections, and lacked proper error recovery.`,
-    solution: `Built a robust file upload/download system with intelligent chunking, automatic retry logic, and resumable transfers. The system handled network interruptions gracefully and provided real-time progress tracking.`,
+    overview: `Built a robust file upload/download system for enterprise users transferring large files between mobile devices and servers. The system features intelligent chunking, automatic retry logic, resumable transfers, and graceful network interruption handling with real-time progress tracking, significantly improving success rates on unreliable network connections.`,
     features: [
       'Intelligent file chunking for large transfers',
       'Automatic retry and error recovery',

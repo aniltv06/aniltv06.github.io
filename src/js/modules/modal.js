@@ -103,14 +103,9 @@ function generateProjectModalContent(project) {
         ${statsHtml}
       </div>
 
-      ${project.problem ? `
-        <h3>The Challenge</h3>
-        <p>${escapeHtml(project.problem)}</p>
-      ` : ''}
-
-      ${project.solution ? `
-        <h3>The Solution</h3>
-        <p>${escapeHtml(project.solution)}</p>
+      ${project.overview ? `
+        <h3>Overview</h3>
+        <p>${escapeHtml(project.overview)}</p>
       ` : ''}
 
       <h3>Key Features</h3>
@@ -140,6 +135,18 @@ function generateProjectModalContent(project) {
           <div class="tech-stack-section">
             <h4>Frameworks</h4>
             <p>${project.techStack.frameworks.join(', ')}</p>
+          </div>
+        ` : ''}
+        ${project.techStack.systemAPIs ? `
+          <div class="tech-stack-section">
+            <h4>System APIs</h4>
+            <p>${project.techStack.systemAPIs.join(', ')}</p>
+          </div>
+        ` : ''}
+        ${project.techStack.infrastructure ? `
+          <div class="tech-stack-section">
+            <h4>Infrastructure</h4>
+            <p>${project.techStack.infrastructure.join(', ')}</p>
           </div>
         ` : ''}
         ${project.techStack.architecture ? `
