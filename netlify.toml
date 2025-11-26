@@ -1,8 +1,8 @@
 # Netlify Configuration for Anil Thatha Portfolio
 
 [build]
-  # Build command - Netlify automatically runs npm install first
-  command = "npm run build"
+  # Build command - Explicitly install dependencies then build
+  command = "npm install && npm run build"
 
   # Directory to publish (build output)
   publish = "dist"
