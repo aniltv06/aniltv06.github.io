@@ -13,6 +13,7 @@ import { initCharts } from './modules/charts.js';
 import { initWebGL } from './modules/webgl.js';
 import { initKeyboardShortcuts } from './modules/keyboard.js';
 import { initFooter } from './modules/footer.js';
+import { initExperienceTimeline } from './modules/experience-timeline.js';
 
 /**
  * Initialize application
@@ -28,6 +29,7 @@ function init() {
   initKeyboardShortcuts();
   initRippleEffect();
   initFooter();
+  initExperienceTimeline();
 
   // Lazy load heavy libraries
   lazyLoadLibraries();

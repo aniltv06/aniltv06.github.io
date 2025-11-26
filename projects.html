@@ -102,7 +102,7 @@
             <!-- Stats -->
             <div class="projects-stats">
                 <div class="projects-stats__item">
-                    <span class="projects-stats__number" data-stat="total">4</span>
+                    <span class="projects-stats__number" data-stat="total">13</span>
                     <span class="projects-stats__label">Projects</span>
                 </div>
                 <div class="projects-stats__item">
@@ -131,6 +131,15 @@
                     data-testid="search-input"
                 >
                 <span class="projects-search__icon" aria-hidden="true">🔍</span>
+                <button
+                    class="projects-search__clear"
+                    aria-label="Clear search"
+                    data-action="clear-search"
+                    data-testid="clear-search"
+                    style="display: none;"
+                >
+                    ×
+                </button>
             </div>
 
             <!-- Filter Chips -->
@@ -168,13 +177,89 @@
                     <option value="title-desc">Title (Z-A)</option>
                 </select>
             </div>
+
+            <!-- Reset Filters Button -->
+            <div class="projects-reset" style="display: none;" data-component="reset-filters-container">
+                <button class="button button--secondary" data-action="reset-filters" data-testid="reset-filters">
+                    <span aria-hidden="true">↻</span> Reset All Filters
+                </button>
+            </div>
         </section>
 
         <!-- Results Count -->
         <div class="projects-results">
             <p class="projects-results__text">
-                Showing <span data-results-count>4</span> project<span data-results-plural>s</span>
+                Showing <span data-results-count>13</span> project<span data-results-plural>s</span>
             </p>
+        </div>
+
+        <!-- Loading Skeleton -->
+        <div class="projects-skeleton" data-component="skeleton-loader" style="display: none;">
+            <!-- Skeleton Card 1 -->
+            <div class="skeleton-card">
+                <div class="skeleton-card__header">
+                    <div class="skeleton skeleton--badge"></div>
+                    <div class="skeleton skeleton--title"></div>
+                    <div class="skeleton skeleton--subtitle"></div>
+                </div>
+                <div class="skeleton skeleton--text"></div>
+                <div class="skeleton skeleton--text"></div>
+                <div class="skeleton-card__stats">
+                    <div class="skeleton skeleton--stat"></div>
+                    <div class="skeleton skeleton--stat"></div>
+                    <div class="skeleton skeleton--stat"></div>
+                    <div class="skeleton skeleton--stat"></div>
+                </div>
+                <div class="skeleton-card__tags">
+                    <div class="skeleton skeleton--tag"></div>
+                    <div class="skeleton skeleton--tag"></div>
+                    <div class="skeleton skeleton--tag"></div>
+                </div>
+            </div>
+
+            <!-- Skeleton Card 2 -->
+            <div class="skeleton-card">
+                <div class="skeleton-card__header">
+                    <div class="skeleton skeleton--badge"></div>
+                    <div class="skeleton skeleton--title"></div>
+                    <div class="skeleton skeleton--subtitle"></div>
+                </div>
+                <div class="skeleton skeleton--text"></div>
+                <div class="skeleton skeleton--text"></div>
+                <div class="skeleton-card__stats">
+                    <div class="skeleton skeleton--stat"></div>
+                    <div class="skeleton skeleton--stat"></div>
+                    <div class="skeleton skeleton--stat"></div>
+                    <div class="skeleton skeleton--stat"></div>
+                </div>
+                <div class="skeleton-card__tags">
+                    <div class="skeleton skeleton--tag"></div>
+                    <div class="skeleton skeleton--tag"></div>
+                    <div class="skeleton skeleton--tag"></div>
+                </div>
+            </div>
+
+            <!-- Skeleton Card 3 -->
+            <div class="skeleton-card">
+                <div class="skeleton-card__header">
+                    <div class="skeleton skeleton--badge"></div>
+                    <div class="skeleton skeleton--title"></div>
+                    <div class="skeleton skeleton--subtitle"></div>
+                </div>
+                <div class="skeleton skeleton--text"></div>
+                <div class="skeleton skeleton--text"></div>
+                <div class="skeleton-card__stats">
+                    <div class="skeleton skeleton--stat"></div>
+                    <div class="skeleton skeleton--stat"></div>
+                    <div class="skeleton skeleton--stat"></div>
+                    <div class="skeleton skeleton--stat"></div>
+                </div>
+                <div class="skeleton-card__tags">
+                    <div class="skeleton skeleton--tag"></div>
+                    <div class="skeleton skeleton--tag"></div>
+                    <div class="skeleton skeleton--tag"></div>
+                </div>
+            </div>
         </div>
 
         <!-- Projects Grid -->

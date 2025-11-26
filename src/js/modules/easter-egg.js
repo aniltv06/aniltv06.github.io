@@ -121,9 +121,9 @@ function showEasterEggModal(method) {
         </a>
       </div>
 
-      <div style="margin-top: 30px; font-size: 14px; color: var(--color-text-muted); font-style: italic;">
-        <p>🎮 Achievement Unlocked: Secret Hunter</p>
-        <p style="margin-top: 5px;">You're now part of an exclusive club! 🌟</p>
+      <div class="easter-egg-achievement" style="margin-top: 30px; font-size: 14px; color: var(--color-text-muted); font-style: italic;">
+        <p>🎮 Achievement Unlocked: Code Breaker</p>
+        <p style="margin-top: 5px;">Welcome to the secret developer club! 💻</p>
       </div>
     </div>
   `;

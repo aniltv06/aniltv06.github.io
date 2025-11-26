@@ -235,102 +235,269 @@
         <!-- Experience Section -->
         <section id="experience" class="section fade-in" role="region" aria-labelledby="experience-title" data-component="experience" data-testid="experience">
             <h2 id="experience-title" class="section__title">Professional Experience</h2>
-            
-            <!-- TCS America -->
-            <article class="experience-card">
-                <div class="experience-card__header">
-                    <div>
-                        <h3 class="experience__company">TCS America (Apple Inc.)</h3>
-                        <p class="experience__job-title">Lead iOS/macOS Engineer</p>
+
+            <div class="experience-timeline">
+                <div class="experience-timeline__line" data-component="timeline-progress"></div>
+
+                <!-- TCS America - Current Role -->
+                <article class="experience-timeline__item" data-experience-id="tcs" data-start-date="2021-06-01" data-end-date="present">
+                    <div class="experience-timeline__dot">
+                        <span class="experience-timeline__dot-year" data-duration-short></span>
                     </div>
-                    <div class="experience__duration">June 2021 - Present</div>
-                </div>
-                <p class="experience__description">Leading development of AI-powered systems for Apple Retail. Managing offshore teams of 8+ engineers while driving technical decisions and architectural design.</p>
-                <ul class="achievements-list">
-                    <li class="achievements-list__item">Built Genius & RepairCentral with AI/ML models, reducing diagnostic time by 40% and improving accuracy to 95%</li>
-                    <li class="achievements-list__item">Developed Customer Success Platform serving 1000+ users with 99.9% uptime</li>
-                    <li class="achievements-list__item">Led cross-functional teams of 8+ engineers, mentoring and driving best practices</li>
-                    <li class="achievements-list__item">Integrated Claude AI API for intelligent workflow automation</li>
-                </ul>
-                <h4 class="experience__projects-title">Featured Projects:</h4>
-                <div class="projects-grid">
-                    <article class="project-card" data-modal-trigger="genius" data-project-id="genius" tabindex="0" role="button" aria-label="View Genius project details">
-                        <span class="project-card__indicator">⤢</span>
-                        <h4 class="project-card__title">Genius & RepairCentral</h4>
-                        <p class="project-card__description">AI-powered repair management system for Apple Retail stores.</p>
-                        <div class="tech-tags">
-                            <span class="tech-tag">Swift</span>
-                            <span class="tech-tag">SwiftUI</span>
-                            <span class="tech-tag">Core ML</span>
-                            <span class="tech-tag">AI/ML</span>
+
+                    <div class="experience-timeline__card">
+                        <!-- Seniority Badge -->
+                        <div class="experience-timeline__badge experience-timeline__badge--lead">
+                            <span class="badge-icon">🏅</span>
+                            <span class="badge-text">Lead Engineer</span>
                         </div>
-                    </article>
-                    <article class="project-card" data-modal-trigger="customer-success" data-project-id="customer-success" tabindex="0" role="button">
-                        <span class="project-card__indicator">⤢</span>
-                        <h4 class="project-card__title">Customer Success Platform</h4>
-                        <p class="project-card__description">Comprehensive customer management system with real-time analytics.</p>
-                        <div class="tech-tags">
-                            <span class="tech-tag">Swift</span>
-                            <span class="tech-tag">AppKit</span>
-                            <span class="tech-tag">Firebase</span>
+
+                        <!-- Header -->
+                        <div class="experience-timeline__header">
+                            <div class="experience-timeline__title-group">
+                                <h3 class="experience-timeline__company">TCS America (Apple Inc.)</h3>
+                                <p class="experience-timeline__role">Lead iOS/macOS Engineer</p>
+                            </div>
+                            <div class="experience-timeline__duration-group">
+                                <div class="experience-timeline__duration">
+                                    <span class="duration-icon">⏱</span>
+                                    <span class="duration-text" data-duration-long></span>
+                                </div>
+                                <div class="experience-timeline__dates">June 2021 - Present</div>
+                                <span class="experience-timeline__present-badge">Current</span>
+                            </div>
                         </div>
-                    </article>
-                </div>
-            </article>
-            
-            <!-- Quest Global -->
-            <article class="experience-card">
-                <div class="experience-card__header">
-                    <div>
-                        <h3 class="experience__company">Quest Global (Apple Inc.)</h3>
-                        <p class="experience__job-title">System Analyst</p>
+
+                        <!-- Stats Row -->
+                        <div class="experience-timeline__stats">
+                            <div class="experience-stat">
+                                <span class="experience-stat__icon">👥</span>
+                                <span class="experience-stat__value">8+</span>
+                                <span class="experience-stat__label">Team Led</span>
+                            </div>
+                            <div class="experience-stat">
+                                <span class="experience-stat__icon">💯</span>
+                                <span class="experience-stat__value">99.9%</span>
+                                <span class="experience-stat__label">Uptime</span>
+                            </div>
+                            <div class="experience-stat">
+                                <span class="experience-stat__icon">👨‍💼</span>
+                                <span class="experience-stat__value">1K+</span>
+                                <span class="experience-stat__label">Users</span>
+                            </div>
+                        </div>
+
+                        <!-- Description -->
+                        <p class="experience-timeline__description">Leading development of AI-powered systems for Apple Retail. Managing offshore teams of 8+ engineers while driving technical decisions and architectural design.</p>
+
+                        <!-- Expandable Achievements -->
+                        <button class="experience-timeline__expand-btn" data-action="toggle-section" data-target="tcs-achievements" aria-expanded="true">
+                            <span class="expand-btn__text">4 Key Achievements</span>
+                            <span class="expand-btn__icon">▼</span>
+                        </button>
+
+                        <div class="experience-timeline__collapsible" id="tcs-achievements" data-expanded="true">
+                            <ul class="experience-timeline__achievements">
+                                <li class="achievement-item achievement-item--technical">
+                                    <span class="achievement-icon">🚀</span>
+                                    <span class="achievement-text">Built Genius & RepairCentral with AI/ML models, reducing diagnostic time by 40% and improving accuracy to 95%</span>
+                                </li>
+                                <li class="achievement-item achievement-item--impact">
+                                    <span class="achievement-icon">📊</span>
+                                    <span class="achievement-text">Developed Customer Success Platform serving 1000+ users with 99.9% uptime</span>
+                                </li>
+                                <li class="achievement-item achievement-item--leadership">
+                                    <span class="achievement-icon">👥</span>
+                                    <span class="achievement-text">Led cross-functional teams of 8+ engineers, mentoring and driving best practices</span>
+                                </li>
+                                <li class="achievement-item achievement-item--technical">
+                                    <span class="achievement-icon">🚀</span>
+                                    <span class="achievement-text">Integrated Claude AI API for intelligent workflow automation</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Expandable Projects -->
+                        <button class="experience-timeline__expand-btn" data-action="toggle-section" data-target="tcs-projects" aria-expanded="false">
+                            <span class="expand-btn__text">2 Featured Projects</span>
+                            <span class="expand-btn__icon">▶</span>
+                        </button>
+
+                        <div class="experience-timeline__collapsible" id="tcs-projects" data-expanded="false" style="display: none;">
+                            <div class="experience-timeline__projects">
+                                <article class="project-card project-card--compact" data-modal-trigger="genius" data-project-id="genius" tabindex="0" role="button">
+                                    <span class="project-card__indicator">⤢</span>
+                                    <h4 class="project-card__title">Genius & RepairCentral</h4>
+                                    <p class="project-card__description">AI-powered repair management system for Apple Retail stores.</p>
+                                    <div class="tech-tags">
+                                        <span class="tech-tag tech-tag--tech">Swift</span>
+                                        <span class="tech-tag tech-tag--tech">SwiftUI</span>
+                                        <span class="tech-tag tech-tag--tech">Core ML</span>
+                                        <span class="tech-tag tech-tag--type">AI/ML</span>
+                                    </div>
+                                </article>
+                                <article class="project-card project-card--compact" data-modal-trigger="customer-success" data-project-id="customer-success" tabindex="0" role="button">
+                                    <span class="project-card__indicator">⤢</span>
+                                    <h4 class="project-card__title">Customer Success Platform</h4>
+                                    <p class="project-card__description">Comprehensive customer management system with real-time analytics.</p>
+                                    <div class="tech-tags">
+                                        <span class="tech-tag tech-tag--tech">Swift</span>
+                                        <span class="tech-tag tech-tag--tech">AppKit</span>
+                                        <span class="tech-tag tech-tag--tech">Firebase</span>
+                                    </div>
+                                </article>
+                            </div>
+                        </div>
                     </div>
-                    <div class="experience__duration">June 2014 - June 2021</div>
-                </div>
-                <p class="experience__description">Spearheaded development of 10+ enterprise iOS and macOS applications for Apple's internal teams. Progressed from Software Engineer to System Analyst with increasing responsibilities.</p>
-                <ul class="achievements-list">
-                    <li class="achievements-list__item">Delivered 10+ production apps used by thousands of Apple employees</li>
-                    <li class="achievements-list__item">Reduced deployment time by 60% through CI/CD pipeline improvements</li>
-                    <li class="achievements-list__item">Established iOS development guidelines adopted company-wide</li>
-                    <li class="achievements-list__item">Mentored 8 developers, 5 now in senior roles</li>
-                    <li class="achievements-list__item">Grew iOS team from 3 to 12 through recruiting and leadership</li>
-                </ul>
-                <h4 class="experience__projects-title">Notable Projects:</h4>
-                <div class="projects-grid">
-                    <article class="project-card" data-modal-trigger="appletravel" data-project-id="appletravel" tabindex="0" role="button">
-                        <span class="project-card__indicator">⤢</span>
-                        <h4 class="project-card__title">Apple Travel</h4>
-                        <p class="project-card__description">Enterprise travel app with 4.6 rating, integrating 3 APIs.</p>
-                        <div class="tech-tags">
-                            <span class="tech-tag">Swift</span>
-                            <span class="tech-tag">UIKit</span>
-                            <span class="tech-tag">Core Data</span>
-                        </div>
-                    </article>
-                    <article class="project-card" data-modal-trigger="expenses" data-project-id="expenses" tabindex="0" role="button">
-                        <span class="project-card__indicator">⤢</span>
-                        <h4 class="project-card__title">Expenses (iOS & macOS)</h4>
-                        <p class="project-card__description">Cross-platform expense app with OCR scanning.</p>
-                        <div class="tech-tags">
-                            <span class="tech-tag">Swift</span>
-                            <span class="tech-tag">SwiftUI</span>
-                            <span class="tech-tag">OCR</span>
-                        </div>
-                    </article>
-                </div>
-            </article>
-            
-            <!-- Exilant -->
-            <article class="experience-card">
-                <div class="experience-card__header">
-                    <div>
-                        <h3 class="experience__company">Exilant Technologies</h3>
-                        <p class="experience__job-title">Software Engineer</p>
+                </article>
+
+                <!-- Quest Global -->
+                <article class="experience-timeline__item" data-experience-id="quest" data-start-date="2014-06-01" data-end-date="2021-06-01">
+                    <div class="experience-timeline__dot">
+                        <span class="experience-timeline__dot-year" data-duration-short></span>
                     </div>
-                    <div class="experience__duration">Jul 2010 - Sep 2012</div>
-                </div>
-                <p class="experience__description">Foundation in iOS and macOS development. Worked on frameworks and enterprise apps, mastering debugging and low-level system APIs.</p>
-            </article>
+
+                    <div class="experience-timeline__card">
+                        <!-- Seniority Badge -->
+                        <div class="experience-timeline__badge experience-timeline__badge--senior">
+                            <span class="badge-icon">🎯</span>
+                            <span class="badge-text">System Analyst</span>
+                        </div>
+
+                        <!-- Header -->
+                        <div class="experience-timeline__header">
+                            <div class="experience-timeline__title-group">
+                                <h3 class="experience-timeline__company">Quest Global (Apple Inc.)</h3>
+                                <p class="experience-timeline__role">System Analyst</p>
+                            </div>
+                            <div class="experience-timeline__duration-group">
+                                <div class="experience-timeline__duration">
+                                    <span class="duration-icon">⏱</span>
+                                    <span class="duration-text" data-duration-long></span>
+                                </div>
+                                <div class="experience-timeline__dates">June 2014 - June 2021</div>
+                            </div>
+                        </div>
+
+                        <!-- Stats Row -->
+                        <div class="experience-timeline__stats">
+                            <div class="experience-stat">
+                                <span class="experience-stat__icon">📱</span>
+                                <span class="experience-stat__value">10+</span>
+                                <span class="experience-stat__label">Apps</span>
+                            </div>
+                            <div class="experience-stat">
+                                <span class="experience-stat__icon">⚡</span>
+                                <span class="experience-stat__value">60%</span>
+                                <span class="experience-stat__label">Faster</span>
+                            </div>
+                            <div class="experience-stat">
+                                <span class="experience-stat__icon">👨‍🏫</span>
+                                <span class="experience-stat__value">8</span>
+                                <span class="experience-stat__label">Mentored</span>
+                            </div>
+                        </div>
+
+                        <!-- Description -->
+                        <p class="experience-timeline__description">Spearheaded development of 10+ enterprise iOS and macOS applications for Apple's internal teams. Progressed from Software Engineer to System Analyst with increasing responsibilities.</p>
+
+                        <!-- Expandable Achievements -->
+                        <button class="experience-timeline__expand-btn" data-action="toggle-section" data-target="quest-achievements" aria-expanded="false">
+                            <span class="expand-btn__text">5 Key Achievements</span>
+                            <span class="expand-btn__icon">▶</span>
+                        </button>
+
+                        <div class="experience-timeline__collapsible" id="quest-achievements" data-expanded="false" style="display: none;">
+                            <ul class="experience-timeline__achievements">
+                                <li class="achievement-item achievement-item--impact">
+                                    <span class="achievement-icon">📊</span>
+                                    <span class="achievement-text">Delivered 10+ production apps used by thousands of Apple employees</span>
+                                </li>
+                                <li class="achievement-item achievement-item--technical">
+                                    <span class="achievement-icon">🚀</span>
+                                    <span class="achievement-text">Reduced deployment time by 60% through CI/CD pipeline improvements</span>
+                                </li>
+                                <li class="achievement-item achievement-item--leadership">
+                                    <span class="achievement-icon">👥</span>
+                                    <span class="achievement-text">Established iOS development guidelines adopted company-wide</span>
+                                </li>
+                                <li class="achievement-item achievement-item--leadership">
+                                    <span class="achievement-icon">👥</span>
+                                    <span class="achievement-text">Mentored 8 developers, 5 now in senior roles</span>
+                                </li>
+                                <li class="achievement-item achievement-item--leadership">
+                                    <span class="achievement-icon">👥</span>
+                                    <span class="achievement-text">Grew iOS team from 3 to 12 through recruiting and leadership</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Expandable Projects -->
+                        <button class="experience-timeline__expand-btn" data-action="toggle-section" data-target="quest-projects" aria-expanded="false">
+                            <span class="expand-btn__text">2 Notable Projects</span>
+                            <span class="expand-btn__icon">▶</span>
+                        </button>
+
+                        <div class="experience-timeline__collapsible" id="quest-projects" data-expanded="false" style="display: none;">
+                            <div class="experience-timeline__projects">
+                                <article class="project-card project-card--compact" data-modal-trigger="appletravel" data-project-id="appletravel" tabindex="0" role="button">
+                                    <span class="project-card__indicator">⤢</span>
+                                    <h4 class="project-card__title">Apple Travel</h4>
+                                    <p class="project-card__description">Enterprise travel app with 4.6 rating, integrating 3 APIs.</p>
+                                    <div class="tech-tags">
+                                        <span class="tech-tag tech-tag--tech">Swift</span>
+                                        <span class="tech-tag tech-tag--tech">UIKit</span>
+                                        <span class="tech-tag tech-tag--tech">Core Data</span>
+                                    </div>
+                                </article>
+                                <article class="project-card project-card--compact" data-modal-trigger="expenses" data-project-id="expenses" tabindex="0" role="button">
+                                    <span class="project-card__indicator">⤢</span>
+                                    <h4 class="project-card__title">Expenses (iOS & macOS)</h4>
+                                    <p class="project-card__description">Cross-platform expense app with OCR scanning.</p>
+                                    <div class="tech-tags">
+                                        <span class="tech-tag tech-tag--tech">Swift</span>
+                                        <span class="tech-tag tech-tag--tech">SwiftUI</span>
+                                        <span class="tech-tag tech-tag--tech">OCR</span>
+                                    </div>
+                                </article>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Exilant Technologies -->
+                <article class="experience-timeline__item" data-experience-id="exilant" data-start-date="2010-07-01" data-end-date="2012-09-01">
+                    <div class="experience-timeline__dot">
+                        <span class="experience-timeline__dot-year" data-duration-short></span>
+                    </div>
+
+                    <div class="experience-timeline__card">
+                        <!-- Seniority Badge -->
+                        <div class="experience-timeline__badge experience-timeline__badge--junior">
+                            <span class="badge-icon">🌱</span>
+                            <span class="badge-text">Software Engineer</span>
+                        </div>
+
+                        <!-- Header -->
+                        <div class="experience-timeline__header">
+                            <div class="experience-timeline__title-group">
+                                <h3 class="experience-timeline__company">Exilant Technologies</h3>
+                                <p class="experience-timeline__role">Software Engineer</p>
+                            </div>
+                            <div class="experience-timeline__duration-group">
+                                <div class="experience-timeline__duration">
+                                    <span class="duration-icon">⏱</span>
+                                    <span class="duration-text" data-duration-long></span>
+                                </div>
+                                <div class="experience-timeline__dates">Jul 2010 - Sep 2012</div>
+                            </div>
+                        </div>
+
+                        <!-- Description -->
+                        <p class="experience-timeline__description">Foundation in iOS and macOS development. Worked on frameworks and enterprise apps, mastering debugging and low-level system APIs.</p>
+                    </div>
+                </article>
+            </div>
         </section>
 
         <!-- Projects Section -->
@@ -342,9 +509,9 @@
                     <h3 class="project-card__title">Genius & RepairCentral</h3>
                     <p class="project-card__description">AI-powered repair management transforming Apple Retail operations.</p>
                     <div class="tech-tags">
-                        <span class="tech-tag">Swift</span>
-                        <span class="tech-tag">Core ML</span>
-                        <span class="tech-tag">AI/ML</span>
+                        <span class="tech-tag tech-tag--tech">Swift</span>
+                        <span class="tech-tag tech-tag--tech">Core ML</span>
+                        <span class="tech-tag tech-tag--type">AI/ML</span>
                     </div>
                 </article>
                 <article class="project-card" data-modal-trigger="customer-success" tabindex="0" role="button">
@@ -352,8 +519,8 @@
                     <h3 class="project-card__title">Customer Success Platform</h3>
                     <p class="project-card__description">Enterprise customer management with real-time analytics.</p>
                     <div class="tech-tags">
-                        <span class="tech-tag">Swift</span>
-                        <span class="tech-tag">Firebase</span>
+                        <span class="tech-tag tech-tag--tech">Swift</span>
+                        <span class="tech-tag tech-tag--tech">Firebase</span>
                     </div>
                 </article>
                 <article class="project-card" data-modal-trigger="appletravel" tabindex="0" role="button">
@@ -361,8 +528,8 @@
                     <h3 class="project-card__title">Apple Travel</h3>
                     <p class="project-card__description">Enterprise travel management with 4.6 rating.</p>
                     <div class="tech-tags">
-                        <span class="tech-tag">Swift</span>
-                        <span class="tech-tag">UIKit</span>
+                        <span class="tech-tag tech-tag--tech">Swift</span>
+                        <span class="tech-tag tech-tag--tech">UIKit</span>
                     </div>
                 </article>
                 <article class="project-card" data-modal-trigger="expenses" tabindex="0" role="button">
@@ -370,8 +537,8 @@
                     <h3 class="project-card__title">Expenses (iOS & macOS)</h3>
                     <p class="project-card__description">Cross-platform expense tracking with OCR.</p>
                     <div class="tech-tags">
-                        <span class="tech-tag">SwiftUI</span>
-                        <span class="tech-tag">OCR</span>
+                        <span class="tech-tag tech-tag--tech">SwiftUI</span>
+                        <span class="tech-tag tech-tag--tech">OCR</span>
                     </div>
                 </article>
             </div>
@@ -403,61 +570,10 @@
             </div>
         </section>
 
-        <!-- Career Timeline -->
-        <section id="timeline" class="section fade-in" role="region" aria-labelledby="timeline-title" data-component="timeline" data-testid="timeline">
-            <h2 id="timeline-title" class="section__title">Career Journey</h2>
-            <div class="timeline">
-                <div class="timeline__line"></div>
-                
-                <article class="timeline-item">
-                    <div class="timeline__dot"></div>
-                    <div class="timeline__content">
-                        <div class="timeline__date">June 2021 - Present</div>
-                        <h3 class="timeline__company">TCS America</h3>
-                        <p class="timeline__title">Lead Engineer</p>
-                        <p class="timeline__description">Leading iOS/macOS development for Apple Retail. Managing teams and driving architecture.</p>
-                        <div class="timeline__tags">
-                            <span class="timeline__tag">iOS/macOS</span>
-                            <span class="timeline__tag">AI/ML</span>
-                            <span class="timeline__tag">Leadership</span>
-                        </div>
-                    </div>
-                </article>
-                
-                <article class="timeline-item">
-                    <div class="timeline__dot"></div>
-                    <div class="timeline__content">
-                        <div class="timeline__date">June 2014 - June 2021</div>
-                        <h3 class="timeline__company">Quest Global</h3>
-                        <p class="timeline__title">System Analyst</p>
-                        <p class="timeline__description">Delivered 10+ enterprise applications for Apple internal teams.</p>
-                        <div class="timeline__tags">
-                            <span class="timeline__tag">iOS/macOS</span>
-                            <span class="timeline__tag">10+ Apps</span>
-                        </div>
-                    </div>
-                </article>
-                
-                <article class="timeline-item">
-                    <div class="timeline__dot"></div>
-                    <div class="timeline__content">
-                        <div class="timeline__date">July 2010 - Sep 2012</div>
-                        <h3 class="timeline__company">Exilant Technologies</h3>
-                        <p class="timeline__title">Software Engineer</p>
-                        <p class="timeline__description">Foundation in iOS/macOS development and frameworks.</p>
-                        <div class="timeline__tags">
-                            <span class="timeline__tag">iOS/macOS</span>
-                            <span class="timeline__tag">Objective-C</span>
-                        </div>
-                    </div>
-                </article>
-            </div>
-        </section>
-
         <!-- Footer -->
         <footer class="footer" role="contentinfo" data-component="footer">
             <div class="footer__content">
-                <p class="footer__text">Thanks for taking the time to check out my resume\!</p>
+                <p class="footer__text">Thanks for taking the time to check out my resume!</p>
                 <p class="footer__text">I'm always excited to connect with fellow engineers and explore new opportunities.</p>
                 
                 <div class="footer__easter-egg-hint" data-action="easter-egg-hint" data-testid="easter-egg-hint" tabindex="0" role="button">

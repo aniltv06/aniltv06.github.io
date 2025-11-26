@@ -105,6 +105,44 @@
   pointer-events: none;
 }
 
+.projects-search__clear {
+  position: absolute;
+  right: var(--spacing-md);
+  top: 50%;
+  transform: translateY(-50%);
+  width: 32px;
+  height: 32px;
+  border: none;
+  background: var(--color-primary);
+  color: white;
+  border-radius: 50%;
+  font-size: 24px;
+  font-weight: 300;
+  line-height: 1;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  padding: 0;
+}
+
+.projects-search__clear:hover {
+  background: var(--color-secondary);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.projects-search__clear:active {
+  transform: translateY(-50%) scale(0.95);
+}
+
+.projects-search__clear--visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
 /* ==========================================================================
    4. FILTER CHIPS
    ========================================================================== */
@@ -148,6 +186,30 @@
   box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
 }
 
+.filter-chip__count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 20px;
+  height: 20px;
+  margin-left: 8px;
+  padding: 0 6px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.filter-chip--active .filter-chip__count {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.filter-chip:not(.filter-chip--active) .filter-chip__count {
+  background: var(--color-primary);
+  color: white;
+}
+
 /* ==========================================================================
    5. SORT DROPDOWN
    ========================================================================== */
@@ -183,6 +245,41 @@
 .projects-sort__select:focus {
   box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
   border-color: var(--color-secondary);
+}
+
+/* ==========================================================================
+   5a. RESET FILTERS BUTTON
+   ========================================================================== */
+
+.projects-reset {
+  display: flex;
+  justify-content: center;
+  margin-top: var(--spacing-md);
+  animation: fade-in 0.3s ease-in-out;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.projects-reset .button {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  font-size: var(--font-size-base);
+  padding: 10px 20px;
+}
+
+.projects-reset .button span {
+  font-size: var(--font-size-xl);
+  font-weight: bold;
 }
 
 /* ==========================================================================
@@ -300,7 +397,7 @@
 /* Card Stats */
 .project-card-full__stats {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
   gap: var(--spacing-md);
   margin-bottom: var(--spacing-lg);
   padding: var(--spacing-md) 0;
@@ -347,6 +444,35 @@
   letter-spacing: 0.5px;
 }
 
+/* Tag color variants by category */
+.project-tag--platform {
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  box-shadow: 0 2px 8px rgba(59, 130, 246, 0.3);
+}
+
+.project-tag--type {
+  background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+  box-shadow: 0 2px 8px rgba(139, 92, 246, 0.3);
+}
+
+.project-tag--tech {
+  background: linear-gradient(135deg, #10b981, #059669);
+  box-shadow: 0 2px 8px rgba(16, 185, 129, 0.3);
+}
+
+/* Hover effects for tags */
+.project-card-full:hover .project-tag--platform {
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.5);
+}
+
+.project-card-full:hover .project-tag--type {
+  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.5);
+}
+
+.project-card-full:hover .project-tag--tech {
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.5);
+}
+
 /* Card Footer/Action */
 .project-card-full__action {
   position: absolute;
@@ -372,8 +498,49 @@
 
 /* Featured Badge */
 .project-card-full--featured {
-  border: 2px solid var(--color-warning);
+  border: 3px solid var(--color-warning);
   position: relative;
+  background: linear-gradient(135deg, var(--color-bg-card) 0%, rgba(234, 179, 8, 0.08) 100%);
+  box-shadow:
+    var(--shadow-md),
+    0 0 30px rgba(234, 179, 8, 0.2),
+    inset 0 0 60px rgba(234, 179, 8, 0.03);
+}
+
+.project-card-full--featured::before {
+  content: '';
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  right: -3px;
+  bottom: -3px;
+  background: linear-gradient(45deg,
+    var(--color-warning),
+    #fbbf24,
+    var(--color-warning),
+    #fbbf24
+  );
+  background-size: 300% 300%;
+  border-radius: var(--radius-lg);
+  z-index: -1;
+  animation: featured-glow 4s ease infinite;
+  opacity: 0.6;
+}
+
+@keyframes featured-glow {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.project-card-full--featured:hover {
+  box-shadow:
+    0 20px 40px rgba(37, 99, 235, 0.25),
+    0 0 40px rgba(234, 179, 8, 0.4);
+  border-color: #fbbf24;
 }
 
 .project-card-full--featured::after {
@@ -381,15 +548,28 @@
   position: absolute;
   top: var(--spacing-lg);
   right: var(--spacing-lg);
-  background: var(--color-warning);
+  background: linear-gradient(135deg, var(--color-warning) 0%, #fbbf24 100%);
   color: white;
-  padding: 6px 14px;
+  padding: 8px 16px;
   border-radius: 20px;
   font-size: var(--font-size-xs);
-  font-weight: 600;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.8px;
   z-index: 2;
+  box-shadow: 0 4px 12px rgba(234, 179, 8, 0.4);
+  animation: badge-pulse 2s ease-in-out infinite;
+}
+
+@keyframes badge-pulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 4px 12px rgba(234, 179, 8, 0.4);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 6px 16px rgba(234, 179, 8, 0.6);
+  }
 }
 
 /* ==========================================================================
@@ -424,7 +604,124 @@
 }
 
 /* ==========================================================================
-   10. THEME VARIATIONS
+   10. LOADING SKELETON
+   ========================================================================== */
+
+.projects-skeleton {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+  gap: 30px;
+  margin: var(--spacing-2xl) 0;
+}
+
+.skeleton-card {
+  background: linear-gradient(135deg, var(--color-bg-card) 0%, rgba(37, 99, 235, 0.05) 100%);
+  padding: var(--spacing-2xl);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  border: 2px solid transparent;
+  min-height: 420px;
+  display: flex;
+  flex-direction: column;
+}
+
+.skeleton-card__header {
+  margin-bottom: var(--spacing-lg);
+}
+
+.skeleton-card__stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: var(--spacing-md);
+  margin: var(--spacing-lg) 0;
+  padding: var(--spacing-md) 0;
+  border-top: 1px solid rgba(37, 99, 235, 0.2);
+  border-bottom: 1px solid rgba(37, 99, 235, 0.2);
+}
+
+.skeleton-card__tags {
+  display: flex;
+  gap: var(--spacing-sm);
+  flex-wrap: wrap;
+  margin-top: auto;
+}
+
+/* Skeleton Elements */
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    rgba(37, 99, 235, 0.1) 0%,
+    rgba(37, 99, 235, 0.2) 50%,
+    rgba(37, 99, 235, 0.1) 100%
+  );
+  background-size: 200% 100%;
+  animation: skeleton-shimmer 1.5s ease-in-out infinite;
+  border-radius: 8px;
+}
+
+@keyframes skeleton-shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+.skeleton--badge {
+  width: 80px;
+  height: 28px;
+  border-radius: 20px;
+  margin-bottom: var(--spacing-sm);
+}
+
+.skeleton--title {
+  width: 70%;
+  height: 32px;
+  margin-bottom: var(--spacing-sm);
+}
+
+.skeleton--subtitle {
+  width: 50%;
+  height: 20px;
+  margin-bottom: var(--spacing-md);
+}
+
+.skeleton--text {
+  width: 100%;
+  height: 16px;
+  margin-bottom: var(--spacing-sm);
+}
+
+.skeleton--text:last-of-type {
+  width: 85%;
+}
+
+.skeleton--stat {
+  width: 100%;
+  height: 60px;
+  border-radius: 8px;
+}
+
+.skeleton--tag {
+  width: 80px;
+  height: 28px;
+  border-radius: 20px;
+}
+
+/* Theme Support for Skeleton */
+.theme--dark .skeleton {
+  background: linear-gradient(
+    90deg,
+    rgba(96, 165, 250, 0.1) 0%,
+    rgba(96, 165, 250, 0.2) 50%,
+    rgba(96, 165, 250, 0.1) 100%
+  );
+  background-size: 200% 100%;
+}
+
+/* ==========================================================================
+   11. THEME VARIATIONS
    ========================================================================== */
 
 /* Dark Mode */

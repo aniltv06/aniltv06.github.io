@@ -14,6 +14,9 @@ let projectsFilter = null;
  * Initialize projects page
  */
 export function initProjectsPage() {
+  // Show skeleton loader
+  showSkeletonLoader();
+
   // Update stats
   updateStats();
 
@@ -23,8 +26,25 @@ export function initProjectsPage() {
   // Initial render
   renderProjects(projects);
 
+  // Update initial results count
+  updateResultsCount(projects.length);
+
   // Setup modal triggers (will be handled by existing modal.js)
   setupProjectCardListeners();
+
+  // Hide skeleton loader after render
+  hideSkeletonLoader();
+}
+
+/**
+ * Update results count display
+ */
+function updateResultsCount(count) {
+  const countEl = qs('[data-results-count]');
+  const pluralEl = qs('[data-results-plural]');
+
+  if (countEl) countEl.textContent = count;
+  if (pluralEl) pluralEl.textContent = count === 1 ? '' : 's';
 }
 
 /**
@@ -114,7 +134,8 @@ function createProjectCard(project, index) {
 
     const tagsHtml = project.tags.slice(0, 5).map(tag => {
       const escapedTag = escapeHtml(tag);
-      return `<span class="project-tag">${escapedTag}</span>`;
+      const tagCategory = getTagCategory(tag, project);
+      return `<span class="project-tag project-tag--${tagCategory}">${escapedTag}</span>`;
     }).join('');
 
     card.innerHTML = `
@@ -190,6 +211,29 @@ function escapeHtml(text) {
 }
 
 /**
+ * Get tag category for color coding
+ */
+function getTagCategory(tag, project) {
+  // Check if tag is in platform category
+  if (project.categories.platform.includes(tag)) {
+    return 'platform';
+  }
+
+  // Check if tag is in type category
+  if (project.categories.type.includes(tag)) {
+    return 'type';
+  }
+
+  // Check if tag is in tech category
+  if (project.categories.tech.includes(tag)) {
+    return 'tech';
+  }
+
+  // Default to tech if not found
+  return 'tech';
+}
+
+/**
  * Get project by ID (utility)
  */
 export function getProjectById(id) {
@@ -201,4 +245,34 @@ export function getProjectById(id) {
  */
 export function getFilteredProjects() {
   return projectsFilter ? projectsFilter.getFilteredProjects() : projects;
+}
+
+/**
+ * Show skeleton loader
+ */
+function showSkeletonLoader() {
+  const skeleton = qs('[data-component="skeleton-loader"]');
+  const grid = qs('[data-component="projects-grid"]');
+
+  if (skeleton) skeleton.style.display = 'grid';
+  if (grid) grid.style.display = 'none';
+}
+
+/**
+ * Hide skeleton loader
+ */
+function hideSkeletonLoader() {
+  const skeleton = qs('[data-component="skeleton-loader"]');
+  const grid = qs('[data-component="projects-grid"]');
+
+  if (skeleton) skeleton.style.display = 'none';
+  if (grid) grid.style.display = 'grid';
+}
+
+/**
+ * Setup project card listeners
+ */
+function setupProjectCardListeners() {
+  // Modal triggers are handled by modal.js
+  // This function can be extended if needed
 }
