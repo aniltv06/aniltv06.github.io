@@ -1,0 +1,13 @@
+# Netlify Redirects File
+# This provides fallback routing for single-page applications
+# Place this in the public directory so it gets copied to dist
+
+# Serve index.html for all routes that don't match a static file
+# This ensures deep links work and 404s are handled gracefully
+/*    /index.html   200
+
+# Optional: Redirect www to non-www (or vice versa)
+# https://www.aniltv06.github.io/*  https://aniltv06.github.io/:splat  301!
+
+# Optional: Force HTTPS (Netlify does this by default, but you can be explicit)
+# http://aniltv06.github.io/*  https://aniltv06.github.io/:splat  301!
