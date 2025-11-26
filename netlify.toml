@@ -1,8 +1,8 @@
 # Netlify Configuration for Anil Thatha Portfolio
 
 [build]
-  # Build command
-  command = "npm run build"
+  # Build command - install dependencies first, then build
+  command = "npm install && npm run build"
 
   # Directory to publish (build output)
   publish = "dist"
@@ -13,7 +13,6 @@
 # Node version
 [build.environment]
   NODE_VERSION = "20"
-  NPM_FLAGS = "--legacy-peer-deps"
 
 # Redirects and rewrites
 [[redirects]]
