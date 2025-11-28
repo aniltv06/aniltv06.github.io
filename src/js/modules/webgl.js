@@ -1,12 +1,17 @@
 /**
- * WebGL Module (Simplified)
- * 3D background using Three.js
+ * WebGL Module (Optimized)
+ * 3D background using Three.js with aggressive performance optimizations
  */
 
 import { loadScript } from './utils.js';
 import { CDN_URLS } from '../config/constants.js';
 
 let scene, camera, renderer, geometries = [];
+let animationId = null;
+let lastFrameTime = 0;
+const TARGET_FPS = 30;
+const FRAME_INTERVAL = 1000 / TARGET_FPS;
+let isVisible = true;
 
 export async function initWebGL() {
   const loaded = await loadScript(CDN_URLS.THREE_JS);
@@ -25,14 +30,22 @@ export async function initWebGL() {
   camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
   camera.position.z = 30;
 
-  // Renderer
-  renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+  // Renderer - Optimized settings
+  renderer = new THREE.WebGLRenderer({
+    antialias: false,  // Disabled for performance
+    alpha: true,
+    powerPreference: 'low-power'  // Hint to use integrated GPU
+  });
   renderer.setSize(window.innerWidth, window.innerHeight);
+  renderer.setPixelRatio(1);  // Force 1:1 pixel ratio (no HiDPI scaling)
   renderer.setClearColor(0x000000, 0);
   container.appendChild(renderer.domElement);
 
   // Create shapes
   createShapes();
+
+  // Setup visibility detection
+  setupVisibilityDetection(container);
 
   // Animation
   animate();
@@ -45,6 +58,31 @@ export async function initWebGL() {
   });
 }
 
+/**
+ * Detect when WebGL background is visible/hidden
+ */
+function setupVisibilityDetection(container) {
+  // Pause when tab is hidden
+  document.addEventListener('visibilitychange', () => {
+    isVisible = !document.hidden;
+    if (isVisible && !animationId) {
+      animate();
+    }
+  });
+
+  // Pause when scrolled out of view (using Intersection Observer)
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      isVisible = entry.isIntersecting;
+      if (isVisible && !animationId) {
+        animate();
+      }
+    });
+  }, { threshold: 0 });
+
+  observer.observe(container);
+}
+
 function createShapes() {
   const shapes = [
     new THREE.IcosahedronGeometry(2, 0),
@@ -54,7 +92,8 @@ function createShapes() {
     new THREE.TorusGeometry(1.5, 0.5, 16, 100),
   ];
 
-  const material = new THREE.MeshPhongMaterial({
+  // Use MeshBasicMaterial - no lighting calculations needed
+  const material = new THREE.MeshBasicMaterial({
     color: 0x2563eb,
     wireframe: true,
   });
@@ -71,22 +110,26 @@ function createShapes() {
     scene.add(mesh);
   });
 
-  // Lights
-  const light1 = new THREE.PointLight(0x2563eb, 1, 100);
-  light1.position.set(10, 10, 10);
-  scene.add(light1);
-
-  const light2 = new THREE.PointLight(0x60a5fa, 0.5, 100);
-  light2.position.set(-10, -10, -10);
-  scene.add(light2);
-
-  const ambientLight = new THREE.AmbientLight(0x404040);
-  scene.add(ambientLight);
+  // Note: Lights removed - not needed with MeshBasicMaterial
 }
 
-function animate() {
-  requestAnimationFrame(animate);
+function animate(currentTime = 0) {
+  // Exit if not visible (tab hidden or scrolled out of view)
+  if (!isVisible) {
+    animationId = null;
+    return;
+  }
 
+  animationId = requestAnimationFrame(animate);
+
+  // Throttle to 30 FPS
+  const elapsed = currentTime - lastFrameTime;
+  if (elapsed < FRAME_INTERVAL) {
+    return;
+  }
+  lastFrameTime = currentTime - (elapsed % FRAME_INTERVAL);
+
+  // Animate shapes
   geometries.forEach(mesh => {
     mesh.rotation.x += 0.001;
     mesh.rotation.y += 0.002;

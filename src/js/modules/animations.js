@@ -14,6 +14,7 @@ export function initAnimations() {
   setupScrollAnimations();
   setupTypingAnimation();
   setupCountUpAnimations();
+  setupSkillsToggle();
 }
 
 /**
@@ -120,4 +121,41 @@ function animateCount(element, target) {
     const prefix = element.textContent.includes('K') ? 'K' : '';
     element.textContent = Math.floor(current) + prefix + suffix;
   }, 16);
+}
+
+/**
+ * Setup skills toggle for additional skills
+ */
+function setupSkillsToggle() {
+  const toggleBtn = qs('[data-action="toggle-additional-skills"]');
+  const additionalSkills = qs('#additional-skills');
+
+  if (!toggleBtn || !additionalSkills) return;
+
+  toggleBtn.addEventListener('click', () => {
+    const isExpanded = toggleBtn.getAttribute('aria-expanded') === 'true';
+    const newState = !isExpanded;
+
+    // Update ARIA state
+    toggleBtn.setAttribute('aria-expanded', newState);
+    additionalSkills.dataset.expanded = newState;
+
+    if (newState) {
+      // Expand
+      additionalSkills.style.display = 'grid';
+      toggleBtn.querySelector('.skills-toggle-btn__text').textContent = 'Show Fewer Skills';
+
+      // Scroll into view smoothly
+      setTimeout(() => {
+        additionalSkills.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }, 100);
+    } else {
+      // Collapse
+      additionalSkills.style.display = 'none';
+      toggleBtn.querySelector('.skills-toggle-btn__text').textContent = 'View 3 More Skill Areas';
+
+      // Scroll back to toggle button
+      toggleBtn.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+  });
 }

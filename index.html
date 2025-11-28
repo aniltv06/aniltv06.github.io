@@ -73,6 +73,10 @@
     <!-- Navigation -->
     <nav class="nav" role="navigation" aria-label="Main navigation" data-component="navigation" data-testid="main-nav">
         <div class="nav__content">
+            <a href="#hero" class="nav__logo" data-scroll-target="hero">
+                <span class="nav__logo-initials">AT</span>
+                <span class="nav__logo-name">Anil Thatha</span>
+            </a>
             <div class="nav__links" role="menubar">
                 <a href="#hero" class="nav__link" role="menuitem" data-scroll-target="hero" data-testid="nav-home">Home</a>
                 <a href="#skills" class="nav__link" role="menuitem" data-scroll-target="skills" data-testid="nav-skills">Skills</a>
@@ -108,21 +112,25 @@
         
         <!-- Hero Section -->
         <section id="hero" class="hero fade-in" role="region" aria-labelledby="hero-title" data-component="hero" data-testid="hero">
-            <h1 id="hero-title" class="hero__title" data-testid="hero-title">ANIL KUMAR THATHA VENKATACHALAPATHY</h1>
+            <p class="hero__label">iOS & macOS Engineer</p>
+            <h1 id="hero-title" class="hero__title" data-testid="hero-title">Anil Kumar Thatha Venkatachalapathy</h1>
+            <p class="hero__tagline">Building enterprise-scale applications that serve 100,000+ users daily</p>
             <div class="hero__typing-text" aria-live="polite" data-component="typing-animation" data-testid="typing-text">
                 <span class="hero__typing-cursor" aria-hidden="true"></span>
             </div>
             <address class="hero__contact-info" data-testid="hero-contact">
                 <a href="mailto:aniltv06@gmail.com" data-analytics="email-click">aniltv06@gmail.com</a> | 
                 <a href="tel:+14086420192" data-analytics="phone-click">+1-408-642-0192</a> | 
-                Cupertino, CA
+                California, USA
             </address>
             <article class="hero__summary">
-                <p>iOS and macOS engineer with 13+ years of experience building enterprise-scale applications used by thousands of users daily. Expert in Swift, SwiftUI, AI/ML integration, and cloud technologies. Proven track record of architecting and delivering high-impact solutions that improve operational efficiency and user experience.</p>
+                <p>Senior iOS/macOS engineer with 13+ years designing enterprise applications, automation systems, and secure macOS tooling for large-scale environments.</p>
+
+                <p>Architected solutions used worldwide in Apple Retail Stores, built a internal security application with 100% audit compliance, and reduced provisioning time by 85%.</p>
             </article>
             <div class="hero__cta">
-                <a href="#experience" class="button button--primary" data-scroll-target="experience" data-testid="btn-experience">🚀 View Experience</a>
-                <a href="#projects" class="button button--secondary" data-scroll-target="projects" data-testid="btn-projects">💼 See Projects</a>
+                <a href="/Anil_Thatha-Resume.pdf" download class="button button--primary" aria-label="Download resume PDF" data-action="download-resume" data-testid="btn-download-hero">📥 Download Resume</a>
+                <a href="#experience" class="button button--secondary" data-scroll-target="experience" data-testid="btn-experience">View Experience</a>
             </div>
         </section>
         
@@ -153,22 +161,7 @@
             <div class="skills-radar-container" data-component="skills-radar">
                 <canvas id="skillsRadar" class="skills-radar__canvas" role="img" aria-label="Skills radar chart" data-chart-type="radar" data-testid="skills-chart"></canvas>
             </div>
-            
-            <div class="dashboard-grid" data-component="dashboard" data-testid="dashboard">
-                <article class="dashboard-card">
-                    <h3 class="dashboard-card__title"><span class="dashboard-card__icon">⚡</span>Performance Impact</h3>
-                    <div class="dashboard-card__chart-container">
-                        <canvas id="performanceChart" role="img" aria-label="Performance chart" data-chart-type="bar"></canvas>
-                    </div>
-                </article>
-                <article class="dashboard-card">
-                    <h3 class="dashboard-card__title"><span class="dashboard-card__icon">🎯</span>Feature Adoption</h3>
-                    <div class="dashboard-card__chart-container">
-                        <canvas id="adoptionChart" role="img" aria-label="Adoption chart" data-chart-type="line"></canvas>
-                    </div>
-                </article>
-            </div>
-            
+
             <div class="skills-grid" data-testid="skills-grid">
                 <article class="skill-card fade-in">
                     <h3 class="skill-card__title">Languages & Core</h3>
@@ -209,6 +202,18 @@
                         <li class="skill-card__item">System Design</li>
                     </ul>
                 </article>
+            </div>
+
+            <!-- Additional Skills Toggle -->
+            <div class="skills-toggle-section">
+                <button class="skills-toggle-btn" data-action="toggle-additional-skills" aria-expanded="false" aria-controls="additional-skills">
+                    <span class="skills-toggle-btn__icon">▼</span>
+                    <span class="skills-toggle-btn__text">View 3 More Skill Areas</span>
+                </button>
+            </div>
+
+            <!-- Additional Skills (Hidden by Default) -->
+            <div id="additional-skills" class="skills-grid skills-grid--additional" data-expanded="false" style="display: none;">
                 <article class="skill-card fade-in">
                     <h3 class="skill-card__title">Cloud & Backend</h3>
                     <ul class="skill-card__list">
@@ -512,7 +517,12 @@
 
         <!-- Projects Section -->
         <section id="projects" class="section fade-in" role="region" aria-labelledby="projects-title" data-component="projects" data-testid="projects">
-            <h2 id="projects-title" class="section__title">Featured Projects</h2>
+            <div class="section__header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 40px;">
+                <h2 id="projects-title" class="section__title" style="margin-bottom: 0;">Featured Projects</h2>
+                <a href="/projects.html" class="button button--outline" aria-label="View all projects">
+                    View All 13 Projects →
+                </a>
+            </div>
             <div class="projects-grid">
                 <article class="project-card" data-modal-trigger="genius" data-testid="project-genius" tabindex="0" role="button">
                     <span class="project-card__indicator">⤢</span>
@@ -553,11 +563,18 @@
                 </article>
             </div>
 
-            <!-- View All Projects Button -->
-            <div style="text-align: center; margin-top: 40px;">
-                <a href="/projects.html" class="button button--primary" aria-label="View all projects">
-                    View All Projects →
-                </a>
+            <!-- More Projects CTA -->
+            <div class="projects-more-cta">
+                <div class="projects-more-cta__content">
+                    <div class="projects-more-cta__info">
+                        <p class="projects-more-cta__label">Showing 4 of 13 Projects</p>
+                        <h3 class="projects-more-cta__title">Want to see more?</h3>
+                        <p class="projects-more-cta__description">Explore 9 additional projects including iOS apps, macOS utilities, frameworks, and enterprise systems.</p>
+                    </div>
+                    <a href="/projects.html" class="button button--primary button--large" aria-label="View all 13 projects">
+                        View All Projects →
+                    </a>
+                </div>
             </div>
         </section>
 

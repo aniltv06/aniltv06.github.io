@@ -278,8 +278,8 @@ export const projects = [
 
   {
     id: 'disclosed',
-    title: 'Disclosed',
-    subtitle: 'Classified macOS Security Application',
+    title: 'Internal',
+    subtitle: 'Internal macOS Security Application',
     shortDescription: 'Military-grade security application using proprietary Apple frameworks with 100% audit compliance.',
     year: 2023,
     featured: true,
@@ -295,7 +295,7 @@ export const projects = [
       tech: ['Swift', 'Proprietary Frameworks', 'Encryption'],
       role: ['Lead Developer', 'Security']
     },
-    overview: `Developed a high-security macOS application designed for classified enterprise operations. The application meets military-grade security standards, achieves full audit compliance, and leverages system-level macOS APIs and proprietary frameworks to deliver reliable and secure functionality.`,
+    overview: `Developed a secure macOS application for internal use with deep system-level integration. The application meets security standards, achieves full audit compliance, and leverages system-level macOS APIs and proprietary frameworks to deliver reliable and secure functionality.`,
     features: [
       'System-Level Services: Built XPC services for secure inter-process communication and background security operations using Launchd agents and daemons',
       'Low-Level Instrumentation: Implemented process, memory, and CPU monitoring using POSIX APIs, pthreads, and signals',

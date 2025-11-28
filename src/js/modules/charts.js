@@ -8,8 +8,6 @@ import { CDN_URLS } from '../config/constants.js';
 
 let chartInstances = {
   skillsRadar: null,
-  performanceChart: null,
-  adoptionChart: null,
 };
 
 // Get theme-aware colors for charts
@@ -47,37 +45,32 @@ function getThemeColors() {
 }
 
 export async function initCharts() {
-  // Show loading state on all chart containers
-  const chartContainers = [
-    document.querySelector('.skills-radar-container'),
-    ...document.querySelectorAll('.dashboard-card__chart-container')
-  ];
+  // Show loading state on radar chart container
+  const radarContainer = document.querySelector('.skills-radar-container');
 
-  chartContainers.forEach(container => {
-    if (container) container.setAttribute('data-loading', 'true');
-  });
+  if (radarContainer) {
+    radarContainer.setAttribute('data-loading', 'true');
+  }
 
   // Load Chart.js
   const loaded = await loadScript(CDN_URLS.CHART_JS);
   if (!loaded || typeof Chart === 'undefined') {
     console.warn('Chart.js failed to load');
     // Remove loading state on failure
-    chartContainers.forEach(container => {
-      if (container) container.removeAttribute('data-loading');
-    });
+    if (radarContainer) {
+      radarContainer.removeAttribute('data-loading');
+    }
     return;
   }
 
-  // Create charts
+  // Create radar chart
   createSkillsRadar();
-  createPerformanceChart();
-  createAdoptionChart();
 
-  // Remove loading state after charts are created
+  // Remove loading state after chart is created
   setTimeout(() => {
-    chartContainers.forEach(container => {
-      if (container) container.removeAttribute('data-loading');
-    });
+    if (radarContainer) {
+      radarContainer.removeAttribute('data-loading');
+    }
   }, 100);
 }
 
@@ -147,125 +140,6 @@ function createSkillsRadar() {
   });
 }
 
-function createPerformanceChart() {
-  const canvas = document.getElementById('performanceChart');
-  if (!canvas) return;
-
-  const colors = getThemeColors();
-
-  // Destroy existing chart if it exists
-  if (chartInstances.performanceChart) {
-    chartInstances.performanceChart.destroy();
-  }
-
-  chartInstances.performanceChart = new Chart(canvas, {
-    type: 'bar',
-    data: {
-      labels: ['App Launch', 'Memory Usage', 'Battery Impact', 'Network Efficiency'],
-      datasets: [{
-        label: 'Performance Improvement (%)',
-        data: [40, 35, 50, 45],
-        backgroundColor: colors.primary,
-        borderColor: colors.primary,
-        borderWidth: 1,
-      }],
-    },
-    options: {
-      responsive: true,
-      maintainAspectRatio: true,
-      plugins: {
-        legend: {
-          labels: {
-            color: colors.text,
-          }
-        }
-      },
-      scales: {
-        x: {
-          ticks: {
-            color: colors.tick,
-          },
-          grid: {
-            color: colors.grid,
-          }
-        },
-        y: {
-          beginAtZero: true,
-          max: 100,
-          ticks: {
-            color: colors.tick,
-          },
-          grid: {
-            color: colors.grid,
-          }
-        },
-      },
-    },
-  });
-}
-
-function createAdoptionChart() {
-  const canvas = document.getElementById('adoptionChart');
-  if (!canvas) return;
-
-  const colors = getThemeColors();
-
-  // Destroy existing chart if it exists
-  if (chartInstances.adoptionChart) {
-    chartInstances.adoptionChart.destroy();
-  }
-
-  chartInstances.adoptionChart = new Chart(canvas, {
-    type: 'line',
-    data: {
-      labels: ['Month 1', 'Month 2', 'Month 3', 'Month 4', 'Month 5', 'Month 6'],
-      datasets: [{
-        label: 'Feature Adoption (%)',
-        data: [15, 35, 60, 75, 85, 92],
-        borderColor: colors.primary,
-        backgroundColor: colors.background,
-        tension: 0.4,
-        fill: true,
-        pointBackgroundColor: colors.primary,
-        pointBorderColor: '#fff',
-        pointHoverBackgroundColor: '#fff',
-        pointHoverBorderColor: colors.primary,
-      }],
-    },
-    options: {
-      responsive: true,
-      maintainAspectRatio: true,
-      plugins: {
-        legend: {
-          labels: {
-            color: colors.text,
-          }
-        }
-      },
-      scales: {
-        x: {
-          ticks: {
-            color: colors.tick,
-          },
-          grid: {
-            color: colors.grid,
-          }
-        },
-        y: {
-          beginAtZero: true,
-          max: 100,
-          ticks: {
-            color: colors.tick,
-          },
-          grid: {
-            color: colors.grid,
-          }
-        },
-      },
-    },
-  });
-}
-
 /**
  * Update charts when theme changes
  */
@@ -273,6 +147,4 @@ export function updateChartsTheme() {
   if (typeof Chart === 'undefined') return;
 
   createSkillsRadar();
-  createPerformanceChart();
-  createAdoptionChart();
 }
