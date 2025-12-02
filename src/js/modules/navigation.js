@@ -207,8 +207,8 @@ function setupActiveSection() {
       });
     },
     {
-      threshold: 0.5,
-      rootMargin: '-20% 0px -20% 0px',
+      threshold: [0, 0.15, 0.5],
+      rootMargin: '-10% 0px -60% 0px',
     }
   );
 

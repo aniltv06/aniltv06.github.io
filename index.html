@@ -362,6 +362,11 @@
                                     </div>
                                 </article>
                             </div>
+                            <div class="experience-timeline__view-all">
+                                <a href="/projects.html" class="experience-timeline__view-all-link">
+                                    View all TCS projects on projects page →
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </article>
@@ -476,6 +481,11 @@
                                     </div>
                                 </article>
                             </div>
+                            <div class="experience-timeline__view-all">
+                                <a href="/projects.html" class="experience-timeline__view-all-link">
+                                    View all Quest Global projects on projects page →
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </article>
@@ -517,15 +527,10 @@
 
         <!-- Projects Section -->
         <section id="projects" class="section fade-in" role="region" aria-labelledby="projects-title" data-component="projects" data-testid="projects">
-            <div class="section__header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 40px;">
-                <h2 id="projects-title" class="section__title" style="margin-bottom: 0;">Featured Projects</h2>
-                <a href="/projects.html" class="button button--outline" aria-label="View all projects">
-                    View All 13 Projects →
-                </a>
-            </div>
+            <h2 id="projects-title" class="section__title">Featured Projects</h2>
             <div class="projects-grid">
-                <article class="project-card" data-modal-trigger="genius" data-testid="project-genius" tabindex="0" role="button">
-                    <span class="project-card__indicator">⤢</span>
+                <a href="/projects.html" class="project-card project-card--preview" data-testid="project-genius" aria-label="View Genius & RepairCentral project details">
+                    <span class="project-card__indicator">→</span>
                     <h3 class="project-card__title">Genius & RepairCentral</h3>
                     <p class="project-card__description">AI-powered repair management transforming Apple Retail operations.</p>
                     <div class="tech-tags">
@@ -533,48 +538,41 @@
                         <span class="tech-tag tech-tag--tech">Core ML</span>
                         <span class="tech-tag tech-tag--type">AI/ML</span>
                     </div>
-                </article>
-                <article class="project-card" data-modal-trigger="customer-success" tabindex="0" role="button">
-                    <span class="project-card__indicator">⤢</span>
+                </a>
+                <a href="/projects.html" class="project-card project-card--preview" aria-label="View Customer Success Platform project details">
+                    <span class="project-card__indicator">→</span>
                     <h3 class="project-card__title">Customer Success Platform</h3>
                     <p class="project-card__description">Enterprise customer management with real-time analytics.</p>
                     <div class="tech-tags">
                         <span class="tech-tag tech-tag--tech">Swift</span>
                         <span class="tech-tag tech-tag--tech">Firebase</span>
                     </div>
-                </article>
-                <article class="project-card" data-modal-trigger="appletravel" tabindex="0" role="button">
-                    <span class="project-card__indicator">⤢</span>
+                </a>
+                <a href="/projects.html" class="project-card project-card--preview" aria-label="View Apple Travel project details">
+                    <span class="project-card__indicator">→</span>
                     <h3 class="project-card__title">Apple Travel</h3>
                     <p class="project-card__description">Enterprise travel management with 4.6 rating.</p>
                     <div class="tech-tags">
                         <span class="tech-tag tech-tag--tech">Swift</span>
                         <span class="tech-tag tech-tag--tech">UIKit</span>
                     </div>
-                </article>
-                <article class="project-card" data-modal-trigger="expenses" tabindex="0" role="button">
-                    <span class="project-card__indicator">⤢</span>
+                </a>
+                <a href="/projects.html" class="project-card project-card--preview" aria-label="View Expenses project details">
+                    <span class="project-card__indicator">→</span>
                     <h3 class="project-card__title">Expenses (iOS & macOS)</h3>
                     <p class="project-card__description">Cross-platform expense tracking with OCR.</p>
                     <div class="tech-tags">
                         <span class="tech-tag tech-tag--tech">SwiftUI</span>
                         <span class="tech-tag tech-tag--tech">OCR</span>
                     </div>
-                </article>
+                </a>
             </div>
 
-            <!-- More Projects CTA -->
-            <div class="projects-more-cta">
-                <div class="projects-more-cta__content">
-                    <div class="projects-more-cta__info">
-                        <p class="projects-more-cta__label">Showing 4 of 13 Projects</p>
-                        <h3 class="projects-more-cta__title">Want to see more?</h3>
-                        <p class="projects-more-cta__description">Explore 9 additional projects including iOS apps, macOS utilities, frameworks, and enterprise systems.</p>
-                    </div>
-                    <a href="/projects.html" class="button button--primary button--large" aria-label="View all 13 projects">
-                        View All Projects →
-                    </a>
-                </div>
+            <!-- Single CTA Button -->
+            <div class="projects-cta-section">
+                <a href="/projects.html" class="button button--primary button--large" aria-label="View all 13 projects">
+                    Explore All 13 Projects →
+                </a>
             </div>
         </section>
 

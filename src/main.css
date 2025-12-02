@@ -565,6 +565,36 @@ body {
     box-shadow: 0 0 20px var(--color-primary);
 }
 
+.theme--terminal .experience-timeline__view-all {
+    border-top-color: rgba(0, 255, 65, 0.2);
+}
+
+.theme--terminal .experience-timeline__view-all-link {
+    background: transparent;
+    border: 1px solid var(--color-primary);
+    color: var(--color-primary);
+}
+
+.theme--terminal .experience-timeline__view-all-link:hover,
+.theme--terminal .experience-timeline__view-all-link:focus {
+    background: var(--color-primary);
+    color: #0a0e14;
+    box-shadow: 0 0 20px var(--color-primary);
+}
+
+.theme--dark .experience-timeline__view-all {
+    border-top-color: rgba(255, 255, 255, 0.1);
+}
+
+.theme--dark .experience-timeline__view-all-link {
+    background: rgba(96, 165, 250, 0.1);
+}
+
+.theme--dark .experience-timeline__view-all-link:hover,
+.theme--dark .experience-timeline__view-all-link:focus {
+    background: rgba(96, 165, 250, 0.2);
+}
+
 /* ==========================================================================
    4. LAYOUT COMPONENTS
    ========================================================================== */
@@ -1761,6 +1791,36 @@ body {
     font-size: var(--font-size-sm);
 }
 
+/* Element: experience-timeline__view-all */
+.experience-timeline__view-all {
+    margin-top: var(--spacing-xl);
+    padding-top: var(--spacing-lg);
+    border-top: 1px solid rgba(37, 99, 235, 0.1);
+    text-align: center;
+}
+
+.experience-timeline__view-all-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--color-primary);
+    text-decoration: none;
+    font-size: var(--font-size-md);
+    font-weight: 600;
+    transition: all var(--transition-base);
+    padding: 12px 24px;
+    border-radius: 20px;
+    background: rgba(37, 99, 235, 0.05);
+}
+
+.experience-timeline__view-all-link:hover,
+.experience-timeline__view-all-link:focus {
+    background: rgba(37, 99, 235, 0.1);
+    transform: translateX(5px);
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
 /* ==========================================================================
    19. PROJECT CARD COMPONENT (BEM)
    ========================================================================== */
@@ -1771,6 +1831,12 @@ body {
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     gap: 25px;
     margin-top: 25px;
+}
+
+/* Block: projects-cta-section */
+.projects-cta-section {
+    margin-top: 50px;
+    text-align: center;
 }
 
 /* Block: project-card */
@@ -1875,6 +1941,17 @@ body {
     animation: pulse-indicator 2s infinite;
     pointer-events: none;
     z-index: 2;
+}
+
+/* Modifier: project-card--preview (for link-based cards on homepage) */
+.project-card--preview {
+    text-decoration: none;
+    display: block;
+}
+
+.project-card--preview .project-card__title,
+.project-card--preview .project-card__description {
+    color: inherit;
 }
 
 @keyframes pulse-indicator {
