@@ -49,7 +49,7 @@ export function trackPageView(pagePath) {
   }
 
   if (typeof gtag !== 'undefined') {
-    gtag('config', 'G-7KHN3J4KPP', {
+    gtag('config', 'G-9SZZWKV48B', {
       page_path: pagePath,
     });
   }
