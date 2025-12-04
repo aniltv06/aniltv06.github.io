@@ -8,6 +8,7 @@ import { initTheme } from './modules/theme.js';
 import { initModal } from './modules/modal.js';
 import { initAnimations } from './modules/animations.js';
 import { initAnalytics } from './modules/analytics.js';
+import { initAnalyticsDebug } from './modules/analytics-debug.js';
 import { initEasterEgg } from './modules/easter-egg.js';
 import { initCharts } from './modules/charts.js';
 import { initWebGL } from './modules/webgl.js';
@@ -19,6 +20,9 @@ import { initExperienceTimeline } from './modules/experience-timeline.js';
  * Initialize application
  */
 function init() {
+  // Initialize debug panel first (if enabled)
+  initAnalyticsDebug();
+
   // Initialize core features immediately
   initTheme();
   initNavigation();
